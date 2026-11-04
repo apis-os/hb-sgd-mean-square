@@ -1,0 +1,16 @@
+{
+ "commit": "431588b2f5b08c71ab90af2e0b87cc8d8f81047b",
+ "packageManifestSha256": "902bb316b7b25569933faf109581404a0aaf354a0f587362a59f5273cd00fa7e",
+ "packageManifest": "evidence/l67-southwell-eos/phase14b-package-manifest.txt",
+ "jobsSha256": "e254d84833875da13da98365bec72f6931fec285eb1cbc9c9dd7e1f5c9c5b2e0",
+ "jobs": "evidence/l67-southwell-eos/phase14b-jobs.json",
+ "platform": "Modal workspace ci4me, function single (1 CPU, 3 GB), Node v26.5.0 (checksum-verified)",
+ "modalApp": "ap-fS6dL9lO29BbSR5i4h2TL8",
+ "launched": "2026-10-29T02:33:09Z",
+ "platformCheck": {
+  "modalApp": "ap-wTzs0d3xHOJJpF6icNCnNs",
+  "leavesCompared": 1299,
+  "differences": 0
+ },
+ "preCommitment": "evidence/l67-southwell-eos/phase14b-precommitment.txt (OpenTimestamps, commit e9163f1d)"
+}

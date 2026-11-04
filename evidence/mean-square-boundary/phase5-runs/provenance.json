@@ -1,0 +1,17 @@
+{
+ "commit": "45a3ad03a83129546ce823bb4f41914a6cbf506f",
+ "packageManifestSha256": "eb8ff97a059011c3f83b00c839b0a16d056de70d8bcff5d3107f1c0d1ba414fd",
+ "packageManifest": "evidence/l67-southwell-eos/phase14-package-manifest.txt",
+ "jobsSha256": "02cd7038a09336ac0ca9331506b36ee43a20f27ad98a5746614e80aeaf67de75",
+ "jobs": "evidence/l67-southwell-eos/phase14-jobs.json",
+ "platform": "Modal workspace ci4me, function single (1 CPU, 3 GB), Node v26.5.0 (checksum-verified)",
+ "modalApp": "ap-JU9sCN56i1it8yxYZOLqoV",
+ "launched": "2026-10-28T23:15:35Z",
+ "platformCheck": {
+  "modalApp": "ap-dbSIP6cpUzQVI1bezqS4gy",
+  "what": "Phase 13 N33_mlp row recomputed from the package",
+  "leavesCompared": 1299,
+  "differences": 0
+ },
+ "preCommitment": "evidence/l67-southwell-eos/phase14-precommitment.txt (OpenTimestamps, commit 7f2960b4)"
+}

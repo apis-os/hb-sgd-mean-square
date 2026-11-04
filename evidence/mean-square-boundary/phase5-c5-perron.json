@@ -1,0 +1,907 @@
+{
+ "labId": "l67-southwell-eos-phase14-c5-perron",
+ "date": "2026-10-28T23:59:24.338Z",
+ "nodeVersion": "v26.5.0",
+ "sides": [
+  {
+   "name": "eta0.15-mu0-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.0000018367584934591823,
+     "oneMinusEig": 0.000009383100430705581
+    },
+    {
+     "rel": 0.0000028302574978427873,
+     "oneMinusEig": 0.000014458400732369616
+    },
+    {
+     "rel": 0.000012029292165671423,
+     "oneMinusEig": 0.00006145176783052296
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 183,
+   "est1m": 0.000009383203192769862,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.0005707601552943364,
+   "ub1m": 0.000009372585626277186,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 0.000009971504533412556,
+   "sec": 7
+  },
+  {
+   "name": "eta0.15-mu0-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 14,
+   "est1m": -0.00012357787896766226,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00012357167068710595,
+   "ub1m": -0.00012363073318932827,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.0001235772722820716,
+   "sec": 6
+  },
+  {
+   "name": "eta0.2-mu0.001-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.000004153459198850004,
+     "oneMinusEig": 0.000029041166321908532
+    },
+    {
+     "rel": 0.00037976401312568223,
+     "oneMinusEig": 0.0026553264014997444
+    },
+    {
+     "rel": 0.0005542478495078188,
+     "oneMinusEig": 0.0038753249304996915
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 7,
+   "est1m": 6.506606642364687e-8,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 6.515491834946374e-8,
+   "ub1m": 5.772575506490796e-8,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 6.506880723122777e-8,
+   "sec": 6.6
+  },
+  {
+   "name": "eta0.2-mu0.001-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 7,
+   "est1m": -6.548663922245623e-8,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -5.7829814492649234e-8,
+   "ub1m": -6.572939703630709e-8,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -6.548441411347028e-8,
+   "sec": 10.7
+  },
+  {
+   "name": "eta0.3-mu0-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 1.4214907690994328e-8,
+     "oneMinusEig": 1.0654580425418359e-7
+    },
+    {
+     "rel": 9.98426275346428e-8,
+     "oneMinusEig": 7.483561118211736e-7
+    },
+    {
+     "rel": 0.00003560527582106077,
+     "oneMinusEig": 0.00026687424431537734
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 639,
+   "est1m": 1.0654434257073575e-7,
+   "pd": true,
+   "below": false,
+   "above": false,
+   "lb1m": 1.3852084213006322e-7,
+   "ub1m": -0.8214469618496025,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": 3.8652440703668134e-7,
+   "sec": 10
+  },
+  {
+   "name": "eta0.3-mu0-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 20,
+   "est1m": -0.00004509449693657075,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00003153910998965337,
+   "ub1m": -0.00004509496427740345,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.000045093407168961264,
+   "sec": 5.9
+  },
+  {
+   "name": "eta0.3-mu0-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 1.3302734454485723e-8,
+     "oneMinusEig": 1.9765066076215353e-7
+    },
+    {
+     "rel": 2.8481947253387917e-7,
+     "oneMinusEig": 0.000004231818438296082
+    },
+    {
+     "rel": 0.000004570320138921881,
+     "oneMinusEig": 0.00006790534671222296
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 108,
+   "est1m": 1.9765076875177812e-7,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.16402991391763644,
+   "ub1m": 1.9397262729370368e-7,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 8.811283855880703e-7,
+   "sec": 5.8
+  },
+  {
+   "name": "eta0.3-mu0-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 15,
+   "est1m": -0.0001077321001154985,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00010772607853137828,
+   "ub1m": -0.0001077324752831732,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00010773124392993161,
+   "sec": 5
+  },
+  {
+   "name": "eta0.3-mu0-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 9.943048353807042e-10,
+     "oneMinusEig": 1.6194513867285516e-8
+    },
+    {
+     "rel": 2.2044645926003018e-7,
+     "oneMinusEig": 0.000003590471568121906
+    },
+    {
+     "rel": 2.256683930443638e-7,
+     "oneMinusEig": 0.000003675522626987629
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 119,
+   "est1m": 1.6194478313913407e-8,
+   "pd": true,
+   "below": false,
+   "above": false,
+   "lb1m": 0.0000011267228592348744,
+   "ub1m": -0.0000020433481551229704,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": 0.0000013534839551354594,
+   "sec": 5.2
+  },
+  {
+   "name": "eta0.3-mu0-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 426,
+   "est1m": -0.000025102240060803638,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00001584745049232339,
+   "ub1m": -0.00003771577943378901,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": -0.0000251003173123987,
+   "sec": 7.1
+  },
+  {
+   "name": "eta0.4-mu0-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 4.71629052252369e-11,
+     "oneMinusEig": 1.458333407619252e-9
+    },
+    {
+     "rel": 2.312103694379841e-9,
+     "oneMinusEig": 7.149301009535251e-8
+    },
+    {
+     "rel": 2.950224026280599e-9,
+     "oneMinusEig": 9.122445356024746e-8
+    }
+   ],
+   "n": 31,
+   "dim": 1953,
+   "it": 3830,
+   "est1m": 1.4584110585857957e-9,
+   "pd": false,
+   "below": false,
+   "above": false,
+   "lb1m": null,
+   "ub1m": null,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": 6.067318232272356e-7,
+   "sec": 22
+  },
+  {
+   "name": "eta0.4-mu0-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 31,
+   "dim": 1953,
+   "it": 14,
+   "est1m": -0.0001413615111598432,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00014133174403330173,
+   "ub1m": -0.000141483091300465,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": -0.0001413611531275727,
+   "sec": 3.5
+  },
+  {
+   "name": "eta0.4-mu0-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 9.55330757601662e-10,
+     "oneMinusEig": 6.5506900470598525e-9
+    },
+    {
+     "rel": 6.4777411256849245e-9,
+     "oneMinusEig": 4.441778303671848e-8
+    },
+    {
+     "rel": 9.794024994676265e-8,
+     "oneMinusEig": 6.715749654533013e-7
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 4000,
+   "est1m": 6.550635922586423e-9,
+   "pd": false,
+   "below": false,
+   "above": false,
+   "lb1m": null,
+   "ub1m": null,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": 3.8830830551006557e-7,
+   "sec": 30.7
+  },
+  {
+   "name": "eta0.4-mu0-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 21,
+   "est1m": -0.000042401497581501246,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.000042367595765036015,
+   "ub1m": -0.0000424027883114686,
+   "registered": false,
+   "witness": false,
+   "powerRadius1m": -0.00004240034557034811,
+   "sec": 8.9
+  },
+  {
+   "name": "eta0.4-mu0-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 8.93676472992624e-9,
+     "oneMinusEig": 2.765388099480983e-7
+    },
+    {
+     "rel": 1.5833416431192985e-8,
+     "oneMinusEig": 4.899484622922274e-7
+    },
+    {
+     "rel": 2.5797178156964403e-8,
+     "oneMinusEig": 7.982666169622765e-7
+    }
+   ],
+   "n": 23,
+   "dim": 1081,
+   "it": 1407,
+   "est1m": 2.765391177161902e-7,
+   "pd": false,
+   "below": false,
+   "above": false,
+   "lb1m": null,
+   "ub1m": null,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 8.973194877137658e-7,
+   "sec": 9.1
+  },
+  {
+   "name": "eta0.4-mu0-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 23,
+   "dim": 1081,
+   "it": 14,
+   "est1m": -0.00014848283046675625,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00014847204314794027,
+   "ub1m": -0.00014850514654707325,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00014848240196752016,
+   "sec": 2.2
+  },
+  {
+   "name": "eta0.5-mu0-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 1.0534084933688143e-9,
+     "oneMinusEig": 3.202680304943216e-8
+    },
+    {
+     "rel": 2.9584420974273316e-9,
+     "oneMinusEig": 8.994558424761146e-8
+    },
+    {
+     "rel": 5.124760437526244e-9,
+     "oneMinusEig": 1.558082113836826e-7
+    }
+   ],
+   "n": 24,
+   "dim": 1176,
+   "it": 4000,
+   "est1m": 3.202677001379328e-8,
+   "pd": true,
+   "below": false,
+   "above": false,
+   "lb1m": 0.2957596602705024,
+   "ub1m": -1.0756297852410057e-8,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 6.965885516185821e-7,
+   "sec": 29.2
+  },
+  {
+   "name": "eta0.5-mu0-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 24,
+   "dim": 1176,
+   "it": 14,
+   "est1m": -0.000142238929986771,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00014223696557613685,
+   "ub1m": -0.0001422394626029444,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00014223858570017178,
+   "sec": 2.6
+  },
+  {
+   "name": "eta0.5-mu0-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 4.010431360962464e-9,
+     "oneMinusEig": 1.375257654384807e-7
+    },
+    {
+     "rel": 2.395371152415485e-8,
+     "oneMinusEig": 8.214209933919337e-7
+    },
+    {
+     "rel": 2.99256300156015e-8,
+     "oneMinusEig": 0.0000010262101015329878
+    }
+   ],
+   "n": 16,
+   "dim": 528,
+   "it": 445,
+   "est1m": 1.375258132929602e-7,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.2319734774954676,
+   "ub1m": 1.3063521830947167e-7,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": 0.000001181532142791042,
+   "sec": 0.5
+  },
+  {
+   "name": "eta0.5-mu0-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 16,
+   "dim": 528,
+   "it": 14,
+   "est1m": -0.00015039952173223625,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00015037720151278577,
+   "ub1m": -0.00015040099181828914,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00015039919671577806,
+   "sec": 0.3
+  },
+  {
+   "name": "eta0.5-mu0-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 3.913623927260099e-8,
+     "oneMinusEig": 0.0000013131988213527046
+    },
+    {
+     "rel": 5.608542659297296e-7,
+     "oneMinusEig": 0.000018819211417822286
+    },
+    {
+     "rel": 0.0000016833126429204302,
+     "oneMinusEig": 0.000056482794967956676
+    }
+   ],
+   "n": 12,
+   "dim": 300,
+   "it": 35,
+   "est1m": 0.000001313204601394169,
+   "pd": true,
+   "below": false,
+   "above": false,
+   "lb1m": 0.000006355004998681579,
+   "ub1m": -0.0000029027389434332918,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.0000013291187542785465,
+   "sec": 0
+  },
+  {
+   "name": "eta0.5-mu0-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 12,
+   "dim": 300,
+   "it": 14,
+   "est1m": -0.00014884296520678575,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00014884276867865864,
+   "ub1m": -0.00014885942815068276,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00014884264038950157,
+   "sec": 0
+  },
+  {
+   "name": "eta0.5-mu0.001-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.0000872572312355664,
+     "oneMinusEig": 0.00010967765787786617
+    },
+    {
+     "rel": 0.00013191747799186333,
+     "oneMinusEig": 0.00016581319180576003
+    },
+    {
+     "rel": 0.00016618465219625611,
+     "oneMinusEig": 0.00020888519117603932
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 86,
+   "est1m": 0.00007247578576718983,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.00007285621933228459,
+   "ub1m": 0.00007240310502842906,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00007247815774225064,
+   "sec": 13.6
+  },
+  {
+   "name": "eta0.5-mu0.001-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 12,
+   "est1m": -0.00008373163792696481,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00008308618952890257,
+   "ub1m": -0.00008379701623684177,
+   "registered": false,
+   "witness": true,
+   "powerRadius1m": -0.00008373122109395226,
+   "sec": 13.4
+  },
+  {
+   "name": "eta0.01-mu0-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.00013351102762831723,
+     "oneMinusEig": 0.001899105102029486
+    },
+    {
+     "rel": 0.00028282995882667123,
+     "oneMinusEig": 0.004023067063118005
+    },
+    {
+     "rel": 0.0005151669753784612,
+     "oneMinusEig": 0.007327905782150001
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 13,
+   "est1m": 0.00011209278333557116,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.0001120927984824549,
+   "ub1m": 0.00011209271756817962,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00011209283609314724,
+   "sec": 12.3
+  },
+  {
+   "name": "eta0.01-mu0-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 8,
+   "est1m": -0.00011218486888164847,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00011218483848463023,
+   "ub1m": -0.00011218488123954096,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.000112184822508965,
+   "sec": 11
+  },
+  {
+   "name": "eta0.03-mu0.001-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.00044249267279790404,
+     "oneMinusEig": 0.006142440943371805
+    },
+    {
+     "rel": 0.0006193734905318293,
+     "oneMinusEig": 0.00859780358265819
+    },
+    {
+     "rel": 0.000759607348769335,
+     "oneMinusEig": 0.010544453200692569
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 10,
+   "est1m": 0.00011352862113700457,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.00011352862968150301,
+   "ub1m": 0.00011352861791003033,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00011352863530178503,
+   "sec": 9.1
+  },
+  {
+   "name": "eta0.03-mu0.001-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 7,
+   "est1m": -0.00011359030452728902,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00011359029686563993,
+   "ub1m": -0.00011359031072188941,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.00011359029094837325,
+   "sec": 7.7
+  },
+  {
+   "name": "eta0.1-mu0-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.000013089867583190537,
+     "oneMinusEig": 0.0001230400039100578
+    },
+    {
+     "rel": 0.00002096383771204843,
+     "oneMinusEig": 0.00019705246502054784
+    },
+    {
+     "rel": 0.00004481924007340779,
+     "oneMinusEig": 0.0004212845881618758
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 717,
+   "est1m": 0.00011847267073772372,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.00011847341584125815,
+   "ub1m": 0.00011846522668490511,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00011992536959992695,
+   "sec": 13
+  },
+  {
+   "name": "eta0.1-mu0-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 12,
+   "est1m": -0.00011917125498395187,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00011916998742544926,
+   "ub1m": -0.00011917140135686566,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.00011917086041246527,
+   "sec": 7.1
+  },
+  {
+   "name": "eta0.2-mu0-seed3",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.000009308092435581719,
+     "oneMinusEig": 0.000025269968253903587
+    },
+    {
+     "rel": 0.000014109710039500376,
+     "oneMinusEig": 0.00003830558487010513
+    },
+    {
+     "rel": 0.00003219306687462539,
+     "oneMinusEig": 0.00008739897928041334
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 132,
+   "est1m": 0.00002525985200996228,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.000031297255416062875,
+   "ub1m": 0.00002525766026473253,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00002533093141432463,
+   "sec": 8.1
+  },
+  {
+   "name": "eta0.2-mu0-seed3",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 14,
+   "est1m": -0.00010854400839876988,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00010854033487861514,
+   "ub1m": -0.00010854441081420418,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.0001085433016203563,
+   "sec": 7.6
+  },
+  {
+   "name": "eta0.3-mu0.001-seed1",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.00004288804571357598,
+     "oneMinusEig": 0.00016367446945188185
+    },
+    {
+     "rel": 0.00011953537430091222,
+     "oneMinusEig": 0.00045618513606556703
+    },
+    {
+     "rel": 0.0002678093611160203,
+     "oneMinusEig": 0.0010220459889371174
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 40,
+   "est1m": 0.00007060308020601092,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.00007064421048197378,
+   "ub1m": 0.00007058547712179841,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.0000706041151257164,
+   "sec": 6.8
+  },
+  {
+   "name": "eta0.3-mu0.001-seed1",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 15,
+   "est1m": -0.0000769964409221835,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00007697153047914185,
+   "ub1m": -0.00007699958127416195,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.00007699603041277925,
+   "sec": 6.7
+  },
+  {
+   "name": "eta0.5-mu0.001-seed2",
+   "side": "below",
+   "thetaReproduced": true,
+   "smallestKeptModes": [
+    {
+     "rel": 0.0001084033936543615,
+     "oneMinusEig": 0.0010238895865643197
+    },
+    {
+     "rel": 0.00020879544820349814,
+     "oneMinusEig": 0.001972110631695064
+    },
+    {
+     "rel": 0.0003446085972942126,
+     "oneMinusEig": 0.0032548902973932427
+    }
+   ],
+   "n": 33,
+   "dim": 2211,
+   "it": 15,
+   "est1m": 0.00008714594149250576,
+   "pd": true,
+   "below": true,
+   "above": false,
+   "lb1m": 0.00008718783464334301,
+   "ub1m": 0.00008714069676818426,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": 0.00008714603466253301,
+   "sec": 7.4
+  },
+  {
+   "name": "eta0.5-mu0.001-seed2",
+   "side": "above",
+   "thetaReproduced": true,
+   "n": 33,
+   "dim": 2211,
+   "it": 8,
+   "est1m": -0.00008865857408002498,
+   "pd": true,
+   "below": false,
+   "above": true,
+   "lb1m": -0.00008856483986452446,
+   "ub1m": -0.000088660485698,
+   "registered": true,
+   "witness": true,
+   "powerRadius1m": -0.0000886584926007572,
+   "sec": 8.2
+  }
+ ]
+}

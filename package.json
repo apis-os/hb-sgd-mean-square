@@ -1,0 +1,32 @@
+{
+  "name": "hb-sgd-mean-square",
+  "version": "0.0.0",
+  "private": true,
+  "type": "module",
+  "description": "Code, raw files and tests for the mean-square stability boundary of heavy-ball SGD",
+  "scripts": {
+    "typecheck": "tsc --noEmit -p tsconfig.json",
+    "test": "vitest run",
+    "phase1": "node --experimental-strip-types labs/mean-square-boundary/run-phase1.ts",
+    "phase1:diagnostic": "node --experimental-strip-types labs/mean-square-boundary/run-phase1-cap-diagnostic.ts",
+    "phase2": "node --experimental-strip-types labs/mean-square-boundary/run-phase2.ts 4 8 1000",
+    "phase3": "node --experimental-strip-types labs/mean-square-boundary/run-phase3.ts",
+    "phase4": "node --no-liftoff --experimental-strip-types labs/mean-square-boundary/run-phase4.ts",
+    "phase5:run": "node --no-liftoff --experimental-strip-types labs/mean-square-boundary/run-phase5.ts",
+    "phase5:aggregate": "node --experimental-strip-types labs/mean-square-boundary/run-phase5-aggregate.ts evidence/mean-square-boundary/phase5-runs 1,2,3 raw-phase5.json",
+    "phase5b:aggregate": "node --experimental-strip-types labs/mean-square-boundary/run-phase5-aggregate.ts evidence/mean-square-boundary/phase5b-runs 1401,1402,1403 raw-phase5b.json",
+    "phase6:stage1": "node --experimental-strip-types labs/mean-square-boundary/run-phase6-stage1.ts",
+    "phase6:stage2": "node --experimental-strip-types labs/mean-square-boundary/run-phase6-stage2.ts",
+    "phase6:summaries": "node --experimental-strip-types labs/mean-square-boundary/summarize-phase6-stage1.ts && node --experimental-strip-types labs/mean-square-boundary/summarize-phase6-stage2.ts",
+    "generate:check": "node --experimental-strip-types scripts/generate-lyapunov-step-kernels.ts --check",
+    "checks": "npm run -s checks:note && python3 paper/checks/bridge-theorems.py && python3 paper/checks/noncommuting-2x2.py",
+    "checks:note": "node paper/checks/evidence-ranges.mjs && node paper/checks/g3-lyapunov-remainder.mjs && node paper/checks/g3-singular-density.mjs && node paper/checks/ms-instability-criterion.mjs && python3 paper/checks/second-moment-renewal.py && python3 paper/checks/diagonalization-burnin.py && python3 paper/check-schur-factor.py && node labs/mean-square-boundary/check-phase3-convergence.ts",
+    "checks:resampling": "python3 paper/checks/phase1-resampling-estimator.py evidence/mean-square-boundary/phase1-resampling-estimator.json"
+  },
+  "devDependencies": {
+    "@types/node": "^24.0.0",
+    "typescript": "^5.9.0",
+    "vitest": "^3.2.0"
+  },
+  "license": "MIT"
+}

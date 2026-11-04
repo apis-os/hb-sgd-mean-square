@@ -1,0 +1,144 @@
+{
+  "labId": "l67-southwell-eos-phase13-resume-x1-p3610",
+  "date": "2026-10-28T05:18:03.596Z",
+  "sourceLog": "evidence/l67-southwell-eos/phase13-progress-launch6-crashed.log",
+  "launchCommit": "3e16056a3dd561bde599e7efe3efe85467f2ef57",
+  "cells": [
+    {
+      "beta": 0.9,
+      "tetherGrid": 2,
+      "etaThmG6": 0.016781921797360745,
+      "etaOneDim": 0.019273451506758688,
+      "lanczosIterations": 104,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 8.94448718791355e-8,
+      "criticalMode": {
+        "shareTop": 0.11144413319367548,
+        "shareRigid": 0.8014499909371793,
+        "sharePositiveFlat": 0.08226687198898402,
+        "shareNegative": 0.004839003880161433,
+        "lagOneRatio": 0.8450884270813676,
+        "lanczosRelResidual": 8.94448718791355e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 0.0078125,
+      "etaThmG6": 0.015640812463521104,
+      "etaOneDim": 0.019278117973553985,
+      "lanczosIterations": 86,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 9.897336996379922e-8,
+      "criticalMode": {
+        "shareTop": 0.02748735117206889,
+        "shareRigid": 0.5710527329793217,
+        "sharePositiveFlat": 0.2636320231317176,
+        "shareNegative": 0.1378278927168923,
+        "lagOneRatio": 0.9642346928041449,
+        "lanczosRelResidual": 9.897336996379922e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 128,
+      "etaThmG6": 0.013993390015703636,
+      "etaOneDim": 0.014095146800785753,
+      "lanczosIterations": 55,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 8.795959656987962e-8,
+      "criticalMode": {
+        "shareTop": 0.6795073912276095,
+        "shareRigid": 0.30970359490115945,
+        "sharePositiveFlat": 0.010255552269552624,
+        "shareNegative": 0.0005334616016784417,
+        "lagOneRatio": -0.47278021054927855,
+        "lanczosRelResidual": 8.795959656987962e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 32,
+      "etaThmG6": 0.01788063743285411,
+      "etaOneDim": 0.018532505073990815,
+      "lanczosIterations": 73,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 8.686881016544776e-8,
+      "criticalMode": {
+        "shareTop": 0.4349421802127712,
+        "shareRigid": 0.5415075680595521,
+        "sharePositiveFlat": 0.022382546982690717,
+        "shareNegative": 0.0011677047449859495,
+        "lagOneRatio": 0.23048156322499533,
+        "lanczosRelResidual": 8.686881016544776e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 8,
+      "etaThmG6": 0.017637854617943295,
+      "etaOneDim": 0.019216712136554223,
+      "lanczosIterations": 86,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 8.43641908726519e-8,
+      "criticalMode": {
+        "shareTop": 0.2265888709517898,
+        "shareRigid": 0.7270661278179469,
+        "sharePositiveFlat": 0.04398321954033693,
+        "shareNegative": 0.002361781689926388,
+        "lagOneRatio": 0.6592309921231588,
+        "lanczosRelResidual": 8.43641908726519e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 0.5,
+      "etaThmG6": 0.016155850388474807,
+      "etaOneDim": 0.01927767481719657,
+      "lanczosIterations": 90,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 9.981206550151136e-8,
+      "criticalMode": {
+        "shareTop": 0.06054660675007186,
+        "shareRigid": 0.7817205910602137,
+        "sharePositiveFlat": 0.14698888120472411,
+        "shareNegative": 0.010743920984990513,
+        "lagOneRatio": 0.9189412838374496,
+        "lanczosRelResidual": 9.981206550151136e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 0.125,
+      "etaThmG6": 0.015823463536130462,
+      "etaOneDim": 0.01927805552142616,
+      "lanczosIterations": 78,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 9.240567701039681e-8,
+      "criticalMode": {
+        "shareTop": 0.04000551047190714,
+        "shareRigid": 0.7107084060911968,
+        "sharePositiveFlat": 0.22380590187884483,
+        "shareNegative": 0.025480181558050704,
+        "lagOneRatio": 0.9474138280743576,
+        "lanczosRelResidual": 9.240567701039681e-8
+      }
+    },
+    {
+      "beta": 0.9,
+      "tetherGrid": 0.03125,
+      "etaThmG6": 0.01568940938027409,
+      "etaOneDim": 0.01927810764648565,
+      "lanczosIterations": 72,
+      "lanczosConverged": true,
+      "lanczosRelResidual": 9.295605434946773e-8,
+      "criticalMode": {
+        "shareTop": 0.03198830838738997,
+        "shareRigid": 0.6413001137979867,
+        "sharePositiveFlat": 0.2673511304509322,
+        "shareNegative": 0.059360447363691324,
+        "lagOneRatio": 0.9582661724776116,
+        "lanczosRelResidual": 9.295605434946773e-8
+      }
+    }
+  ]
+}

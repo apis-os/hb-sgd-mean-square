@@ -1,0 +1,369 @@
+{
+  "labId": "mean-square-boundary-phase2",
+  "date": "2026-10-27T16:44:16.289Z",
+  "nodeVersion": "v26.5.0",
+  "numSeeds": 4,
+  "streams": 8,
+  "steps": 1000,
+  "bisectionIterations": 14,
+  "growthRatioThreshold": 2.5,
+  "noiseScaleTau": 0,
+  "predictionTexts": {
+    "q1": "Exact trace: tr(H) / lambda_1 >= 4 on both networks, so the noise-rank ratio kappa_beta tr(H) / (B lambda_1) at beta = 0.9, B = 16 is >= 4.75 and the bulk carries most of the curvature noise that Theorem G feeds into u_1.",
+    "q2": "The destructive ceiling of heavy-ball SGD with real minibatches in R^P (beta = 0.9, B = 16, homogeneous run from a start in the range of H) lies below the one-dimensional EoSS ceiling of Theorem E(3) along u_1 by a factor >= 1.5 on both networks.",
+    "q3": "The median destructive ceiling lies inside the trace bracket of the random-feature model (Theorem G with kappa_feat calibrated from nu_11, lambda_2 and tr H), widened by 10 % on each side plus the bisection half-width, on both networks.",
+    "q4": "A power iteration with central-difference Hessian-vector products from two full gradients each (15 products, 1,920 sample-gradient equivalents, no second-order code) estimates lambda_1 to a relative error below 1e-6 on both networks, so its error against the quadratic threshold is below 0.01 % and against the destructive threshold equals the quadratic-destructive gap within 0.01 points."
+  },
+  "predictions": {
+    "q1": true,
+    "q2": true,
+    "q3": false,
+    "q4": true
+  },
+  "networks": [
+    {
+      "cellId": "X1_P3610_hb09_B16",
+      "numParams": 3610,
+      "beta": 0.9,
+      "batchB": 16,
+      "lambda1": 98.67701845430314,
+      "lambda2": 66.19049703571346,
+      "lambda1AnalyticPowerIter40": 98.67701845429572,
+      "lambdaMinShiftedPowerIter100": 0.011810870257718875,
+      "traceH": 601.7390949925807,
+      "traceOverLambda1": 6.098067254344975,
+      "noiseRankRatio": 7.241454864534658,
+      "nuB": 22.610552417438612,
+      "kappaFeatEffective": -1.159940028237859,
+      "alphaDiag": 0.8100712164675425,
+      "etaCritQuadratic": 0.038509473224099915,
+      "etaCritDestructiveRay": 0.03850957880989962,
+      "quadraticVsDestructiveGapPct": 0.00027418061420202865,
+      "etaCritOneDimEoss": 0.019278147836050197,
+      "etaSandwichLower": 0.004782878778094514,
+      "etaSandwichUpper": 0.005317919388367902,
+      "etaTraceBracketLower": 0.004918228374540992,
+      "etaTraceBracketUpper": 0.005212645731298173,
+      "empiricalCeilingMedian": 0.002706992206554924,
+      "empiricalCeilingP05": 0.002664719692154568,
+      "empiricalCeilingP95": 0.002808601369608991,
+      "bisectionHalfWidthPct": 0.0477554918815645,
+      "upperWasStableCount": 0,
+      "oneDimOverEmpiricalRatio": 7.121611872161498,
+      "quadraticOverEmpiricalRatio": 14.225926890683338,
+      "empiricalInsideTraceBracket": false,
+      "growthGrid": [
+        {
+          "etaOverQuadratic": 0.002,
+          "eta": 0.00007701894644819983,
+          "steps": 1000,
+          "logGrowth": -0.9934287708804646,
+          "guardTriggered": false,
+          "ratePerStep": -0.001986857541760929
+        },
+        {
+          "etaOverQuadratic": 0.002,
+          "eta": 0.00007701894644819983,
+          "steps": 4000,
+          "logGrowth": -0.9121365672903543,
+          "guardTriggered": false,
+          "ratePerStep": -0.00045606828364517713
+        },
+        {
+          "etaOverQuadratic": 0.005,
+          "eta": 0.00019254736612049958,
+          "steps": 1000,
+          "logGrowth": -0.7736703035557823,
+          "guardTriggered": false,
+          "ratePerStep": -0.0015473406071115645
+        },
+        {
+          "etaOverQuadratic": 0.005,
+          "eta": 0.00019254736612049958,
+          "steps": 4000,
+          "logGrowth": -0.788336320042757,
+          "guardTriggered": false,
+          "ratePerStep": -0.0003941681600213785
+        },
+        {
+          "etaOverQuadratic": 0.01,
+          "eta": 0.00038509473224099917,
+          "steps": 1000,
+          "logGrowth": -0.8581668991088677,
+          "guardTriggered": false,
+          "ratePerStep": -0.0017163337982177354
+        },
+        {
+          "etaOverQuadratic": 0.01,
+          "eta": 0.00038509473224099917,
+          "steps": 4000,
+          "logGrowth": -0.2228742774428072,
+          "guardTriggered": false,
+          "ratePerStep": -0.0001114371387214036
+        },
+        {
+          "etaOverQuadratic": 0.02,
+          "eta": 0.0007701894644819983,
+          "steps": 1000,
+          "logGrowth": -0.8775548028187236,
+          "guardTriggered": false,
+          "ratePerStep": -0.001755109605637447
+        },
+        {
+          "etaOverQuadratic": 0.02,
+          "eta": 0.0007701894644819983,
+          "steps": 4000,
+          "logGrowth": 0.6945846218640697,
+          "guardTriggered": false,
+          "ratePerStep": 0.0003472923109320348
+        },
+        {
+          "etaOverQuadratic": 0.05,
+          "eta": 0.0019254736612049957,
+          "steps": 1000,
+          "logGrowth": -0.4185755400652109,
+          "guardTriggered": false,
+          "ratePerStep": -0.0008371510801304218
+        },
+        {
+          "etaOverQuadratic": 0.05,
+          "eta": 0.0019254736612049957,
+          "steps": 4000,
+          "logGrowth": 5.77413950105575,
+          "guardTriggered": false,
+          "ratePerStep": 0.002887069750527875
+        },
+        {
+          "etaOverQuadratic": 0.1,
+          "eta": 0.0038509473224099915,
+          "steps": 1000,
+          "logGrowth": 2.694745773368819,
+          "guardTriggered": false,
+          "ratePerStep": 0.0053894915467376375
+        },
+        {
+          "etaOverQuadratic": 0.1,
+          "eta": 0.0038509473224099915,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.2,
+          "eta": 0.007701894644819983,
+          "steps": 1000,
+          "logGrowth": 5.64948445301203,
+          "guardTriggered": false,
+          "ratePerStep": 0.011298968906024059
+        },
+        {
+          "etaOverQuadratic": 0.2,
+          "eta": 0.007701894644819983,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.5,
+          "eta": 0.019254736612049957,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.5,
+          "eta": 0.019254736612049957,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        }
+      ],
+      "fdHvpIterations": 15,
+      "fdHvpSampleGradEquivalents": 1920,
+      "fdHvpLambda1Hat": 98.67693530362892,
+      "fdHvpLambda1RelErr": 8.4265491111287e-7,
+      "fdHvpCosWithAnalyticU1": 0.9999994247489863,
+      "fdHvpEtaCritHat": 0.038509505674324,
+      "fdHvpErrVsQuadraticPct": 0.00008426556212642479,
+      "fdHvpErrVsDestructivePct": 0.0001899152831154397,
+      "traceSeconds": 14.32,
+      "ceilingSeconds": 561.862
+    },
+    {
+      "cellId": "X2_P12826_hb09_B16",
+      "numParams": 12826,
+      "beta": 0.9,
+      "batchB": 16,
+      "lambda1": 148.35313389595672,
+      "lambda2": 77.36639348024627,
+      "lambda1AnalyticPowerIter40": 148.35313389595578,
+      "lambdaMinShiftedPowerIter100": -0.07211602669124773,
+      "traceH": 901.7162901960329,
+      "traceOverLambda1": 6.078174869082484,
+      "noiseRankRatio": 7.2178326570354505,
+      "nuB": 48.02409241710481,
+      "kappaFeatEffective": -0.3233405355690062,
+      "alphaDiag": 1.8035331140118052,
+      "etaCritQuadratic": 0.02561455831910516,
+      "etaCritDestructiveRay": 0.025760567208201503,
+      "quadraticVsDestructiveGapPct": 0.5667922135264777,
+      "etaCritOneDimEoss": 0.008563782928082977,
+      "etaSandwichLower": 0.0028393215583067603,
+      "etaSandwichUpper": 0.0035487880553919243,
+      "etaTraceBracketLower": 0.0030802486782145035,
+      "etaTraceBracketUpper": 0.0033756322996155363,
+      "empiricalCeilingMedian": 0.00004901223164696941,
+      "empiricalCeilingP05": 0.00004755046333469138,
+      "empiricalCeilingP95": 0.00005047399995924745,
+      "bisectionHalfWidthPct": 1.7543859649122802,
+      "upperWasStableCount": 0,
+      "oneDimOverEmpiricalRatio": 174.72746374348176,
+      "quadraticOverEmpiricalRatio": 522.615629984051,
+      "empiricalInsideTraceBracket": false,
+      "growthGrid": [
+        {
+          "etaOverQuadratic": 0.002,
+          "eta": 0.00005122911663821032,
+          "steps": 1000,
+          "logGrowth": 1.0110929668647928,
+          "guardTriggered": false,
+          "ratePerStep": 0.0020221859337295855
+        },
+        {
+          "etaOverQuadratic": 0.002,
+          "eta": 0.00005122911663821032,
+          "steps": 4000,
+          "logGrowth": 10.195062867639923,
+          "guardTriggered": false,
+          "ratePerStep": 0.0050975314338199615
+        },
+        {
+          "etaOverQuadratic": 0.005,
+          "eta": 0.0001280727915955258,
+          "steps": 1000,
+          "logGrowth": 5.989141618528371,
+          "guardTriggered": false,
+          "ratePerStep": 0.011978283237056742
+        },
+        {
+          "etaOverQuadratic": 0.005,
+          "eta": 0.0001280727915955258,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.01,
+          "eta": 0.0002561455831910516,
+          "steps": 1000,
+          "logGrowth": 11.543689882985378,
+          "guardTriggered": false,
+          "ratePerStep": 0.023087379765970757
+        },
+        {
+          "etaOverQuadratic": 0.01,
+          "eta": 0.0002561455831910516,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.02,
+          "eta": 0.0005122911663821032,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.02,
+          "eta": 0.0005122911663821032,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.05,
+          "eta": 0.0012807279159552582,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.05,
+          "eta": 0.0012807279159552582,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.1,
+          "eta": 0.0025614558319105164,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.1,
+          "eta": 0.0025614558319105164,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.2,
+          "eta": 0.005122911663821033,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.2,
+          "eta": 0.005122911663821033,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.5,
+          "eta": 0.01280727915955258,
+          "steps": 1000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        },
+        {
+          "etaOverQuadratic": 0.5,
+          "eta": 0.01280727915955258,
+          "steps": 4000,
+          "logGrowth": 1000,
+          "guardTriggered": true,
+          "ratePerStep": null
+        }
+      ],
+      "fdHvpIterations": 15,
+      "fdHvpSampleGradEquivalents": 1920,
+      "fdHvpLambda1Hat": 148.3531315268415,
+      "fdHvpLambda1RelErr": 1.5969431489552318e-8,
+      "fdHvpCosWithAnalyticU1": 0.9999999993932119,
+      "fdHvpEtaCritHat": 0.0256145587281551,
+      "fdHvpErrVsQuadraticPct": 0.000001596943170589238,
+      "fdHvpErrVsDestructivePct": 0.5667906256346565,
+      "traceSeconds": 160.751,
+      "ceilingSeconds": 741.474
+    }
+  ]
+}

@@ -1,0 +1,274 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage[margin=0.9in]{geometry}
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\hypersetup{pdftitle={Minibatch Heavy-Ball SGD with Mode-Dependent Kurtosis: Threshold, Exact Rate, Prefactor and Critical Slowing Down},pdfauthor={Gabriel Paiva}}
+\usepackage[expansion=false]{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{proposition}[theorem]{Proposition}
+\newtheorem{lemma}[theorem]{Lemma}
+\newtheorem{corollary}[theorem]{Corollary}
+\theoremstyle{remark}
+\newtheorem{remark}[theorem]{Remark}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\T}{\mathcal T}
+\newcommand{\V}{\mathcal V}
+
+\title{Minibatch Heavy-Ball SGD with Mode-Dependent Kurtosis:\\ Threshold, Exact Rate, Prefactor and Critical Slowing Down}
+\author{Gabriel Paiva\\ \texttt{gabriel@echdesign.co.uk}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For heavy-ball SGD on a quadratic in $\R^P$ with minibatch Hessians $H_{B_t}$ of mean $H\succ0$, we study the expected loss at finite dimension $P$ and finite batch $B$ when the features have independent coordinates in the eigenbasis of $H$, with a fourth moment that may differ from mode to mode, possibly multiplied by a common random scale (per-coordinate Bernoulli gates, a per-sample gate on an arbitrary $H$, Student-$t$ features). When the fourth moments differ across modes the curvature noise is not of the spectrally expressible form of earlier generating-function analyses. We show that the second-moment operator $\T$ has the spectral radius of its restriction to diagonal blocks at every step size, that the mean-square threshold is the root of a rank-one secular equation, that twice the expected loss obeys an exact discrete renewal equation, and that $\rho(\T)=1/z_\star$, where $z_\star$ is the smallest positive root of $z\widehat K(z)=1$ for the generating function $\widehat K$ of the renewal kernel. When $\gamma(2+\kappa_k)\ge1$ for every mode $k$ (for instance $\kappa_k\ge-1$), where $\gamma$ is the fourth moment of the random scale and $3+\kappa_k$ that of mode $k$, the loss approaches its noise floor as a single exponential $C\rho(\T)^t$ with an explicit $C>0$, and $1-\rho(\T)$ vanishes linearly at the threshold with an explicit slope. For Gaussian features the secular equation \citep{ziyin2022strength,wang2026momentum}, the renewal equation \citep{wang2026momentum} and the rate as a root of the same equation, with a prefactor in the divergent regime \citep{velikanov2023view}, are known; for isotropic gated features the threshold and the renewal equation are in \citet{everett2026sparse}; the general threshold is in \citet{cai2026llm}. Consequences: a one-direction stability test can overestimate the stable step by two orders of magnitude while the true threshold changes by about $1\%$ between Gaussian and Rademacher features. In the EMA form of momentum the secular sum depends on $\beta$ only through $(1-\beta)/(1+\beta)$, so the threshold and every level set of $S$ increase with $\beta$, by an amount between $\frac{\beta}{1+\beta}\lambda_{\min}$ and $\frac{\beta}{1+\beta}\lambda_{\max}$ in $1/\eta_{\mathrm{EMA}}$, with a finite limit as $\beta\to1$ for $P\ge2$, and the ratio of the threshold to the deterministic one depends on $(\beta,B)$ only through $B(1-\beta)/(1+\beta)$. With label noise a fixed loss floor is a level set of $S$, the rate satisfies $1-\rho(\T)\le1-S$, and the speedup of momentum at a fixed floor ranges from none (one direction, high floor) to above the factor $2$ found for a single isotropic feature (anisotropic $H$, moderate floor). In the general setting, at fixed effective step $\eta/(1-\beta)$ momentum strictly raises the threshold and lowers $\tr(\Sigma_\xi\Sigma_0)$, but can raise the loss.
+\end{abstract}
+
+\section{Introduction}
+
+Consider heavy-ball SGD on a quadratic loss in $\R^P$ with mean Hessian $H=\sum_{k=1}^P\lambda_ku_ku_k^\top\succ0$, $\lambda_1\ge\dots\ge\lambda_P>0$:
+\begin{equation}\label{eq:hb}
+w_{t+1}=\big((1+\beta)I-\eta H_{B_t}\big)w_t-\beta w_{t-1}-\eta\xi_t,\qquad\beta\in[0,1),\ \eta>0,
+\end{equation}
+where $(H_{B_t},\xi_t)$ are i.i.d.\ across steps and independent of $(w_0,w_{-1})$, with $\E H_{B_t}=H$, $\E\|H_{B_t}\|_F^2<\infty$, $\E\xi_t=0$ and $\Sigma_\xi=\E\xi_t\xi_t^\top\succ0$. Nothing is assumed on the joint law of $H_{B_t}$ and $\xi_t$ within a step. In the EMA form of momentum, $m_{t+1}=\beta m_t+(1-\beta)g_t$, $w_{t+1}=w_t-\eta_{\mathrm{EMA}}m_{t+1}$, the iterates are those of \eqref{eq:hb} with $\eta=(1-\beta)\eta_{\mathrm{EMA}}$. Write $s_t=(w_t,w_{t-1})$, $Q_t=\E s_ts_t^\top$, $F_t=\begin{pmatrix}(1+\beta)I-\eta H_{B_t}&-\beta I\\ I&0\end{pmatrix}$, $\bar F=\E F_t$, $\V(X)=\E[(H_{B_t}-H)X(H_{B_t}-H)]$ and $\T(Q)=\E[F_tQF_t^\top]$.
+
+\paragraph{What is known.}
+\emph{Stability.} With non-degenerate additive noise, bounded second moments are equivalent to $\rho(\T)<1$ \citep[Ch.~3]{costa2005mjls}. For LMS with Gaussian inputs ($B=1$, $\beta=0$) the recursion of the diagonal second moments is a diagonal plus rank-one matrix, and its eigenvalues are the roots of the corresponding secular equation \citep[eqs.~(20) and (23)]{feuer1985convergence}; for momentum LMS the characteristic polynomial has a factor $Q(z)$ of the form $1-z\widehat K(z)$ below \citep[Section~IV]{roy1990momentum}. For SGD at interpolating minima the exact threshold is \citet[Theorem~5]{mulayoff2024exact}; for heavy ball and arbitrary non-commuting minibatch Hessians it is \citet[Theorem~F.1]{cai2026llm} (Proposition~\ref{prop:cai} below), whose Lemma~F.13 contains the operator of Theorem~\ref{thm:lyap}(2). The stationary covariance equation with momentum, under ergodicity, is due to \citet{liu2021noise} (Theorem~1 of \citet{ziyin2022strength}); for Gaussian features and label noise \citet[Theorem~2]{ziyin2022strength} solve it in closed form, and its denominator is the secular equation of Theorem~\ref{thm:main} at $\kappa_k\equiv0$.
+
+\emph{Loss dynamics.} Without momentum, \citet[Theorem~1]{bordelon2022learning} give the exact loss for Gaussian features through the matrix $\T_{\mathrm{diag}}$ below at $\beta=0$, and their Theorem~2 gives it for arbitrary features as the iterate of the $P^2$-dimensional second-moment recursion, whose coefficients are the fourth-moment tensor (their eq.~(48)), without additive noise and without a threshold or rate formula. For Gaussian features with momentum and batch, \citet{velikanov2023view} write the loss generating function in closed form (their spectrally expressible approximation is exact there), state stability as $\widetilde U(1)<1$, and in the divergent regime obtain the rate from $r\widetilde U(r)=1$ and a prefactor under an exponential ansatz (their eq.~(24)); \citet[Appendix~B]{wang2026momentum} write the loss as a renewal equation, obtain the threshold from its kernel mass (their eq.~(56)) and bound it (their eq.~(57)). For isotropic least squares with Bernoulli-gated Gaussian inputs, \citet{everett2026sparse} give an exact discrete renewal equation at every $d$ and $B$ (their Lemma~C.1), the threshold (their eq.~(6)), the floor and geometric convergence (their Corollary~C.2) and the per-step spectrum through a cubic (their Lemma~H.4); their vocabulary model has rows that decouple (their Lemma~H.12), they note that an anisotropic $H$ gives one coupled block per eigenvalue (their Remark~B.2), and they propose anisotropic features as future work. In high-dimensional limits the loss of SGD obeys a Volterra equation whose Malthusian root gives the rate, with an explicit prefactor \citep[Theorem~E.2]{paquette2021sgd}; with momentum, \citet{paquette2021momentum} find that small-batch heavy ball gives no improvement over SGD once the step is adjusted, and \citet{lee2022minibatch} study the interpolating case.
+
+\emph{One-direction tests.} The curvature variance along the top eigenvector gives a necessary condition for stability \citep[Proposition~9]{mulayoff2024exact}; batch sharpness above $2/\eta$ certifies instability, and the criterion is one-sided by design \citep[Theorem~1]{andreyev2024eoss}; \citet[eq.~(10)]{andreyev2026momentum} give the one-dimensional threshold with momentum.
+
+\paragraph{What this note adds.}
+\begin{enumerate}
+\item A model beyond the spectrally expressible class: independent coordinates with mode-dependent fourth moments and a common random scale. For it, $\rho(\T)=\rho(\T_{\mathrm{diag}})$ at every $\eta$, the secular threshold and the exact renewal equation (Lemma~\ref{lem:V}, Theorem~\ref{thm:main}(a),(b)). It contains the Gaussian case and the isotropic gated case of \citet{everett2026sparse}, and extends the latter to an arbitrary $H$ (Corollary~\ref{cor:special}).
+\item A proof that $\rho(\T)=1/z_\star$ at finite $P$ for every $\eta$ (Theorem~\ref{thm:main}(c)); on the stable side with additive noise, the single-exponential approach to the floor with an explicit $C>0$, and the slope of critical slowing down at the threshold (Theorem~\ref{thm:main}(d),(e)). We did not find the last two in prior work, also for Gaussian features.
+\item The divergence half of the stability criterion, with linear growth from every initialization and without any assumption on the joint law of $(H_{B_t},\xi_t)$ (Lemma~\ref{lem:stab}; the boundedness half with correlated forcing is \citet[Proposition~C.3]{cai2026llm}), and the step-covariance identity $\E[\Delta w\Delta w^\top]=\frac{\eta}{1+\beta}(H\Sigma_0+\Sigma_0H)$ (Theorem~\ref{thm:lyap}(1)).
+\item Momentum and batch in EMA form (Corollary~\ref{cor:special}(iv)): monotonicity of every level set of $S$ in $\beta$ with two-sided bounds, the limit $\beta\to1$, and the dependence of $\eta^\star/\eta_{\mathrm{det}}$ on $B(1-\beta)/(1+\beta)$ alone; with label noise, the rate at a fixed loss floor (Proposition~\ref{prop:floor}), extending the isotropic comparisons of \citet[Proposition~H.10, Lemma~C.5]{everett2026sparse}.
+\item The size of the gap between the one-direction threshold and the true threshold for non-Gaussian features, against a near-universality of the true threshold in the kurtosis (Proposition~\ref{prop:1d}; for Gaussian features \citet[eq.~(57)]{wang2026momentum} give the same upper bound and the lower bounds $\alpha\lambda_1$ and $p\kappa_\beta\tr H$), and, in the general setting, the strict increase of $\eta^\star/(1-\beta)$ in $\beta$ with an explicit margin and a signed finite-step comparison at fixed effective step (Proposition~\ref{prop:eff}; the monotonicity is eq.~(67) of \citet{cai2026llm}, written there as a non-strict inequality, and the margin is new).
+\end{enumerate}
+Proofs are in Appendix~\ref{app:proofs}; every number is printed by \texttt{paper/checks/note-v2-checks.py}.
+
+\section{General facts}\label{sec:general}
+
+\begin{lemma}[Stability without assumptions on the joint law]\label{lem:stab}
+Assume the setting of \eqref{eq:hb} and that $(w_0,w_{-1})$ has finite second moments. Let $G=\operatorname{blkdiag}(\eta^2\Sigma_\xi,0)$.
+\begin{enumerate}
+\item[(i)] $\T$ preserves the symmetric and the positive semidefinite matrices, $\|\T^k\|=\|\T^k(I)\|$ in the operator norm induced by the spectral norm, and $\rho(\T)=\rho(\T|_{\mathbb S^{2P}})$.
+\item[(ii)] If $\rho(\T)<1$, then $Q_t\to Q_\infty=\sum_{k\ge0}\T^k(G)$ and $\E w_t\to0$, whatever the joint law of $(H_{B_t},\xi_t)$.
+\item[(iii)] If $\rho(\T)\ge1$, there is $c>0$ with $\E\|w_t\|^2+\E\|w_{t-1}\|^2\ge ct$ for every $t\ge1$.
+\end{enumerate}
+The assumption $H\succ0$ cannot be dropped in (iii): for $P=1$, $H=0$, $H_{B_t}=\epsilon_t\in\{\pm1\}$ equiprobable, $\xi_t=-\epsilon_t$ and $w_0=w_{-1}=1$, one has $w_t\equiv1$ while $\rho(\T)\ge\rho(\bar F)^2=1$.
+\end{lemma}
+Part (ii), with a forcing correlated with the transition, is \citet[Proposition~C.3]{cai2026llm}, and their Proposition~A.3 gives, above their threshold, an unbounded second moment from some deterministic initialization; (iii) gives linear growth from every initialization.
+
+\begin{theorem}[Stationary covariance equation]\label{thm:lyap}
+Let $\rho(\T)<1$ and let $\Sigma_0=\E w_tw_t^\top$, $D=\E[(w_{t+1}-w_t)(w_{t+1}-w_t)^\top]$ in the stationary regime of Lemma~\ref{lem:stab}(ii). Then
+\begin{enumerate}
+\item[(1)] $D=\frac{\eta}{1+\beta}(H\Sigma_0+\Sigma_0H)$;
+\item[(2)] $\displaystyle(H\Sigma_0+\Sigma_0H)-\frac{\eta}{1+\beta}H\Sigma_0H+\frac{\eta\beta}{(1-\beta)(1-\beta^2)}[H,[H,\Sigma_0]]-\frac{\eta}{1-\beta}\V(\Sigma_0)=\frac{\eta}{1-\beta}\Sigma_\xi.$
+\end{enumerate}
+\end{theorem}
+With $\V$ replaced by a given noise covariance, (2) is the equation of \citet{liu2021noise} (Theorem~1 of \citet{ziyin2022strength}), written with $H^2\Sigma_0+\Sigma_0H^2=[H,[H,\Sigma_0]]+2H\Sigma_0H$. Write (2) as $(\mathcal L_0-\eta\mathcal B_\beta)\Sigma_0=\frac{\eta}{1-\beta}\Sigma_\xi$ with $\mathcal L_0X=HX+XH$ and $\mathcal B_\beta X=\frac{1}{1+\beta}HXH-\frac{\beta}{(1-\beta)(1-\beta^2)}[H,[H,X]]+\frac1{1-\beta}\V(X)$, both self-adjoint on $(\mathbb S^P,\langle X,Y\rangle=\tr XY)$.
+
+\begin{proposition}[\citealp{cai2026llm}, Theorem~F.1]\label{prop:cai}
+$\rho(\T)<1$ if and only if $\mathcal L_0-\eta\mathcal B_\beta\succ0$ on $\mathbb S^P$, i.e.\ $\eta<\eta^\star\triangleq1/\lambda_{\max}(\mathcal L_0^{-1/2}\mathcal B_\beta\mathcal L_0^{-1/2})$.
+\end{proposition}
+\citet{cai2026llm} state it as $(1-b)/\alpha>r_C(b)$ for a quotient $q_{C,b}$ maximized over positive semidefinite $X$. The maximum over all of $\mathbb S^P$ is the same: in their notation $D^{-1}\V$ preserves the positive semidefinite cone \citep[Lemma~F.13]{cai2026llm}, so by the Krein--Rutman theorem its spectral radius is an eigenvalue with a positive semidefinite eigenmatrix, and $D^{-1}\V$ is similar to the self-adjoint $D^{-1/2}\V D^{-1/2}$, whose top eigenvalue is therefore that spectral radius. At $\beta=0$, under the sampling and positive-semidefinite sample-Hessian assumptions of \citet[Theorem~5]{mulayoff2024exact}, it recovers their threshold.
+
+\section{Independent coordinates with mode-dependent fourth moments}\label{sec:rf}
+
+Let $H_{B_t}=\frac1B\sum_{b=1}^Bz_{t,b}z_{t,b}^\top$ with i.i.d.\ $z_{t,b}=\zeta_{t,b}H^{1/2}\omega_{t,b}$, where the scalar $\zeta$ is independent of $\omega$, $\E\zeta^2=1$, $\gamma\triangleq\E\zeta^4$ ($\ge1$), and the coordinates $\omega_k=u_k^\top\omega$ are independent with $\E\omega_k=0$, $\E\omega_k^2=1$, $\E\omega_k^4=3+\kappa_k$. Put $p=1/B$, $\kappa_\beta=\frac{1+\beta}{1-\beta}$, and for each mode
+\[
+c_k\triangleq p\big(\gamma(2+\kappa_k)-1\big)\lambda_k^2,\qquad \alpha_k\triangleq1+\kappa_\beta\frac{c_k}{\lambda_k^2},\qquad x_k\triangleq\frac{\eta\lambda_k}{2(1+\beta)},\qquad a_k\triangleq1+\beta-\eta\lambda_k .
+\]
+Examples: (a) $\zeta\equiv1$, $\kappa_k\equiv\kappa$ (Gaussian $\kappa=0$, Rademacher $\kappa=-2$); (b) per-coordinate gates $\omega_k=(s_k/\sqrt{q_k})\tilde\omega_k$, $s_k\sim\mathrm{Bernoulli}(q_k)$ independent, so $\kappa_k=(3+\tilde\kappa_k)/q_k-3$ and $\lambda_k$ carries the frequency $q_k$; (c) the per-sample gate $\zeta=s/\sqrt q$, $s\sim\mathrm{Bernoulli}(q)$, of \citet{everett2026sparse}, now on an arbitrary $H$: $\gamma=1/q$; (d) Student-$t_\nu$ features, $\nu>4$: $\gamma=\frac{\nu-2}{\nu-4}$, $\kappa_k=0$.
+
+\begin{lemma}[Curvature noise and diagonal reduction]\label{lem:V}
+In the eigenbasis of $H$, for $X\in\mathbb S^P$,
+\[
+\V(X)_{kk}=p\gamma\lambda_k\tr(HX)+c_kX_{kk},\qquad \V(X)_{jk}=p(2\gamma-1)\lambda_j\lambda_kX_{jk}\quad(j\ne k).
+\]
+Hence $\T$ maps the space $\mathbb S^{2P}_{\mathrm{diag}}$ of matrices whose four $P\times P$ blocks are diagonal in this basis into itself, and $\rho(\T)=\rho(\T_{\mathrm{diag}})$ for every $\eta>0$, where $\T_{\mathrm{diag}}=\T|_{\mathbb S^{2P}_{\mathrm{diag}}}$.
+\end{lemma}
+
+In coordinates $(\E w_k^2,\E w_kw'_k,\E w_k'^2)_{k\le P}$ ($w'=w_{t-1}$), $\T_{\mathrm{diag}}=\operatorname{blkdiag}(\widetilde B_k)+\eta^2p\gamma\,rr^\top$ with $r=(\lambda_ke_1)_{k\le P}$ and
+\[
+\widetilde B_k=\begin{pmatrix}a_k^2+\eta^2c_k&-2a_k\beta&\beta^2\\ a_k&-\beta&0\\ 1&0&0\end{pmatrix}.
+\]
+Let $g_k$ be the impulse response of mode $k$ of deterministic heavy ball ($g_k(0)=1$, $g_k(1)=a_k$, $g_k(\tau+1)=a_kg_k(\tau)-\beta g_k(\tau-1)$), $\psi_k(\tau)=\eta^2g_k(\tau)^2$, $h_k(\tau)=\psi_k(\tau)+c_k\sum_{s<\tau}\psi_k(\tau-1-s)h_k(s)$, and
+\[
+\begin{gathered}
+K_\tau=p\gamma\sum_k\lambda_k^2h_k(\tau),\qquad \widehat\psi_k(z)=\frac{\eta^2(1+\beta z)}{(1-\beta z)\big(1-(a_k^2-2\beta)z+\beta^2z^2\big)},\\ \widehat h_k=\frac{\widehat\psi_k}{1-c_kz\widehat\psi_k},\qquad \widehat K=p\gamma\sum_k\lambda_k^2\widehat h_k .
+\end{gathered}
+\]
+$\widehat\psi_k$, $\widehat h_k$, $\widehat K$ are the generating functions of $\psi_k$, $h_k$, $K$ (rational in $z$). Let $\sigma_k^2=u_k^\top\Sigma_\xi u_k$ and
+\[
+S(\eta)\triangleq\frac{\eta p\gamma}{2(1-\beta)}\sum_{k=1}^P\frac{\lambda_k}{1-\alpha_kx_k}.
+\]
+
+\begin{theorem}[Threshold, renewal equation, rate, prefactor, slowing down]\label{thm:main}
+In this model:
+\begin{enumerate}
+\item[(a)] \textbf{Threshold.} $\rho(\T)<1$ if and only if $\eta<\eta^\star$, where $\eta^\star$ is the unique root of $S(\eta)=1$ with $\eta\max_k\max(\alpha_k,0)\lambda_k<2(1+\beta)$; for $\eta<\eta^\star$, $\ell_\infty\triangleq\tr(H\Sigma_0)=f_\infty/(1-S(\eta))$ with $f_\infty=\sum_k\frac{\eta\sigma_k^2}{2(1-\beta)(1-\alpha_kx_k)}$.
+\item[(b)] \textbf{Renewal equation.} From $w_0=w_{-1}=0$, $\ell_t=\tr(H\E w_tw_t^\top)$ satisfies $\ell_t=f_t+\sum_{s<t}K_{t-1-s}\ell_s$ with $f_t=\sum_{\tau<t}\phi_\tau$, $\phi_\tau=\sum_k\lambda_k\sigma_k^2h_k(\tau)$; equivalently $\widehat\ell(z)=z\widehat\phi(z)/\big((1-z)(1-z\widehat K(z))\big)$.
+\item[(c)] \textbf{Rate.} If $\rho(\T)>0$ (automatic for $\beta>0$, since $\rho(\T)\ge\rho(\bar F)^2\ge\beta$), then $\rho(\T)=1/z_\star$, where $z_\star$ is the smallest positive root of $z\widehat K(z)=1$, $\widehat K$ being read as the rational function above (for $c_k<0$ its power series may diverge at $z_\star$).
+\item[(d)] \textbf{Single exponential.} If $c_k\ge0$ for every $k$ (i.e.\ $\gamma(2+\kappa_k)\ge1$) and $\eta<\eta^\star$, then $z_\star>1$ is the only root of $z\widehat K(z)=1$ in $|z|\le z_\star$, it is simple, and
+\[
+\ell_\infty-\ell_t=C\rho(\T)^t+O(r^{-t})\ \text{ for some } r>z_\star,\qquad C=\frac{\widehat\phi(z_\star)}{(z_\star-1)\,\frac{d}{dz}\big(z\widehat K(z)\big)\big|_{z_\star}}>0 .
+\]
+\item[(e)] \textbf{Critical slowing down.} Under the condition of (d), as $\eta\uparrow\eta^\star$,
+\[
+1-\rho(\T)=\frac{S'(\eta^\star)}{\sum_{\tau\ge0}(\tau+1)K_\tau}\,(\eta^\star-\eta)+O\big((\eta^\star-\eta)^2\big),\qquad S'(\eta^\star)>0,
+\]
+the kernel being taken at $\eta^\star$, where $\sum_\tau K_\tau=S(\eta^\star)=1$; the denominator is the mean renewal time.
+\end{enumerate}
+\end{theorem}
+
+The condition $c_k\ge0$ is $\kappa_k\ge1/\gamma-2$; it holds for every $\kappa_k\ge-1$ (as $\gamma\ge1$), and for Rademacher modes ($\kappa_k=-2$) it fails for every $\gamma$. For $c_k<0$ the kernel can have both signs; (a)--(c) still hold, while $h_k$ need not be summable (for $P=1$, $\lambda_1=1$, $\beta=0$, $B=1$, Rademacher features and $\eta=1.5$, $\widehat h_1=2.25/(1+2z)$, $h_1$ grows geometrically and $\rho(\T)=1/4=1/z_\star$), and the single exponential of (d) can fail: for $P=1$ Rademacher features $H_{B_t}\equiv\lambda_1$, $\T_{\mathrm{diag}}=B_1$, all eigenvalues of $B_1$ have modulus $\beta$ in the underdamped regime, and $(\ell_\infty-\ell_t)/\beta^t$ does not converge. From a general initial condition with $\E w_0=\E w_{-1}=0$ (or with $\E[\xi_t(H_{B_t}-H)_{jk}]=0$ for all $j,k$), (b) holds with $f_t$ replaced by $f_t+\sum_k\lambda_k\,\epsilon_k(t)$, where $\epsilon_k(t)$ propagates the initial $2\times2$ block of mode $k$ through $\widetilde B_k$; otherwise a cross term $\eta^2\E[(H_{B_t}-H)\bar w_t\xi_t^\top]$ enters; without additive noise this is the interpolating setting of \citet{lee2022minibatch} and \citet{everett2026sparse}.
+
+\begin{corollary}[Special cases]\label{cor:special}
+\begin{enumerate}
+\item[(i)] Gaussian features ($\gamma=1$, $\kappa_k\equiv0$): $S(\eta)=1$ is the vanishing of the denominator $1-\frac1B\tr[\Lambda AG_\mu^{-1}]$ of \citet[Theorem~2]{ziyin2022strength} (scalar learning rate) and the critical equation (56) of \citet{wang2026momentum}.
+\item[(ii)] Per-sample gate on an arbitrary $H=q\tilde H$ ($\gamma=1/q$, $\kappa_k=0$, $\tilde H=\operatorname{diag}(\tilde\lambda_k)$), in EMA form:
+\[
+\frac{\eta_{\mathrm{EMA}}}{2B}\sum_{k=1}^P\frac{\tilde\lambda_k}{1-\frac{\eta_{\mathrm{EMA}}\tilde\lambda_k}{2}\Big(q\frac{1-\beta}{1+\beta}+\frac{2-q}{B}\Big)}=1 .
+\]
+For $\tilde H=I_d$ this is $1/\eta_{\mathrm{EMA}}^\star=\frac{d+2-q}{2B}+\frac q2\frac{1-\beta}{1+\beta}$, equation~(6) of \citet{everett2026sparse}, and the rate equation of (c) reduces to a cubic; their Lemma~H.4 gives the same per-step spectrum, written as $1+\varepsilon z$ at $\beta=1-\varepsilon$.
+\item[(iii)] Per-coordinate gates: as $q_k\to0$ at fixed $\tilde\lambda_k$, $\alpha_k\lambda_k\to p\kappa_\beta(3+\tilde\kappa_k)\tilde\lambda_k$, so in the limit of rare coordinates the admissible range of (a) becomes $\eta_{\mathrm{EMA}}<2B/((3+\tilde\kappa_k)\tilde\lambda_k)$, which in EMA form does not depend on $\beta$ (at finite $q_k$ the range is $\eta_{\mathrm{EMA}}\tilde\lambda_k\big(q_k\frac{1-\beta}{1+\beta}+p(3+\tilde\kappa_k-2q_k)\big)<2$, which does); all coordinates are coupled through the trace term of $S$. The gates here are independent across coordinates, unlike the exclusive tokens of \citet{everett2026sparse}, whose rows decouple and whose noise ceiling $\eta<2B/(d+2-p)$ \citep[Section~4.2]{everett2026sparse} comes from the trace term, while this one comes from the diagonal self-term.
+\item[(iv)] EMA form, momentum and batch. Write $\lambda_{\max}=\lambda_1$, $\lambda_{\min}=\lambda_P$, put $\theta=\frac{1-\beta}{1+\beta}$, $d_k=\frac12\big(\theta\lambda_k+c_k/\lambda_k\big)$ and $M_\infty=\operatorname{diag}\big((\gamma(2+\kappa_k)-1)\lambda_k\big)+\gamma\sqrt\lambda\sqrt\lambda^\top$. With $\eta=(1-\beta)\eta_{\mathrm{EMA}}$,
+\[
+S=\frac{\eta_{\mathrm{EMA}}\,p\gamma}{2}\sum_{k=1}^P\frac{\lambda_k}{1-\eta_{\mathrm{EMA}}d_k},\qquad \frac1{\eta^\star_{\mathrm{EMA}}}=\lambda_{\max}\Big(\operatorname{diag}(d_k)+\frac{p\gamma}{2}\sqrt\lambda\sqrt\lambda^\top\Big),
+\]
+and $\beta$ enters only through $\theta$. (a) For every level $s\in(0,1]$ the root $\eta_{\mathrm{EMA}}(\beta;s)$ of $S=s$ in the admissible range ($s=1$ gives $\eta^\star_{\mathrm{EMA}}$) increases strictly with $\beta$, and
+\[
+\frac{\beta}{1+\beta}\lambda_{\min}\le\frac1{\eta_{\mathrm{EMA}}(0;s)}-\frac1{\eta_{\mathrm{EMA}}(\beta;s)}\le\frac{\beta}{1+\beta}\lambda_{\max}.
+\]
+(b) As $\beta\uparrow1$, $1/\eta^\star_{\mathrm{EMA}}$ decreases to $\frac p2\lambda_{\max}(M_\infty)$, and $\lambda_{\max}(M_\infty)\ge\sqrt{\lambda_{(1)}\lambda_{(2)}}>0$ for $P\ge2$ ($\lambda_{(1)}\ge\lambda_{(2)}$ the two largest eigenvalues), so the EMA threshold stays bounded; for $s<1$, $\eta_{\mathrm{EMA}}(\beta;s)$ increases to the finite root of $\frac{xp\gamma}{2}\sum_k\lambda_k/(1-xc_k/(2\lambda_k))=s$. (c) With $\eta_{\mathrm{det}}=2(1+\beta)/\lambda_{\max}$, $\eta^\star/\eta_{\mathrm{det}}=\lambda_{\max}/\lambda_{\max}\big(H+\frac{1+\beta}{(1-\beta)B}M_\infty\big)$ depends on $(\beta,B)$ only through $B(1-\beta)/(1+\beta)$. If $\lambda_{\max}(M_\infty)>0$, then $\eta^\star\ge\eta_{\mathrm{det}}/2$ if and only if $B\ge B_{1/2}(\beta)=\frac{1+\beta}{1-\beta}\lambda_{\max}(G^{-1/2}M_\infty G^{-1/2})$, $G=2\lambda_{\max}I-H$ (in the eigenbasis of $H$), and $\lambda_{\max}(M_\infty)/(2\lambda_{\max})\le B_{1/2}(0)\le\lambda_{\max}(M_\infty)/\lambda_{\max}$.
+For $\tilde H=I_d$ in (ii), (a)--(c) can be read from eq.~(6) of \citet{everett2026sparse}; for spectrally expressible curvature noise, Gaussian features among them, the limit $\beta\to1$ of the effective threshold is in \citet[eq.~(23)]{velikanov2023view}; mode-dependent $\kappa_k$ is not of that form. Their critical batch size \citep[Proposition~2]{everett2026sparse} counts samples and steps to a target loss and is a different quantity from $B_{1/2}$.
+\end{enumerate}
+\end{corollary}
+
+\section{Two consequences}\label{sec:cons}
+
+\begin{proposition}[One-direction test against the true threshold]\label{prop:1d}
+Let $\gamma=1$, $\kappa_k\equiv\kappa$, $\alpha=1+p\kappa_\beta(1+\kappa)$, $\mu^\star=2(1+\beta)/\eta^\star$ and $\mu_{\mathrm{1D}}=\lambda_1\big(1+p\kappa_\beta(2+\kappa)\big)$, so that $2(1+\beta)/\mu_{\mathrm{1D}}$ is the one-dimensional threshold along $u_1$ \citep[eq.~(10)]{andreyev2026momentum} with $\mathrm{Var}(u_1^\top H_{B_t}u_1)=p(2+\kappa)\lambda_1^2$. Then $\mu^\star\ge\mu_{\mathrm{1D}}$ and
+\[
+\alpha\,\frac{\tr H^2}{\tr H}\le\mu^\star-p\kappa_\beta\tr H\le\max(\alpha,0)\lambda_1 .
+\]
+In particular, at high effective rank $r_{\mathrm{eff}}=\tr H/\lambda_1$ the true threshold depends on $\kappa$ only through a relative term $|(p\kappa_\beta)^{-1}+1+\kappa|/r_{\mathrm{eff}}$, while for Rademacher features ($\mu_{\mathrm{1D}}=\lambda_1$; $\alpha<0$ when $B<\kappa_\beta$) the ratio of the one-dimensional threshold to the true one is at least $p\kappa_\beta r_{\mathrm{eff}}+\alpha\tr H^2/(\lambda_1\tr H)$.
+\end{proposition}
+
+\begin{table}[!ht]
+\centering
+\caption{$P=256$, $\lambda_k=k^{-1/2}$ ($r_{\mathrm{eff}}=30.57$), $\beta=0.9$, $B=4$.}
+\label{tab:1d}
+\smallskip
+{\small\begin{tabular}{lrrrrr}
+\toprule
+$\kappa$ & $-2$ (Rademacher) & $-1$ & $0$ (Gaussian) & $2$ & $10$\\
+\midrule
+true threshold $\eta^\star$ & 0.026304 & 0.026133 & 0.025961 & 0.025617 & 0.024223\\
+one-dimensional threshold & 3.8000 & 0.66087 & 0.36190 & 0.19000 & 0.065517\\
+ratio & 144.46 & 25.29 & 13.94 & 7.42 & 2.70\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+Table~\ref{tab:1d}: from Gaussian to Rademacher features the true threshold moves by $1.32\%$ and the one-dimensional threshold by a factor $10.5$; the bound of Proposition~\ref{prop:1d} gives a ratio of at least $144.460$ at $\kappa=-2$ (actual $144.464$). When $1+\kappa$ is of order $r_{\mathrm{eff}}$ or larger, the term $\alpha\lambda_1$ dominates and the kurtosis enters the true threshold at first order.
+
+\begin{proposition}[Fixed effective step]\label{prop:eff}
+In the general setting of Section~\ref{sec:general}, let $\V$ be independent of $\beta$. (i) The effective threshold $\eta^\star(\beta)/(1-\beta)$ increases strictly with $\beta\in[0,1)$, and $\frac1{\eta^\star(0)}-\frac{1-\beta}{\eta^\star(\beta)}\ge\frac{\beta}{1+\beta}\lambda_{\min}(H)$. (ii) Fix $\eta_{\mathrm{eff}}>0$ and let $\eta=(1-\beta)\eta_{\mathrm{eff}}$. If $0\le\beta_1<\beta_2<1$ are both stable, then $\tr(\Sigma_\xi\Sigma_0(\beta_2))<\tr(\Sigma_\xi\Sigma_0(\beta_1))$. If $\Sigma_\xi$ is proportional to $H$ the loss $\tr(H\Sigma_0)$ therefore decreases strictly; in general it can increase: for $H=\operatorname{diag}(1,0.3)$, two equiprobable minibatch Hessians $H\pm N$ with $N=\begin{psmallmatrix}-0.6&-0.7\\-0.7&-0.2\end{psmallmatrix}$, $\Sigma_\xi=vv^\top+10^{-3}I$, $v=(-0.8,0.6)$ and $\eta_{\mathrm{eff}}=0.52$, raising $\beta$ from $0.5$ to $0.95$ raises the loss from $0.34072$ to $0.35659$ and lowers $\tr(\Sigma_\xi\Sigma_0)$ from $0.43506$ to $0.34534$.
+\end{proposition}
+
+At fixed small step, momentum SGD tracks SGD at step $\eta/(1-\beta)$ \citep{yuan2016momentum}; Proposition~\ref{prop:eff} gives the sign of the departure at finite step, for the noise-weighted second moment.
+
+\begin{proposition}[Rate at a fixed loss floor]\label{prop:floor}
+In the model of Section~\ref{sec:rf} let $\Sigma_\xi=\sigma^2H/B$ (least squares with label noise of variance $\sigma^2>0$) and $\eta<\eta^\star$. Then $\ell_\infty=\frac{\sigma^2}{\gamma}\frac{S(\eta)}{1-S(\eta)}$, so a target floor fixes the level $s=\gamma\ell_\infty/(\sigma^2+\gamma\ell_\infty)$ of $S$, and the EMA step that reaches it is $\eta_{\mathrm{EMA}}(\beta;s)$ of Corollary~\ref{cor:special}(iv). If $c_k\ge0$ for every $k$, then, with the mean renewal time $\bar\tau=\frac1S\sum_{\tau\ge0}(\tau+1)K_\tau$,
+\[
+\rho(\T)\ge S^{1/\bar\tau}\ge S,\qquad\text{so}\qquad 1-\rho(\T)\le1-S=\frac{\sigma^2}{\sigma^2+\gamma\ell_\infty}.
+\]
+\end{proposition}
+The continuum, isotropic analogue of the last bound is $r_c<1-H$ in \citet[Lemma~C.5(c)]{everett2026sparse}. Table~\ref{tab:floor} maximizes $1-\rho(\T)$ over $\beta$ along a fixed floor, with $\rho(\T)=1/z_\star$ computed exactly. In one direction at a high floor momentum does not help; at a low floor the gain approaches $2$ (rows 3 and 5), the factor that \citet[Proposition~H.10]{everett2026sparse} find for isotropic features; at a moderate floor with an anisotropic $H$ it exceeds $2$ (row 4), consistent with the conditioning gain that \citet[Proposition~2]{everett2026sparse} find for a vocabulary at large batch. Numerically, along a fixed floor $(1-\rho(\T))/(1-\beta)\to1-\eta_{\mathrm{EMA}}(\beta;s)/\eta^\star_{\mathrm{EMA}}(\beta)$ as $\beta\uparrow1$ (in the fourth row, $0.61520$ against $0.61516$ at $\beta=1-10^{-4}$); we do not prove this.
+
+\begin{table}[!ht]
+\centering
+\caption{Rate at a fixed level $s$ of $S$ (fixed floor), maximized over $\beta$ (grid of $318$ values in $[0,1-10^{-4.5}]$, refined by golden-section search). Rows 4--6: $\lambda=(1,0.5,0.2,0.05,0.01)$, $B=8$; row 6 has $\kappa=(5,0,2,8,1)$ and $\gamma=2$.}
+\label{tab:floor}
+\smallskip
+{\small\begin{tabular}{lrrrrr}
+\toprule
+features & $s$ & $1-\rho$ at $\beta=0$ & best $\beta$ & $1-\rho$ there & gain\\
+\midrule
+$P=1$, Gaussian, $B=4$ & $0.3$ & 0.53760 & 0 & 0.53760 & 1.000\\
+$P=1$, Gaussian, $B=4$ & $0.01$ & 0.14367 & 0.752 & 0.21215 & 1.477\\
+$P=1$, Gaussian, $B=4$ & $0.001$ & 0.015825 & 0.970 & 0.028811 & 1.821\\
+$P=5$, Gaussian & $0.3$ & 0.023537 & 0.897 & 0.060514 & 2.571\\
+$P=5$, Gaussian & $0.01$ & 0.0017510 & 0.996 & 0.0035060 & 2.003\\
+$P=5$, mixed $\kappa_k$, $\gamma=2$ & $0.3$ & 0.010833 & 0.942 & 0.016475 & 1.521\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+\appendix
+\section{Proofs}\label{app:proofs}
+
+\paragraph{Lemma~\ref{lem:stab}.}
+(i) $\T(Q)^\top=\T(Q^\top)$; $\T^k$ is in Kraus form, hence positive, and the Russo--Dye theorem gives $\|\T^k\|=\|\T^k(I)\|$; Gelfand's formula then gives $\rho(\T)=\lim\|\T^k(I)\|^{1/k}\le\rho(\T|_{\mathbb S^{2P}})$, and the reverse inequality is trivial.
+
+Let $m_t=\E s_t$ and $g_t=(-\eta\xi_t,0)$. Since $s_t$ is independent of $(F_t,g_t)$ and $\E g_t=0$, $m_{t+1}=\bar Fm_t$ and $Q_{t+1}=\T(Q_t)+G+C_t$, with $C_t=\E[(F_t-\bar F)m_tg_t^\top]+(\cdot)^\top$, $\|C_t\|\le c_0\|m_t\|$. Write $\T=\T_0+\Delta$, $\T_0(Q)=\bar FQ\bar F^\top$, $\Delta(Q)=\operatorname{blkdiag}(\eta^2\V(Q_{11}),0)$; both are positive, so $\rho(\bar F)^2=\rho(\T_0)\le\rho(\T)$ \citep{berman1994}.
+
+(ii) If $\rho(\T)<1$, then $\|m_t\|\le c_1r^t$ with $r<1$, and $Q_t=\T^t(Q_0)+\sum_{s<t}\T^{t-1-s}(G+C_s)\to\sum_k\T^k(G)$.
+
+(iii) Let $\rho=\rho(\T)\ge1$. By the Krein--Rutman theorem \citep[Thm.~1.3.2]{berman1994} the adjoint $\T^*(Y)=\E[F_t^\top YF_t]$ has an eigenmatrix $W\succeq0$, $W\ne0$, with eigenvalue $\rho$, and $W_{11}\ne0$ (otherwise $W\succeq0$ forces $W_{12}=0$, and then $F_t^\top WF_t=\operatorname{blkdiag}(W_{22},0)$ forces $W=0$), so $g_0\triangleq\tr(W_{11}\Sigma_\xi)>0$. The centered second moment $\widetilde Q_t=Q_t-m_tm_t^\top$ obeys $\widetilde Q_{t+1}=\T(\widetilde Q_t)+U_t$ with $U_t=\E[\upsilon_t\upsilon_t^\top]\succeq0$, $\upsilon_t=(F_t-\bar F)m_t+g_t$, because the centered state is independent of $(F_t,g_t)$ and has mean zero. With $\bar w_t=\E w_t$ and $\Delta_t=H_{B_t}-H$, $\tr(WU_t)=\eta^2\varphi(\bar w_t)$, $\varphi(a)=\E[(\Delta_ta+\xi_t)^\top W_{11}(\Delta_ta+\xi_t)]$, and
+\[
+\tr(W\widetilde Q_{t+1})=\rho\tr(W\widetilde Q_t)+\eta^2\varphi(\bar w_t)\ge\tr(W\widetilde Q_t)+\eta^2\varphi(\bar w_t).
+\]
+The parallelogram identity gives $\varphi(a)+\varphi(-a)=2\E[a^\top\Delta_tW_{11}\Delta_ta]+2g_0\ge2g_0$ for every $a$. Each $2\times2$ block of $\bar F$ in the eigenbasis of $H$ has eigenvalues with product $\beta<1$, and $\det(I-\bar F_k)=\eta\lambda_k>0$; so the eigenvalues of modulus $\ge1$ are semisimple and the only one on the unit circle is $-1$ (a non-real pair on the circle would have product $1$, and $+1$ is excluded by $\det(I-\bar F_k)>0$). If $m_0$ has a component on the eigenvalues of modulus $>1$, $\|m_t\|$ and hence $\tr Q_t$ grow geometrically. Otherwise $\bar w_t=(-1)^ta+o(1)$, so $\varphi(\bar w_{2k})+\varphi(\bar w_{2k+1})\ge g_0$ for large $k$, and $\tr(W\widetilde Q_t)$ grows at least linearly; $\tr Q_t\ge\tr(W\widetilde Q_t)/\|W\|$. Finally $\E\|w_t\|^2+\E\|w_{t-1}\|^2>0$ for every $t\ge1$: if $w_t=w_{t-1}=0$ a.s., then $\eta\xi_{t-1}=-\beta w_{t-2}$ a.s.\ with $w_{t-2}$ independent of $\xi_{t-1}$, so $\xi_{t-1}$ is a.s.\ constant, contradicting $\Sigma_\xi\succ0$. The bound $ct$ follows. The counterexample with $H=0$ satisfies $(H_{B_t}-H)w_t+\xi_t=0$ on the path $w\equiv1$.
+
+\paragraph{Theorem~\ref{thm:lyap}.}
+By Lemma~\ref{lem:stab}(ii), $\E w_t=0$ in the stationary regime, and $(H_{B_t}-H,\xi_t)$ is independent of $(w_t,w_{t-1})$, so $\E[(H_{B_t}-H)w_t\xi_t^\top]=0$ whatever the joint law of $(H_{B_t},\xi_t)$. With $A=(1+\beta)I-\eta H$ and $\Sigma_1=\E w_{t+1}w_t^\top$: conditioning on the past gives $\Sigma_1=A\Sigma_0-\beta\Sigma_1^\top$, hence $\Sigma_1=(A\Sigma_0-\beta\Sigma_0A)/(1-\beta^2)$ and $\Sigma_1+\Sigma_1^\top=2\Sigma_0-\frac{\eta}{1+\beta}(H\Sigma_0+\Sigma_0H)$, which is (1) since $D=2\Sigma_0-\Sigma_1-\Sigma_1^\top$. Expanding $\Sigma_0=\E w_{t+1}w_{t+1}^\top$ gives $\Sigma_0=A\Sigma_0A+\beta^2\Sigma_0-\beta(A\Sigma_1+\Sigma_1^\top A)+\eta^2\V(\Sigma_0)+\eta^2\Sigma_\xi$; with $A^2\Sigma_0+\Sigma_0A^2-2\beta A\Sigma_0A=[A,[A,\Sigma_0]]+2(1-\beta)A\Sigma_0A$ and $[A,[A,\Sigma_0]]=\eta^2[H,[H,\Sigma_0]]$ this is $(1-\beta^2)\Sigma_0-\frac{1-\beta}{1+\beta}A\Sigma_0A=-\frac{\beta\eta^2}{1-\beta^2}[H,[H,\Sigma_0]]+\eta^2\V(\Sigma_0)+\eta^2\Sigma_\xi$; expanding $A\Sigma_0A$ and dividing by $\eta(1-\beta)$ gives (2).
+
+\paragraph{Lemma~\ref{lem:V}.}
+$\V(X)=p(\E[zz^\top Xzz^\top]-HXH)$ and $\E[z_jz_lz_mz_k]=\gamma\sqrt{\lambda_j\lambda_l\lambda_m\lambda_k}\E[\omega_j\omega_l\omega_m\omega_k]$, which vanishes unless every index appears an even number of times. For $j=k$: $l=m\ne k$ gives $\gamma\lambda_k\lambda_lX_{ll}$ and $l=m=k$ gives $\gamma(3+\kappa_k)\lambda_k^2X_{kk}$. For $j\ne k$: $(l,m)=(j,k)$ and $(k,j)$ each give $\gamma\lambda_j\lambda_kX_{jk}$ on symmetric $X$. Subtracting $(HXH)_{jk}=\lambda_j\lambda_kX_{jk}$ gives the formulas. Thus $\V$ maps diagonal matrices to diagonal ones and off-diagonal entries to themselves, and $\bar F$ acts mode by mode, so $\T(\mathbb S^{2P}_{\mathrm{diag}})\subseteq\mathbb S^{2P}_{\mathrm{diag}}$. Since $I\in\mathbb S^{2P}_{\mathrm{diag}}$, $\|\T^k\|=\|\T^k(I)\|=\|\T_{\mathrm{diag}}^k(I)\|\le\|\T^k_{\mathrm{diag}}\|\le\|\T^k\|$ by Lemma~\ref{lem:stab}(i), and Gelfand's formula gives $\rho(\T)=\rho(\T_{\mathrm{diag}})$.
+
+\paragraph{Theorem~\ref{thm:main}.}
+\emph{Generating functions.} The mean recursion of mode $k$ started at $(w,w')=(1,0)$ is $g_k$, so $e_1^\top B_k^\tau e_1=g_k(\tau)^2$ for $B_k=\widetilde B_k-\eta^2c_ke_1e_1^\top$, and $e_1^\top\widetilde B_k^\tau e_1=h_k(\tau)/\eta^2$ by expanding the rank-one perturbation. From $g_k(\tau)=\frac{r_+^{\tau+1}-r_-^{\tau+1}}{r_+-r_-}$ with $r_++r_-=a_k$, $r_+r_-=\beta$, summing the geometric series gives $\widehat\psi_k$; the three poles $1/\beta$, $r_\pm^{-2}$ are the reciprocals of the eigenvalues $\beta,r_\pm^2$ of $B_k$. At $z=1$, $\widehat\psi_k(1)=\frac{\eta}{2(1-\beta)\lambda_k(1-x_k)}$ and $\widehat h_k(1)=\frac{\eta}{2(1-\beta)\lambda_k(1-\alpha_kx_k)}$, because $(1-x_k)(1-c_k\widehat\psi_k(1))=1-\alpha_kx_k$. Hence $p\gamma\sum_k\lambda_k^2\widehat h_k(1)=S(\eta)$ whenever no pole lies at $1$.
+
+\emph{(b).} From $Q_0=0$, $Q_t=\sum_{s<t}\T_0^{t-1-s}(\Delta(Q_s)+G)$ and Lemma~\ref{lem:V} give $x_{t,k}=\E w_{t,k}^2=\sum_{s<t}\psi_k(t-1-s)\big(\sigma_k^2+p\gamma\lambda_k\ell_s+c_kx_{s,k}\big)$, whose solution is $x_{t,k}=\sum_{s<t}h_k(t-1-s)(\sigma_k^2+p\gamma\lambda_k\ell_s)$; multiplying by $\lambda_k$ and summing gives the equation, and generating functions give $\widehat\ell=\frac{z}{1-z}\widehat\phi+z\widehat K\widehat\ell$.
+
+\emph{(a).} The matrix $\mathcal M=\operatorname{diag}(\alpha_k\lambda_k)+p\kappa_\beta\gamma\lambda\mathbf 1^\top$ is similar to $\widetilde{\mathcal M}=\operatorname{diag}(\alpha_k\lambda_k)+p\kappa_\beta\gamma\sqrt\lambda\sqrt\lambda^\top$, whose diagonal entries $\lambda_k(1+p\kappa_\beta(\gamma(3+\kappa_k)-1))\ge\lambda_k$ and off-diagonal entries are positive. The determinant lemma, $\det(\mu-\widetilde{\mathcal M})=\prod_k(\mu-\alpha_k\lambda_k)\big(1-p\kappa_\beta\gamma\sum_k\frac{\lambda_k}{\mu-\alpha_k\lambda_k}\big)$, the Perron vector of $\widetilde{\mathcal M}+cI$ ($c$ large), which is positive and so excludes $\mu^\star=\alpha_k\lambda_k$, and the strict decrease of the sum in $\mu$ show that $\mu^\star=\lambda_{\max}(\widetilde{\mathcal M})$ is the unique root with $\mu>\max(0,\max_k\alpha_k\lambda_k)$; with $\mu=2(1+\beta)/\eta$ the sum equals $S(\eta)$. By Lemma~\ref{lem:V}, $\rho(\T)=\rho(\T_{\mathrm{diag}})$, and the stationary equations of $\T_{\mathrm{diag}}$ with $\Sigma_\xi$ replaced by $\operatorname{diag}(\sigma_k^2)$ ($\rho(\T)$ does not depend on $\Sigma_\xi$) are the diagonal entries of Theorem~\ref{thm:lyap}(2), i.e.\ $(I-N)c'=b$ for $c'_k=2\lambda_k\E w_k^2/(\eta(1+\beta))$, $N=\frac{\eta}{2(1+\beta)}\mathcal M\ge0$ and $b=\sigma^2/(1-\beta^2)>0$. If $\rho(\T)<1$, a stationary solution exists with $c'\ge b>0$ and $Nc'<c'$, so $\rho(N)<1$ by the Collatz--Wielandt formula, i.e.\ $\eta<\eta^\star$. Conversely, for $\eta<\eta^\star$, $I-N$ is a nonsingular M-matrix and $c'>0$; with $\Sigma_0=\operatorname{diag}(\E w_k^2)$ and $\Sigma_1=A\Sigma_0/(1+\beta)$ the matrix $Q=\begin{psmallmatrix}\Sigma_0&\Sigma_1\\\Sigma_1&\Sigma_0\end{psmallmatrix}$ is positive definite ($|1-2x_k|<1$ because $\eta<\eta^\star\le2(1+\beta)/\lambda_1$, as $\mu^\star\ge e_1^\top\widetilde{\mathcal M}e_1\ge\lambda_1$) and solves $Q=\T(Q)+G$; then $Q_\varepsilon=Q-\varepsilon G\succ0$ and $Q_\varepsilon-\T(Q_\varepsilon)=(1-\varepsilon)G+\varepsilon\T(G)\succ0$ for small $\varepsilon>0$, which forces $\rho(\T)<1$. The formula for $\ell_\infty$ follows from $\E w_k^2=\widehat h_k(1)(\sigma_k^2+p\gamma\lambda_k\ell_\infty)$.
+
+\emph{(c).} Write $\T_{\mathrm{diag}}=\mathcal A+\eta^2p\gamma rr^\top$, $\mathcal A=\operatorname{blkdiag}(\widetilde B_k)$; then $\eta^2p\gamma\,r^\top(I-z\mathcal A)^{-1}r=\widehat K(z)$ and $\det(I-z\T_{\mathrm{diag}})=\prod_k\det(I-z\widetilde B_k)\,\big(1-z\widehat K(z)\big)$. $\T_{\mathrm{diag}}$ preserves the cone of matrices whose $P$ blocks $\begin{psmallmatrix}x_k&y_k\\y_k&m_k\end{psmallmatrix}$ are positive semidefinite, so $\rho=\rho(\T_{\mathrm{diag}})>0$ has an eigenvector $X\ne0$ in this cone. If $r^\top X=\sum_k\lambda_kx_k=0$, then every $x_k=0$, hence $y_k=0$, and the third coordinate of $\T_{\mathrm{diag}}X$ is $x_k=0=\rho m_k$, so $X=0$; thus $r^\top X>0$ and $(\rho-\mathcal A)X=\eta^2p\gamma(r^\top X)r\ne0$. If $\rho$ were an eigenvalue of $\widetilde B_k$, the $(1,1)$ cofactor of $\rho-\widetilde B_k$, which equals $\rho(\rho+\beta)>0$ for every $c_k$, would make the adjugate nonzero with a left null vector $\ell$, $\ell_1\ne0$, so $e_1\notin\operatorname{range}(\rho-\widetilde B_k)$, a contradiction. Hence $X=\eta^2p\gamma(r^\top X)(\rho-\mathcal A)^{-1}r$ and $z\widehat K(z)=1$ at $z=1/\rho$. Any positive root $z'$ of $z\widehat K=1$ at which $\widehat K$ is finite makes the determinant vanish, so $1/z'\le\rho$.
+
+\emph{(d).} With $c_k\ge0$, $h_k\ge0$, $K_\tau\ge0$ and $K_0=p\gamma\eta^2\sum_k\lambda_k^2>0$. Each $\widehat h_k$ is rational with nonnegative coefficients, so its smallest-modulus singularity is a positive pole where it tends to $+\infty$ (Pringsheim), or it is a polynomial; hence $z\widehat K$ increases from $0$ to $+\infty$ on $[0,R_K)$, $R_K=\min_k R_k$, and has a unique root there, which is $z_\star=1/\rho$ by (c), and $z_\star>1$ since $\rho<1$. For $|z|\le z_\star$, $z\ne z_\star$: $\operatorname{Re}(z\widehat K(z))=\sum_\tau K_\tau\operatorname{Re}z^{\tau+1}<\sum_\tau K_\tau z_\star^{\tau+1}=1$, since equality would need $z^{\tau+1}>0$ for $\tau=0$. So $1-z\widehat K$ has no other zero in $|z|\le z_\star$; the zero is simple as $\frac{d}{dz}(z\widehat K)(z_\star)=\sum_\tau(\tau+1)K_\tau z_\star^\tau>0$; and the poles of $\widehat\phi$ lie in $|z|\ge R_K>z_\star$. The rational function $\widehat\ell$ thus has, in $|z|\le z_\star$, only simple poles at $1$ (residue $-\ell_\infty$) and at $z_\star$, which gives the expansion with the stated $C$; $C>0$ because $\widehat\phi(z_\star)>0$, $z_\star>1$ and the derivative is positive.
+
+\emph{(e).} At $\eta^\star$, $\rho(\T)=1$ by continuity, so $z_\star=1$; and $1<R_K$: $c_k\ge0$ gives $\alpha_k\ge1$, the admissible range gives $\alpha_kx_k<1$ and hence $x_k<1$, so the poles of $\widehat\psi_k$ lie outside the closed unit disk and $c_kz\widehat\psi_k(z)\le c_k\widehat\psi_k(1)<1$ on $[0,1]$, the last inequality being $(1-x_k)(1-c_k\widehat\psi_k(1))=1-\alpha_kx_k>0$; hence $R_k>1$. The argument of (d) applies at $\eta^\star$ as well, so $z_\star(\eta)$ is the branch through $(1,\eta^\star)$. Thus $\Phi(z,\eta)=z\widehat K(z;\eta)$ is analytic near $(1,\eta^\star)$, with $\partial_z\Phi=\sum_\tau(\tau+1)K_\tau>0$ and $\partial_\eta\Phi=S'(\eta^\star)$ because $\widehat K(1;\eta)=S(\eta)$ there. Each term of $S$ has the form $\eta/(1-\eta d_k)$ with $\eta d_k<1$, so $S'>0$. The implicit function theorem gives $z_\star(\eta)$ with $z_\star'(\eta^\star)=-S'/\partial_z\Phi$, and $\rho=1/z_\star$.
+
+\paragraph{Corollary~\ref{cor:special}.}
+(i) With $\Lambda=\eta I$, $A=H$, $S=B$ and $\mu=\beta$, $\frac1B\tr[\Lambda AG_\mu^{-1}]=\frac{\eta}{B}\sum_k\frac{\lambda_k}{2(1-\beta)-(\frac{1-\beta}{1+\beta}+\frac1B)\eta\lambda_k}$, which is $S(\eta)$ at $\gamma=1$, $\kappa_k=0$ ($\alpha_k=1+p\kappa_\beta$); equation~(56) of \citet{wang2026momentum} is the same sum. (ii) Substitute $\lambda_k=q\tilde\lambda_k$, $\gamma=1/q$, $\kappa_k=0$, $\eta=(1-\beta)\eta_{\mathrm{EMA}}$ in $S$; for $\tilde\lambda_k\equiv1$ the equation is linear in $\eta_{\mathrm{EMA}}$, and in (c) all modes are equal, so $1=z\widehat K(z)$ becomes $Q_3(z)=\eta^2(Pp\gamma\lambda^2+c)z(1+\beta z)$ with $Q_3$ the cubic denominator of $\widehat\psi$. (iii) $\alpha_k\lambda_k=q_k\tilde\lambda_k+p\kappa_\beta\tilde\lambda_k(3+\tilde\kappa_k-2q_k)$.
+(iv) From $\alpha_k\lambda_k=\lambda_k+\kappa_\beta c_k/\lambda_k$, $\alpha_kx_k=\eta_{\mathrm{EMA}}d_k$ and $\frac{\eta p\gamma}{2(1-\beta)}=\frac{\eta_{\mathrm{EMA}}p\gamma}2$; with $\mu^\star=\lambda_{\max}(\widetilde{\mathcal M})$ from the proof of Theorem~\ref{thm:main}(a), $1/\eta^\star_{\mathrm{EMA}}=\mu^\star/(2\kappa_\beta)$ gives the second formula, and $\widetilde{\mathcal M}=H+p\kappa_\beta M_\infty$ gives (c). (a) With $y=1/\eta_{\mathrm{EMA}}$, the level $s$ is the root of $F_\theta(y)=\sum_k\lambda_k/(y-d_k)=2s/(p\gamma)$ on $y>\max(\max_kd_k,0)$, where $F_\theta$ decreases; it exists for $s\le1$ because it exists for $s=1$. From $\beta=0$ to $\beta$ every $d_k$ decreases by $\delta_k=\frac{\beta}{1+\beta}\lambda_k$. If $y_0$ is the root at $\beta=0$, then $y_0\ge\mu^\star/2\ge\lambda_{\max}/2>\max_k\delta_k$, $F_\theta(y_0-\min_k\delta_k)\le F_1(y_0)$ and $F_\theta(y_0-\max_k\delta_k)\ge F_1(y_0)$ (when $y_0-\max_k\delta_k$ is admissible), so the root at $\beta$ lies in $[y_0-\max_k\delta_k,\,y_0-\min_k\delta_k]$; the same comparison between $\beta_1<\beta_2$ gives the strict increase. (b) As $\theta\downarrow0$, $\operatorname{diag}(d_k)$ decreases to $\operatorname{diag}(c_k/(2\lambda_k))=\frac p2\operatorname{diag}((\gamma(2+\kappa_k)-1)\lambda_k)$. Since $(\gamma(2+\kappa_k)-1)\lambda_k\ge-\lambda_k$ and $\gamma\ge1$, $M_\infty\succeq-H+\sqrt\lambda\sqrt\lambda^\top$, whose principal $2\times2$ submatrix on the two largest eigenvalues has top eigenvalue $\sqrt{\lambda_{(1)}\lambda_{(2)}}$; Cauchy interlacing gives the bound. For $s<1$ the limiting root is finite: a mode with $c_k>0$ gives a pole, a mode with $c_k=0$ an unbounded term, and if every $c_k<0$ the limiting sum tends to $\sum_k\gamma/(1-\gamma(2+\kappa_k))\ge P\gamma\ge1>s$. (c) Since $G\succ0$, $\lambda_{\max}(H+\tau M_\infty)<2\lambda_{\max}$ if and only if $\tau G^{-1/2}M_\infty G^{-1/2}\prec I$; with $\tau=\frac{1+\beta}{(1-\beta)B}$ this is $B>B_{1/2}(\beta)$, and equality on one side is equality on the other. Ostrowski's theorem with $\lambda_{\max}I\preceq G\preceq2\lambda_{\max}I$ gives the bracket.
+
+\paragraph{Proposition~\ref{prop:1d}.}
+Here $\widetilde{\mathcal M}=\alpha H+p\kappa_\beta\sqrt\lambda\sqrt\lambda^\top$ in the eigenbasis of $H$ and $\mu^\star=\lambda_{\max}(\widetilde{\mathcal M})$. The Rayleigh quotients at $e_1$ and at $\sqrt\lambda/\sqrt{\tr H}$ give $\mu^\star\ge(\alpha+p\kappa_\beta)\lambda_1=\mu_{\mathrm{1D}}$ and $\mu^\star\ge\alpha\tr H^2/\tr H+p\kappa_\beta\tr H$; Weyl's inequality gives $\mu^\star\le\max_k\alpha\lambda_k+p\kappa_\beta\tr H\le\max(\alpha,0)\lambda_1+p\kappa_\beta\tr H$. The ratio of thresholds is $\mu^\star/\mu_{\mathrm{1D}}$.
+
+\paragraph{Proposition~\ref{prop:floor}.}
+Here $\sigma_k^2=\sigma^2p\lambda_k$, so $f_\infty=\frac{\sigma^2}{\gamma}S$ and Theorem~\ref{thm:main}(a) gives $\ell_\infty$. With $c_k\ge0$, $K_\tau\ge0$, $\sum_\tau K_\tau=\widehat K(1)=S$ and $\sum_\tau K_\tau z_\star^{\tau+1}=1$ with $z_\star=1/\rho(\T)>1$; by convexity of $x\mapsto z_\star^x$, $1/S=\sum_\tau\frac{K_\tau}{S}z_\star^{\tau+1}\ge z_\star^{\bar\tau}$, so $\rho(\T)\ge S^{1/\bar\tau}$, and $\bar\tau\ge1$, $S<1$ give $S^{1/\bar\tau}\ge S$. The table is part~G of \texttt{note-v2-checks.py}.
+
+\paragraph{Proposition~\ref{prop:eff}.}
+With $\eta=(1-\beta)\eta_{\mathrm{eff}}$, Theorem~\ref{thm:lyap}(2) reads $M_\beta\Sigma_0=\eta_{\mathrm{eff}}\Sigma_\xi$, $M_\beta=\mathcal L_0-\eta_{\mathrm{eff}}\mathcal A_\beta$, $\mathcal A_\beta=(1-\beta)\mathcal B_\beta$, and $M_\beta\succ0$ at stable $\beta$ by Proposition~\ref{prop:cai}. In the eigenbasis of $H$, $\mathcal A_0-\mathcal A_\beta$ multiplies entry $(j,k)$ by $m_{jk}(\beta)=\frac{2\beta}{1+\beta}\lambda_j\lambda_k+\frac{\beta}{1-\beta^2}(\lambda_j-\lambda_k)^2$, which increases strictly in $\beta$ and is positive. (i) By Proposition~\ref{prop:cai}, $1/\eta^\star_{\mathrm{eff}}(\beta)=\lambda_{\max}(\mathcal L_0^{-1/2}\mathcal A_\beta\mathcal L_0^{-1/2})$, and $\mathcal L_0^{-1/2}(\mathcal A_{\beta_1}-\mathcal A_{\beta_2})\mathcal L_0^{-1/2}\succ0$ for $\beta_1<\beta_2$, so Weyl's inequality gives the strict increase; $m_{jk}(\beta)\ge\frac{\beta}{1+\beta}(\lambda_j^2+\lambda_k^2)\ge\frac{\beta}{1+\beta}\lambda_{\min}(H)(\lambda_j+\lambda_k)$ gives $\mathcal L_0^{-1/2}(\mathcal A_0-\mathcal A_\beta)\mathcal L_0^{-1/2}\succeq\frac{\beta}{1+\beta}\lambda_{\min}(H)I$ and the margin. (ii) $M_{\beta_2}-M_{\beta_1}\succ0$, $M_{\beta_2}^{-1}\prec M_{\beta_1}^{-1}$, and $\tr(\Sigma_\xi\Sigma_0)=\eta_{\mathrm{eff}}\langle\Sigma_\xi,M_\beta^{-1}\Sigma_\xi\rangle$ decreases strictly. The example is computed in \texttt{note-v2-checks.py} (part E), where both values of $\beta$ have $\rho(\T)<1$ (0.809 and 0.966); the minibatch Hessian $H+N$ is indefinite (eigenvalues $-0.466$, $0.966$) and $H-N$ is positive definite.
+
+\renewcommand{\bibfont}{\footnotesize}\setlength{\bibsep}{0pt}
+\bibliographystyle{plainnat}
+\bibliography{refs-v2}
+
+\end{document}

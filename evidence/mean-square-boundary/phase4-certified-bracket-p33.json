@@ -1,0 +1,314 @@
+{
+ "labId": "mean-square-boundary-phase4-certified-bracket-p33",
+ "cells": 16,
+ "allInside": true,
+ "minLowOverUp": 0.9993187757730863,
+ "rows": [
+  {
+   "beta": 0,
+   "tetherGrid": 128,
+   "mu": 128.00801473605588,
+   "batchB": 16,
+   "etaLow": 0.014948331128560984,
+   "etaUp": 0.014948331128568339,
+   "lowOverUp": 0.999999999999508,
+   "etaThmG6Stored": 0.014948331128564684,
+   "etaDense": 0.014948331128564703,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 19,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 32,
+   "mu": 32.00801473605587,
+   "batchB": 16,
+   "etaLow": 0.052832709919403816,
+   "etaUp": 0.05283270991957597,
+   "lowOverUp": 0.9999999999967415,
+   "etaThmG6Stored": 0.052832709919563035,
+   "etaDense": 0.052832709919563035,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 19,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 8,
+   "mu": 8.008014736055872,
+   "batchB": 16,
+   "etaLow": 0.14270912842989597,
+   "etaUp": 0.1427091284330075,
+   "lowOverUp": 0.9999999999781967,
+   "etaThmG6Stored": 0.14270912843297254,
+   "etaDense": 0.14270912843297257,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 19,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 2,
+   "mu": 2.0080147360558707,
+   "batchB": 16,
+   "etaLow": 0.24286101313235442,
+   "etaUp": 0.24286101314742384,
+   "lowOverUp": 0.9999999999379504,
+   "etaThmG6Stored": 0.24286101314736386,
+   "etaDense": 0.24286101314736355,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 19,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 0.5,
+   "mu": 0.5080147360558709,
+   "batchB": 16,
+   "etaLow": 0.29055072831519896,
+   "etaUp": 0.2905507283405754,
+   "lowOverUp": 0.999999999912661,
+   "etaThmG6Stored": 0.2905507283405032,
+   "etaDense": 0.2905507283405034,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 18,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 0.125,
+   "mu": 0.13301473605587086,
+   "batchB": 16,
+   "etaLow": 0.3042998385239504,
+   "etaUp": 0.30429983855252124,
+   "lowOverUp": 0.9999999999061094,
+   "etaThmG6Stored": 0.3042998385524457,
+   "etaDense": 0.30429983855244536,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 18,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 0.03125,
+   "mu": 0.03926473605587086,
+   "batchB": 16,
+   "etaLow": 0.30763346280425446,
+   "etaUp": 0.30763346283342197,
+   "lowOverUp": 0.9999999999051875,
+   "etaThmG6Stored": 0.30763346283334536,
+   "etaDense": 0.30763346283334536,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 18,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0,
+   "tetherGrid": 0.0078125,
+   "mu": 0.015827236055870858,
+   "batchB": 16,
+   "etaLow": 0.30841041459575635,
+   "etaUp": 0.3084104146250021,
+   "lowOverUp": 0.9999999999051725,
+   "etaThmG6Stored": 0.3084104146249254,
+   "etaDense": 0.3084104146249254,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 18,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 128,
+   "mu": 128.00801473605588,
+   "batchB": 16,
+   "etaLow": 0.028307599793079893,
+   "etaUp": 0.028307599793212613,
+   "lowOverUp": 0.9999999999953115,
+   "etaThmG6Stored": 0.028307599793205705,
+   "etaDense": 0.028307599793205677,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 1e-9
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 32,
+   "mu": 32.00801473605587,
+   "batchB": 16,
+   "etaLow": 0.09601489439859366,
+   "etaUp": 0.09601489914183314,
+   "lowOverUp": 0.9999999505989224,
+   "etaThmG6Stored": 0.09601489914180136,
+   "etaDense": 0.09601489914180147,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.000001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 8,
+   "mu": 8.008014736055872,
+   "batchB": 16,
+   "etaLow": 0.19406334757189875,
+   "etaUp": 0.194067824401223,
+   "lowOverUp": 0.9999769316251261,
+   "etaThmG6Stored": 0.1940678242484763,
+   "etaDense": 0.19406782424847727,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.0001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 2,
+   "mu": 2.0080147360558707,
+   "batchB": 16,
+   "etaLow": 0.1807563390332057,
+   "etaUp": 0.18081066475485932,
+   "lowOverUp": 0.999699543598674,
+   "etaThmG6Stored": 0.18081066083757374,
+   "etaDense": 0.18081066083757183,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 0.5,
+   "mu": 0.5080147360558709,
+   "batchB": 16,
+   "etaLow": 0.13954530593138914,
+   "etaUp": 0.13958924608327491,
+   "lowOverUp": 0.9996852182161686,
+   "etaThmG6Stored": 0.13958923784578042,
+   "etaDense": 0.13958923784577937,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 0.125,
+   "mu": 0.13301473605587086,
+   "batchB": 16,
+   "etaLow": 0.12094261216761462,
+   "etaUp": 0.12098939955844697,
+   "lowOverUp": 0.9996132934703115,
+   "etaThmG6Stored": 0.12098939412550205,
+   "etaDense": 0.12098939412550203,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 0.03125,
+   "mu": 0.03926473605587086,
+   "batchB": 16,
+   "etaLow": 0.1144647660106182,
+   "etaUp": 0.11450515178055953,
+   "lowOverUp": 0.9996473017212472,
+   "etaThmG6Stored": 0.1145051489501093,
+   "etaDense": 0.1145051489501085,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.001
+  },
+  {
+   "beta": 0.9,
+   "tetherGrid": 0.0078125,
+   "mu": 0.015827236055870858,
+   "batchB": 16,
+   "etaLow": 0.11234404439297514,
+   "etaUp": 0.11242062804840658,
+   "lowOverUp": 0.9993187757730863,
+   "etaThmG6Stored": 0.11242062607100459,
+   "etaDense": 0.11242062607100342,
+   "storedInside": true,
+   "denseInside": true,
+   "lanczosSteps": 30,
+   "lengthsTried": [
+    30
+   ],
+   "witnessPositiveDefinite": true,
+   "bestEps": 0.0001
+  }
+ ],
+ "date": "2026-11-01T07:39:07.475Z",
+ "nodeVersion": "v24.18.0"
+}

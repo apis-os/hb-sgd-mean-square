@@ -1,0 +1,44 @@
+{
+  "labId": "mean-square-boundary-networks",
+  "date": "2026-10-23T07:29:37.727Z",
+  "networks": [
+    {
+      "dIn": 64,
+      "dHidden": 48,
+      "dOut": 10,
+      "numParams": 3610,
+      "numSamples": 64,
+      "checkpointLoss0": 0.01501017718315492,
+      "lambda1AnalyticalHvp": 98.67701845430314,
+      "lambda2AnalyticalHvp": 66.19049703571346,
+      "spectralGapRatio": 1.4908034064325184,
+      "analyticalVsCentralDiffHvpRelErr": 4.5806938303166444e-10,
+      "etaCritQuadraticSgd": 0.02026814380215785,
+      "etaCritDestructiveSgd": 0.020268146218308872,
+      "etaCritQuadraticHb09": 0.038509473224099915,
+      "etaCritDestructiveHb09": 0.03850957880989962,
+      "minibatchHessianStdB16": 22.610552417438612,
+      "tetheredEtaCritEosHb09": 0.0377444630198778,
+      "tetheredEtaCritEossL2B16Hb09": 0.019273797410552154
+    },
+    {
+      "dIn": 256,
+      "dHidden": 48,
+      "dOut": 10,
+      "numParams": 12826,
+      "numSamples": 64,
+      "checkpointLoss0": 0.18480586024040113,
+      "lambda1AnalyticalHvp": 148.35313389595672,
+      "lambda2AnalyticalHvp": 77.36639348024627,
+      "spectralGapRatio": 1.9175397381530428,
+      "analyticalVsCentralDiffHvpRelErr": 1.5337341106919936e-08,
+      "etaCritQuadraticSgd": 0.013481346483739559,
+      "etaCritDestructiveSgd": 0.013481393089689916,
+      "etaCritQuadraticHb09": 0.02561455831910516,
+      "etaCritDestructiveHb09": 0.025760567208201503,
+      "minibatchHessianStdB16": 48.02409241710481,
+      "tetheredEtaCritEosHb09": 0.025273833019201133,
+      "tetheredEtaCritEossL2B16Hb09": 0.008601176237349214
+    }
+  ]
+}

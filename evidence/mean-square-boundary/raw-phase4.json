@@ -1,0 +1,2319 @@
+{
+  "labId": "l67-southwell-eos-phase13",
+  "date": "2026-10-28T09:25:09.041Z",
+  "nodeVersion": "v26.5.0",
+  "batchB": 16,
+  "tetherGrid": [
+    128,
+    32,
+    8,
+    2,
+    0.5,
+    0.125,
+    0.03125,
+    0.0078125
+  ],
+  "predictionTexts": {
+    "t1": "Theorem G.6 is exact on network Hessians: in every operator cell (P = 33: beta in {0, 0.9} and every tether; P = 3,610: beta = 0.9, g = 2) the spectral radius of the exact second-moment operator T is below 1 at (1 - 1e-3) eta* and above 1 at (1 + 1e-3) eta*, with eta* = 1 / lambda_max(L_0^{-1/2} B_beta L_0^{-1/2}) by Lanczos.",
+    "t2": "The mean Hessian of the P = 3,610 network is indefinite: the smallest eigenvalue of its full eigendecomposition is negative (the shifted power iteration of Phase 10 gave only the upper bound 0.012; the Gauss-Newton part has rank at most 640 and the residual part of the squared loss is indefinite on its null space).",
+    "t3": "Mean-square stability implies almost-sure stability: in every cell the median sample-path ceiling of the linearised iteration is at least (1 - 0.02) eta* minus the largest bisection half-width.",
+    "t4": "Linearisation: in every cell the median sample-path ceiling of the network iteration (start 1e-6 from the checkpoint) is within 2 % plus the two largest bisection half-widths of the median ceiling of the linearised iteration.",
+    "t5": "Flat-mode collapse at P = 3,610: eta* decreases from g = 1/32 to g = 1/128, and the log-log slope of eta* against the smallest tethered eigenvalue between these two grid values lies in [0.4, 1.1] (the flat-mode bounds of Theorem G.5 give O(m) when the T_flat bound applies and O(sqrt(m)) from the pairwise bound otherwise; the interval allows for a grid that is not yet asymptotic).",
+    "t6": "The fraction f* = eta* (lambda_1 + mu) / (2 (1 + beta)) of the deterministic threshold is non-decreasing in mu along the grid, on both networks and for every beta (at fixed f every weight of the Rayleigh quotient of Theorem G.6(2) grows with mu and the numerator does not depend on mu). eta* itself need not be monotone; its interior maxima are reported, not predicted."
+  },
+  "predictions": {
+    "t1": true,
+    "t2": true,
+    "t3": true,
+    "t4": true,
+    "t5": false,
+    "t6": true
+  },
+  "implementationCheckTexts": {
+    "c1": "For consecutive grid values mu1 < mu2 with eta*(mu1) <= eta_det(mu2) / 2, eta*(mu2) >= eta*(mu1) (below half the deterministic threshold every weight of Theorem G.6(2) grows with mu at fixed eta).",
+    "c3": "Every operator cell left undecided by its certificates at 1e-3 is decided at the fallback offset 1e-2 (rule fixed before the P = 3,610 run).",
+    "c2": "Every operator cell is decided by Collatz-Wielandt certificates at the last iterate: Q - T(Q) > 0 at (1 - 1e-3) eta* and T(Q) - Q > 0 at (1 + 1e-3) eta* (P = 33: from the full bracket [lambda_min, lambda_max] of Q^{-1/2} T(Q) Q^{-1/2}; P = 3,610: by Cholesky)."
+  },
+  "implementationChecks": {
+    "c1": true,
+    "c2": false,
+    "c3": false
+  },
+  "networks": [
+    {
+      "networkId": "N33_mlp",
+      "numParams": 33,
+      "numSamples": 64,
+      "hessianSource": "dense, central differences of per-sample gradients (eps 1e-5), symmetrised",
+      "lambda1": 5.762792099753815,
+      "lambda2": 2.9966395652833664,
+      "lambdaMin": -0.008014736055870856,
+      "negativeEigenvalues": 2,
+      "lambdaSecond": -0.006346927629161653,
+      "eigenvaluesBelowTwiceAbsMin": 9,
+      "traceH": 17.523406916813038,
+      "nuB11Sq": 3.1045450128019456,
+      "eigendecompositionSeconds": 0.012,
+      "thresholds": [
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 128,
+          "mu": 128.00801473605588,
+          "lambdaMinTethered": 128,
+          "lambda1Tethered": 133.7708068358097,
+          "etaDeterministic": 0.014950945182343111,
+          "etaOneDim": 0.014948351787888763,
+          "etaThmG6": 0.014948331128564684,
+          "lanczosIterations": 16,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.897754560649287e-11,
+          "oneDimOverThmG6": 1.0000013820488656,
+          "fractionOfDeterministic": 0.9998251579584738,
+          "lambdaSecondTethered": 128.00166780842673,
+          "criticalMode": {
+            "shareTop": 0.991200664304809,
+            "shareRigid": 0.008758384200681257,
+            "sharePositiveFlat": 0.00003515776474151921,
+            "shareNegative": 0.0000057937297682730916,
+            "lagOneRatio": -0.9991503236298429,
+            "lanczosRelResidual": 1.897754560649287e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 32,
+          "mu": 32.00801473605587,
+          "lambdaMinTethered": 32,
+          "lambda1Tethered": 37.77080683580969,
+          "etaDeterministic": 0.052950947240656854,
+          "etaOneDim": 0.0528359691440594,
+          "etaThmG6": 0.052832709919563035,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 2.9180759919176876e-11,
+          "oneDimOverThmG6": 1.0000616895196428,
+          "fractionOfDeterministic": 0.9977670404920909,
+          "lambdaSecondTethered": 32.00166780842671,
+          "criticalMode": {
+            "shareTop": 0.9673501149501933,
+            "shareRigid": 0.03249001246968523,
+            "sharePositiveFlat": 0.00013715825749444023,
+            "shareNegative": 0.000022714322627106535,
+            "lagOneRatio": -0.9889218020710775,
+            "lanczosRelResidual": 2.9180759919176876e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 8,
+          "mu": 8.008014736055872,
+          "lambdaMinTethered": 8,
+          "lambda1Tethered": 13.770806835809687,
+          "etaDeterministic": 0.1452347726495726,
+          "etaOneDim": 0.14289541044845122,
+          "etaThmG6": 0.14270912843297254,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 3.4737706837616305e-11,
+          "oneDimOverThmG6": 1.001305326558463,
+          "fractionOfDeterministic": 0.9826099206786104,
+          "lambdaSecondTethered": 8.00166780842671,
+          "criticalMode": {
+            "shareTop": 0.8968616065572823,
+            "shareRigid": 0.10254269780574307,
+            "sharePositiveFlat": 0.0005101689906717175,
+            "shareNegative": 0.00008552664630299472,
+            "lagOneRatio": -0.9072541491694724,
+            "lanczosRelResidual": 3.4737706837616305e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 2,
+          "mu": 2.0080147360558707,
+          "lambdaMinTethered": 1.9999999999999998,
+          "lambda1Tethered": 7.770806835809686,
+          "etaDeterministic": 0.257373531765522,
+          "etaOneDim": 0.2447884330541145,
+          "etaThmG6": 0.24286101314736386,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.721747140892979e-11,
+          "oneDimOverThmG6": 1.0079363084332564,
+          "fractionOfDeterministic": 0.9436130105586005,
+          "lambdaSecondTethered": 2.001667808426709,
+          "criticalMode": {
+            "shareTop": 0.7594013679669391,
+            "shareRigid": 0.23853204585032706,
+            "sharePositiveFlat": 0.001764969037562061,
+            "shareNegative": 0.0003016171451717111,
+            "lagOneRatio": -0.6426657670527021,
+            "lanczosRelResidual": 1.721747140892979e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 0.5,
+          "mu": 0.5080147360558709,
+          "lambdaMinTethered": 0.5,
+          "lambda1Tethered": 6.270806835809686,
+          "etaDeterministic": 0.3189382247558516,
+          "etaOneDim": 0.2956006112785833,
+          "etaThmG6": 0.2905507283405032,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.1548024541571177e-11,
+          "oneDimOverThmG6": 1.017380382995158,
+          "fractionOfDeterministic": 0.9109937467135553,
+          "lambdaSecondTethered": 0.5016678084267092,
+          "criticalMode": {
+            "shareTop": 0.5968669022597466,
+            "shareRigid": 0.3964176615734225,
+            "sharePositiveFlat": 0.005707647580579016,
+            "shareNegative": 0.001007788586251948,
+            "lagOneRatio": -0.29180637770032447,
+            "lanczosRelResidual": 1.1548024541571177e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 0.125,
+          "mu": 0.13301473605587086,
+          "lambdaMinTethered": 0.125,
+          "lambda1Tethered": 5.895806835809686,
+          "etaDeterministic": 0.3392241394091289,
+          "etaOneDim": 0.31141127014777226,
+          "etaThmG6": 0.3042998385524457,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.2105530485762626e-11,
+          "oneDimOverThmG6": 1.0233698171814867,
+          "fractionOfDeterministic": 0.8970465341366465,
+          "lambdaSecondTethered": 0.12666780842670922,
+          "criticalMode": {
+            "shareTop": 0.4696791789345352,
+            "shareRigid": 0.5096535174160892,
+            "sharePositiveFlat": 0.017330971970301007,
+            "shareNegative": 0.0033363316790744695,
+            "lagOneRatio": -0.017368168247573573,
+            "lanczosRelResidual": 1.2105530485762626e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 0.03125,
+          "mu": 0.03926473605587086,
+          "lambdaMinTethered": 0.03125,
+          "lambda1Tethered": 5.802056835809686,
+          "etaDeterministic": 0.3447053444316867,
+          "etaOneDim": 0.3156001070697481,
+          "etaThmG6": 0.30763346283334536,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.222847805542028e-11,
+          "oneDimOverThmG6": 1.0258965463738206,
+          "fractionOfDeterministic": 0.8924534179780081,
+          "lambdaSecondTethered": 0.0329178084267092,
+          "criticalMode": {
+            "shareTop": 0.38955029970929717,
+            "shareRigid": 0.5537482275491129,
+            "sharePositiveFlat": 0.04544822029919466,
+            "shareNegative": 0.011253252442395088,
+            "lagOneRatio": 0.15535863076600548,
+            "lanczosRelResidual": 1.222847805542028e-11
+          }
+        },
+        {
+          "beta": 0,
+          "batchB": 16,
+          "tetherGrid": 0.0078125,
+          "mu": 0.015827236055870858,
+          "lambdaMinTethered": 0.007812500000000002,
+          "lambda1Tethered": 5.778619335809686,
+          "etaDeterministic": 0.34610343470907395,
+          "etaOneDim": 0.31666282064969664,
+          "etaThmG6": 0.3084104146249254,
+          "lanczosIterations": 17,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.2622548718362308e-11,
+          "oneDimOverThmG6": 1.0267578707898286,
+          "fractionOfDeterministic": 0.8910931926583382,
+          "lambdaSecondTethered": 0.009480308426709206,
+          "criticalMode": {
+            "shareTop": 0.33778142754968987,
+            "shareRigid": 0.5401046126488093,
+            "sharePositiveFlat": 0.08440778020132282,
+            "shareNegative": 0.0377061796001781,
+            "lagOneRatio": 0.26723332403711464,
+            "lanczosRelResidual": 1.2622548718362308e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 128,
+          "mu": 128.00801473605588,
+          "lambdaMinTethered": 128,
+          "lambda1Tethered": 133.7708068358097,
+          "etaDeterministic": 0.028406795846451907,
+          "etaOneDim": 0.02831346570986243,
+          "etaThmG6": 0.028307599793205705,
+          "lanczosIterations": 26,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 1.8324464209559083e-11,
+          "oneDimOverThmG6": 1.0002072205591281,
+          "fractionOfDeterministic": 0.9965080168216651,
+          "lambdaSecondTethered": 128.00166780842673,
+          "criticalMode": {
+            "shareTop": 0.8617240078812576,
+            "shareRigid": 0.13760554814959317,
+            "sharePositiveFlat": 0.0005750039404657384,
+            "shareNegative": 0.00009544002868355165,
+            "lagOneRatio": -0.9851322530291462,
+            "lanczosRelResidual": 1.8324464209559083e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 32,
+          "mu": 32.00801473605587,
+          "lambdaMinTethered": 32,
+          "lambda1Tethered": 37.77080683580969,
+          "etaDeterministic": 0.10060679975724802,
+          "etaOneDim": 0.09661221997615439,
+          "etaThmG6": 0.09601489914180136,
+          "lanczosIterations": 42,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 5.998896343821424e-11,
+          "oneDimOverThmG6": 1.0062211265094478,
+          "fractionOfDeterministic": 0.9543579496959813,
+          "lambdaSecondTethered": 32.00166780842671,
+          "criticalMode": {
+            "shareTop": 0.6454941579486992,
+            "shareRigid": 0.35260079252235166,
+            "sharePositiveFlat": 0.001632675942298039,
+            "shareNegative": 0.000272373586651026,
+            "lagOneRatio": -0.8389606112898429,
+            "lanczosRelResidual": 5.998896343821424e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 8,
+          "mu": 8.008014736055872,
+          "lambdaMinTethered": 8,
+          "lambda1Tethered": 13.770806835809687,
+          "etaDeterministic": 0.2759460680341879,
+          "etaOneDim": 0.21047685335114,
+          "etaThmG6": 0.1940678242484763,
+          "lanczosIterations": 59,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.069216533603941e-11,
+          "oneDimOverThmG6": 1.0845530636838299,
+          "fractionOfDeterministic": 0.7032817159925343,
+          "lambdaSecondTethered": 8.00166780842671,
+          "criticalMode": {
+            "shareTop": 0.38505407825518306,
+            "shareRigid": 0.6110343408858269,
+            "sharePositiveFlat": 0.0033520237758969712,
+            "shareNegative": 0.0005595570830931823,
+            "lagOneRatio": -0.15448124066088795,
+            "lanczosRelResidual": 9.069216533603941e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 2,
+          "mu": 2.0080147360558707,
+          "lambdaMinTethered": 1.9999999999999998,
+          "lambda1Tethered": 7.770806835809686,
+          "etaDeterministic": 0.48900971035449187,
+          "etaOneDim": 0.24737054672834663,
+          "etaThmG6": 0.18081066083757374,
+          "lanczosIterations": 70,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 3.8907457371118224e-11,
+          "oneDimOverThmG6": 1.3681192557034296,
+          "fractionOfDeterministic": 0.3697486103220749,
+          "lambdaSecondTethered": 2.001667808426709,
+          "criticalMode": {
+            "shareTop": 0.19047513644833886,
+            "shareRigid": 0.802503202441556,
+            "sharePositiveFlat": 0.006014287026491122,
+            "shareNegative": 0.0010073740836139505,
+            "lagOneRatio": 0.5857652138333611,
+            "lanczosRelResidual": 3.8907457371118224e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.5,
+          "mu": 0.5080147360558709,
+          "lambdaMinTethered": 0.5,
+          "lambda1Tethered": 6.270806835809686,
+          "etaDeterministic": 0.6059826270361179,
+          "etaOneDim": 0.24238854444673677,
+          "etaThmG6": 0.13958923784578042,
+          "lanczosIterations": 74,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 5.4697751812453156e-11,
+          "oneDimOverThmG6": 1.7364414921050721,
+          "fractionOfDeterministic": 0.23035188076020632,
+          "lambdaSecondTethered": 0.5016678084267092,
+          "criticalMode": {
+            "shareTop": 0.09949154660900508,
+            "shareRigid": 0.8860547575824728,
+            "sharePositiveFlat": 0.012297256302967246,
+            "shareNegative": 0.002156439505554964,
+            "lagOneRatio": 0.839394705392598,
+            "lanczosRelResidual": 5.4697751812453156e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.125,
+          "mu": 0.13301473605587086,
+          "lambdaMinTethered": 0.125,
+          "lambda1Tethered": 5.895806835809686,
+          "etaDeterministic": 0.6445258648773449,
+          "etaOneDim": 0.23898462276880583,
+          "etaThmG6": 0.12098939412550205,
+          "lanczosIterations": 73,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.76467314869489e-11,
+          "oneDimOverThmG6": 1.9752526615755062,
+          "fractionOfDeterministic": 0.1877184465646335,
+          "lambdaSecondTethered": 0.12666780842670922,
+          "criticalMode": {
+            "shareTop": 0.06347565560129785,
+            "shareRigid": 0.901253507090536,
+            "sharePositiveFlat": 0.02945305573137812,
+            "shareNegative": 0.005817781576788099,
+            "lagOneRatio": 0.9119980214953757,
+            "lanczosRelResidual": 9.76467314869489e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.03125,
+          "mu": 0.03926473605587086,
+          "lambdaMinTethered": 0.03125,
+          "lambda1Tethered": 5.802056835809686,
+          "etaDeterministic": 0.6549401544202047,
+          "etaOneDim": 0.23796830993998197,
+          "etaThmG6": 0.1145051489501093,
+          "lanczosIterations": 73,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.787707869922323e-11,
+          "oneDimOverThmG6": 2.078232394978731,
+          "fractionOfDeterministic": 0.17483299531615473,
+          "lambdaSecondTethered": 0.0329178084267092,
+          "criticalMode": {
+            "shareTop": 0.04732282177873961,
+            "shareRigid": 0.8662477785917602,
+            "sharePositiveFlat": 0.06847601190567401,
+            "shareNegative": 0.017953387723826285,
+            "lagOneRatio": 0.9382193824828794,
+            "lanczosRelResidual": 8.787707869922323e-11
+          }
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.0078125,
+          "mu": 0.015827236055870858,
+          "lambdaMinTethered": 0.007812500000000002,
+          "lambda1Tethered": 5.778619335809686,
+          "etaDeterministic": 0.6575965259472405,
+          "etaOneDim": 0.23770339371467328,
+          "etaThmG6": 0.11242062607100459,
+          "lanczosIterations": 73,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.723557399928191e-11,
+          "oneDimOverThmG6": 2.1144108694479287,
+          "fractionOfDeterministic": 0.17095684304150988,
+          "lambdaSecondTethered": 0.009480308426709206,
+          "criticalMode": {
+            "shareTop": 0.038368123392935466,
+            "shareRigid": 0.785800924330379,
+            "sharePositiveFlat": 0.11799808265155694,
+            "shareNegative": 0.057832869625128396,
+            "lagOneRatio": 0.9509605953645078,
+            "lanczosRelResidual": 8.723557399928191e-11
+          }
+        }
+      ],
+      "operatorChecks": [
+        {
+          "beta": 0,
+          "tetherGrid": 128,
+          "etaThmG6": 0.014948331128564684,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9960047042048651,
+          "radiusAbove": 1.00400329439636,
+          "iterationsBelow": 264,
+          "iterationsAbove": 117,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9960045595951721,
+            "upperBound": 0.9960047928182919
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0040031966184941,
+            "upperBound": 1.0040034014544081
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999990539,
+              "iterations": 101,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.4399225112713525,
+              "iterations": 211,
+              "converged": true,
+              "stepsToGrow2p5": 2.5132134447171266
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.9994723607539386,
+              "iterations": 236,
+              "converged": true,
+              "stepsToGrow2p5": 0.6610269501679183
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 32,
+          "etaThmG6": 0.052832709919563035,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9960131722179149,
+          "radiusAbove": 1.003994809925871,
+          "iterationsBelow": 124,
+          "iterationsAbove": 85,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9960131720819211,
+            "upperBound": 0.996013172290925
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0039948098488327,
+            "upperBound": 1.0039948100610305
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.999999999999976,
+              "iterations": 81,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.4389923901698694,
+              "iterations": 114,
+              "converged": true,
+              "stepsToGrow2p5": 2.5176755161383935
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.9931613872384615,
+              "iterations": 132,
+              "converged": true,
+              "stepsToGrow2p5": 0.6617808898904076
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 8,
+          "etaThmG6": 0.14270912843297254,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9960790855238979,
+          "radiusAbove": 1.0039287767181362,
+          "iterationsBelow": 62,
+          "iterationsAbove": 50,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9960790855219941,
+            "upperBound": 0.9960790855250489
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.003928776716493,
+            "upperBound": 1.0039287767202967
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000000009,
+              "iterations": 48,
+              "converged": true,
+              "stepsToGrow2p5": 1031651649657871.5
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.4317898168584293,
+              "iterations": 60,
+              "converged": true,
+              "stepsToGrow2p5": 2.5528731974661967
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.944769340593001,
+              "iterations": 70,
+              "converged": true,
+              "stepsToGrow2p5": 0.667660365396312
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 2,
+          "etaThmG6": 0.24286101314736386,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9962720453257038,
+          "radiusAbove": 1.0037355634088079,
+          "iterationsBelow": 45,
+          "iterationsAbove": 39,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9962720453250595,
+            "upperBound": 0.9962720453262374
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0037355634077598,
+            "upperBound": 1.003735563409791
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999999991,
+              "iterations": 38,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.411109482674297,
+              "iterations": 41,
+              "converged": true,
+              "stepsToGrow2p5": 2.660725586138106
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.80994489026539,
+              "iterations": 48,
+              "converged": true,
+              "stepsToGrow2p5": 0.6850184250113628
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.5,
+          "etaThmG6": 0.2905507283405032,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9965029445830921,
+          "radiusAbove": 1.0035051113382514,
+          "iterationsBelow": 83,
+          "iterationsAbove": 54,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9965029302817467,
+            "upperBound": 0.9965029445831608
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.003505110359167,
+            "upperBound": 1.0035051113387992
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000000009,
+              "iterations": 52,
+              "converged": true,
+              "stepsToGrow2p5": 1031651649657871.5
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.3887893228005577,
+              "iterations": 54,
+              "converged": true,
+              "stepsToGrow2p5": 2.789891607975651
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.6790819625372952,
+              "iterations": 41,
+              "converged": true,
+              "stepsToGrow2p5": 0.7033980031365996
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.125,
+          "etaThmG6": 0.3042998385524457,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9967123003814772,
+          "radiusAbove": 1.0032990287659773,
+          "iterationsBelow": 265,
+          "iterationsAbove": 172,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9967121518982295,
+            "upperBound": 0.9967123003838746
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0032990064263843,
+            "upperBound": 1.0032990287678634
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000002183,
+              "iterations": 169,
+              "converged": true,
+              "stepsToGrow2p5": 4197972124752.731
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.374140124790497,
+              "iterations": 62,
+              "converged": true,
+              "stepsToGrow2p5": 2.8829751841982376
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.6098984392715456,
+              "iterations": 43,
+              "converged": true,
+              "stepsToGrow2p5": 0.7138001602507762
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.03125,
+          "etaThmG6": 0.30763346283334536,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9968824152844655,
+          "radiusAbove": 1.0031393510029816,
+          "iterationsBelow": 986,
+          "iterationsAbove": 554,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9968822794180229,
+            "upperBound": 0.996882415331769
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0031392227536133,
+            "upperBound": 1.003139351028493
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000031266,
+              "iterations": 588,
+              "converged": true,
+              "stepsToGrow2p5": 293062040951.49036
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.3670978747491547,
+              "iterations": 67,
+              "converged": true,
+              "stepsToGrow2p5": 2.930347252550925
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.582589518825939,
+              "iterations": 44,
+              "converged": true,
+              "stepsToGrow2p5": 0.718047863937554
+            }
+          ]
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.0078125,
+          "etaThmG6": 0.3084104146249254,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9970692702835215,
+          "radiusAbove": 1.0030174109225507,
+          "iterationsBelow": 6532,
+          "iterationsAbove": 1751,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9970692575892559,
+            "upperBound": 0.9970692710339653
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0030173410367922,
+            "upperBound": 1.0030174110469454
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000185334,
+              "iterations": 2385,
+              "converged": true,
+              "stepsToGrow2p5": 49439977460.190544
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.3644475121159392,
+              "iterations": 75,
+              "converged": true,
+              "stepsToGrow2p5": 2.9486465969005478
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 3.573498057212949,
+              "iterations": 44,
+              "converged": true,
+              "stepsToGrow2p5": 0.7194804720416748
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 128,
+          "etaThmG6": 0.028307599793205705,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9814577790055223,
+          "radiusAbove": 1.0239395833418794,
+          "iterationsBelow": 315,
+          "iterationsAbove": 203,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9814577558812732,
+            "upperBound": 0.9814577961217079
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0239395833313354,
+            "upperBound": 1.023939583374646
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999999336,
+              "iterations": 241,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 3.0741390174607446,
+              "iterations": 204,
+              "converged": true,
+              "stepsToGrow2p5": 0.8159131273071687
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 12.430476884485984,
+              "iterations": 258,
+              "converged": true,
+              "stepsToGrow2p5": 0.36358560799062
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 32,
+          "etaThmG6": 0.09601489914180136,
+          "relOffset": 0.001,
+          "radiusBelow": 0.997939618377849,
+          "radiusAbove": 1.0021458264809335,
+          "iterationsBelow": 311,
+          "iterationsAbove": 247,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9979396182577943,
+            "upperBound": 0.9979396184597209
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0021458264669105,
+            "upperBound": 1.0021458264823748
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999997131,
+              "iterations": 240,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 2.2956040975014456,
+              "iterations": 67,
+              "converged": true,
+              "stepsToGrow2p5": 1.1026415246076673
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 10.73312256732443,
+              "iterations": 127,
+              "converged": true,
+              "stepsToGrow2p5": 0.3860773613705174
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 8,
+          "etaThmG6": 0.1940678242484763,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9996836804732807,
+          "radiusAbove": 1.0003177831034484,
+          "iterationsBelow": 383,
+          "iterationsAbove": 286,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.999683680452626,
+            "upperBound": 0.9996836804789903
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0003177830827463,
+            "upperBound": 1.0003177831091374
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999994298,
+              "iterations": 274,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.0413797271443654,
+              "iterations": 273,
+              "converged": true,
+              "stepsToGrow2p5": 22.598519062746664
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 2.9251910501740848,
+              "iterations": 57,
+              "converged": true,
+              "stepsToGrow2p5": 0.8536659713460909
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "etaThmG6": 0.18081066083757374,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998504066881201,
+          "radiusAbove": 1.0001497432068813,
+          "iterationsBelow": 419,
+          "iterationsAbove": 302,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9998504066821777,
+            "upperBound": 0.9998504066923499
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0001497432025086,
+            "upperBound": 1.0001497432130364
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000007372,
+              "iterations": 289,
+              "converged": true,
+              "stepsToGrow2p5": 1242953794768.9775
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.0157592763930716,
+              "iterations": 351,
+              "converged": true,
+              "stepsToGrow2p5": 58.59989586302674
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 1.1008827038543745,
+              "iterations": 270,
+              "converged": true,
+              "stepsToGrow2p5": 9.533541272027128
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.5,
+          "etaThmG6": 0.13958923784578042,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998741873891281,
+          "radiusAbove": 1.0001258757826168,
+          "iterationsBelow": 433,
+          "iterationsAbove": 275,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9998741873796378,
+            "upperBound": 0.9998741873928577
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.000125875773242,
+            "upperBound": 1.0001258757863
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999992908,
+              "iterations": 261,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.012907512329267,
+              "iterations": 324,
+              "converged": true,
+              "stepsToGrow2p5": 71.44611488870972
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 1.0718239771562963,
+              "iterations": 261,
+              "converged": true,
+              "stepsToGrow2p5": 13.210298577042966
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.125,
+          "etaThmG6": 0.12098939412550205,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998804772070163,
+          "radiusAbove": 1.00011956951267,
+          "iterationsBelow": 408,
+          "iterationsAbove": 253,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9998804771651777,
+            "upperBound": 0.9998804772220202
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0001195694683873,
+            "upperBound": 1.0001195695285374
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 0.9999999999993283,
+              "iterations": 241,
+              "converged": true,
+              "stepsToGrow2p5": null
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.0121919230597998,
+              "iterations": 309,
+              "converged": true,
+              "stepsToGrow2p5": 75.61277405113381
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 1.0661113877133164,
+              "iterations": 267,
+              "converged": true,
+              "stepsToGrow2p5": 14.313059277694311
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.03125,
+          "etaThmG6": 0.1145051489501093,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998832572960834,
+          "radiusAbove": 1.000116784534742,
+          "iterationsBelow": 432,
+          "iterationsAbove": 275,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9998832572659727,
+            "upperBound": 0.9998832573034527
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0001167845051466,
+            "upperBound": 1.0001167845418664
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.000000000000684,
+              "iterations": 261,
+              "converged": true,
+              "stepsToGrow2p5": 1339807337218.4724
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.0118881717953994,
+              "iterations": 320,
+              "converged": true,
+              "stepsToGrow2p5": 77.53307495150263
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 1.0639795558751615,
+              "iterations": 249,
+              "converged": true,
+              "stepsToGrow2p5": 14.775027840666194
+            }
+          ]
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.0078125,
+          "etaThmG6": 0.11242062607100459,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998851534198048,
+          "radiusAbove": 1.0001148925213734,
+          "iterationsBelow": 1203,
+          "iterationsAbove": 782,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": true,
+            "certifiedAboveOne": false,
+            "lowerBound": 0.9998851532323197,
+            "upperBound": 0.9998851534255385
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": true,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": true,
+            "lowerBound": 1.0001148923369678,
+            "upperBound": 1.0001148925253995
+          },
+          "fallback": null,
+          "horizon": [
+            {
+              "multiplier": 1,
+              "radius": 1.0000000000036255,
+              "iterations": 750,
+              "converged": true,
+              "stepsToGrow2p5": 252731908294.89005
+            },
+            {
+              "multiplier": 1.1,
+              "radius": 1.011709701138307,
+              "iterations": 593,
+              "converged": true,
+              "stepsToGrow2p5": 78.70782159364772
+            },
+            {
+              "multiplier": 1.5,
+              "radius": 1.0630137843171177,
+              "iterations": 282,
+              "converged": true,
+              "stepsToGrow2p5": 14.99459534772401
+            }
+          ]
+        }
+      ],
+      "trajectories": [
+        {
+          "beta": 0,
+          "tetherGrid": 128,
+          "mode": "linearised",
+          "ceilings": [
+            0.014960490422985966,
+            0.014958028008975926,
+            0.014960474738820298,
+            0.014958874953922056
+          ],
+          "medianCeiling": 0.014959674846371177,
+          "maxBracketHalfWidth": 7.842082834670638e-9,
+          "medianOverThmG6": 1.0007588618226966,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 128,
+          "mode": "network",
+          "ceilings": [
+            0.014960490422985966,
+            0.014958028008975926,
+            0.014960474738820298,
+            0.014958874953922056
+          ],
+          "medianCeiling": 0.014959674846371177,
+          "maxBracketHalfWidth": 7.842082834670638e-9,
+          "medianOverThmG6": 1.0007588618226966,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 32,
+          "mode": "linearised",
+          "ceilings": [
+            0.05299875113298834,
+            0.053032801906346086,
+            0.0530561319631328,
+            0.0530117493074838
+          ],
+          "medianCeiling": 0.05302227560691494,
+          "maxBracketHalfWidth": 2.777387712871171e-8,
+          "medianOverThmG6": 1.0035880364198717,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 32,
+          "mode": "network",
+          "ceilings": [
+            0.05299875113298834,
+            0.053032801906346086,
+            0.0530561319631328,
+            0.0530117493074838
+          ],
+          "medianCeiling": 0.05302227560691494,
+          "maxBracketHalfWidth": 2.777387712871171e-8,
+          "medianOverThmG6": 1.0035880364198717,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 8,
+          "mode": "linearised",
+          "ceilings": [
+            0.14743475030795705,
+            0.14700982568731766,
+            0.14696884156291745,
+            0.1466527000828792
+          ],
+          "medianCeiling": 0.14698933362511757,
+          "maxBracketHalfWidth": 7.617866989995115e-8,
+          "medianOverThmG6": 1.0299925116153683,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 8,
+          "mode": "network",
+          "ceilings": [
+            0.14743475030795705,
+            0.14700982568731766,
+            0.14696884156291745,
+            0.1466527000828792
+          ],
+          "medianCeiling": 0.14698933362511757,
+          "maxBracketHalfWidth": 7.617866989995115e-8,
+          "medianOverThmG6": 1.0299925116153683,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 2,
+          "mode": "linearised",
+          "ceilings": [
+            0.26748529576237234,
+            0.26966605005932087,
+            0.2698401972082044,
+            0.26813760508284123
+          ],
+          "medianCeiling": 0.26890182757108105,
+          "maxBracketHalfWidth": 1.3499778983572241e-7,
+          "medianOverThmG6": 1.107225174128365,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 2,
+          "mode": "network",
+          "ceilings": [
+            0.26748529576237234,
+            0.26966605005932087,
+            0.2698401972082044,
+            0.26813760508284123
+          ],
+          "medianCeiling": 0.26890182757108105,
+          "maxBracketHalfWidth": 1.3499778983572241e-7,
+          "medianOverThmG6": 1.107225174128365,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.5,
+          "mode": "linearised",
+          "ceilings": [
+            0.33622112719648145,
+            0.3406452720944587,
+            0.3375484041238259,
+            0.3377816060442592
+          ],
+          "medianCeiling": 0.33766500508404257,
+          "maxBracketHalfWidth": 1.6728975640867283e-7,
+          "medianOverThmG6": 1.1621550805005212,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.5,
+          "mode": "network",
+          "ceilings": [
+            0.33622112719648145,
+            0.34064594125348435,
+            0.3375484041238259,
+            0.3377816060442592
+          ],
+          "medianCeiling": 0.33766500508404257,
+          "maxBracketHalfWidth": 1.6728975640867283e-7,
+          "medianOverThmG6": 1.1621550805005212,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.125,
+          "mode": "linearised",
+          "ceilings": [
+            0.35195809823921387,
+            0.3550060415732623,
+            0.3513712846305921,
+            0.3510940694692115
+          ],
+          "medianCeiling": 0.351664691434903,
+          "maxBracketHalfWidth": 1.779301420923307e-7,
+          "medianOverThmG6": 1.1556519159121867,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.125,
+          "mode": "network",
+          "ceilings": [
+            0.35195809823921387,
+            0.3550060415732623,
+            0.3513712846305921,
+            0.3510940694692115
+          ],
+          "medianCeiling": 0.351664691434903,
+          "maxBracketHalfWidth": 1.779301420923307e-7,
+          "medianOverThmG6": 1.1556519159121867,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.03125,
+          "mode": "linearised",
+          "ceilings": [
+            0.35079399068249717,
+            0.3494990642086405,
+            0.3487056912168388,
+            0.34788049651889374
+          ],
+          "medianCeiling": 0.34910237771273966,
+          "maxBracketHalfWidth": 1.8080514854745822e-7,
+          "medianOverThmG6": 1.1347997532435516,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.03125,
+          "mode": "network",
+          "ceilings": [
+            0.35079399068249717,
+            0.3494990642086405,
+            0.3487056912168388,
+            0.34788049651889374
+          ],
+          "medianCeiling": 0.34910237771273966,
+          "maxBracketHalfWidth": 1.8080514854745822e-7,
+          "medianOverThmG6": 1.1347997532435516,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.0078125,
+          "mode": "linearised",
+          "ceilings": [
+            0.35100845580117024,
+            0.3449559630087925,
+            0.34846401252048737,
+            0.33907121176830907
+          ],
+          "medianCeiling": 0.3467099877646399,
+          "maxBracketHalfWidth": 1.8153847608504137e-7,
+          "medianOverThmG6": 1.1241837866801374,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0,
+          "tetherGrid": 0.0078125,
+          "mode": "network",
+          "ceilings": [
+            0.35100845580117024,
+            0.3449559630087925,
+            0.34846401252048737,
+            0.33907121176830907
+          ],
+          "medianCeiling": 0.3467099877646399,
+          "maxBracketHalfWidth": 1.8153847608504137e-7,
+          "medianOverThmG6": 1.1241837866801374,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 128,
+          "mode": "linearised",
+          "ceilings": [
+            0.028386668713107147,
+            0.028409644447395715,
+            0.02838654951344806,
+            0.02840136007108933
+          ],
+          "medianCeiling": 0.028394014392098238,
+          "maxBracketHalfWidth": 1.4899957385960949e-8,
+          "medianOverThmG6": 1.0030526996115465,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 128,
+          "mode": "network",
+          "ceilings": [
+            0.028386668713107147,
+            0.028409644447395715,
+            0.02838654951344806,
+            0.02840136007108933
+          ],
+          "medianCeiling": 0.028394014392098238,
+          "maxBracketHalfWidth": 1.4899957385960949e-8,
+          "medianOverThmG6": 1.0030526996115465,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 32,
+          "mode": "linearised",
+          "ceilings": [
+            0.09802955742034603,
+            0.0985184220959853,
+            0.09769858168139853,
+            0.09801858118410542
+          ],
+          "medianCeiling": 0.09802406930222572,
+          "maxBracketHalfWidth": 5.277036654177669e-8,
+          "medianOverThmG6": 1.0209256081960476,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 32,
+          "mode": "network",
+          "ceilings": [
+            0.09802955742034603,
+            0.0985184220959853,
+            0.09769858168139853,
+            0.09801858118410542
+          ],
+          "medianCeiling": 0.09802406930222572,
+          "maxBracketHalfWidth": 5.277036654177669e-8,
+          "medianOverThmG6": 1.0209256081960476,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 8,
+          "mode": "linearised",
+          "ceilings": [
+            0.21846643121927373,
+            0.21297877884796584,
+            0.2153713223331618,
+            0.21037925791668222
+          ],
+          "medianCeiling": 0.21417505059056383,
+          "maxBracketHalfWidth": 1.447394727960294e-7,
+          "medianOverThmG6": 1.1036092738193586,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 8,
+          "mode": "network",
+          "ceilings": [
+            0.21846643121927373,
+            0.21297877884796584,
+            0.2153713223331618,
+            0.21037925791668222
+          ],
+          "medianCeiling": 0.21417505059056383,
+          "maxBracketHalfWidth": 1.447394727960294e-7,
+          "medianOverThmG6": 1.1036092738193586,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "mode": "linearised",
+          "ceilings": [
+            0.20171624902542726,
+            0.22330857851836247,
+            0.20956707249267395,
+            0.2207092500742603
+          ],
+          "medianCeiling": 0.21513816128346713,
+          "maxBracketHalfWidth": 2.5649580068232147e-7,
+          "medianOverThmG6": 1.1898532989530444,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "mode": "network",
+          "ceilings": [
+            0.20171624902542726,
+            0.22330857851836247,
+            0.20956707249267395,
+            0.2207092500742603
+          ],
+          "medianCeiling": 0.21513816128346713,
+          "maxBracketHalfWidth": 2.5649580068232147e-7,
+          "medianOverThmG6": 1.1898532989530444,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.5,
+          "mode": "linearised",
+          "ceilings": [
+            0.16299852322191216,
+            0.17706086668765286,
+            0.14581425178002871,
+            0.156229578182212
+          ],
+          "medianCeiling": 0.15961405070206208,
+          "maxBracketHalfWidth": 3.178505371681517e-7,
+          "medianOverThmG6": 1.143455277536548,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.5,
+          "mode": "network",
+          "ceilings": [
+            0.16299852322191216,
+            0.17706086668765286,
+            0.14581425178002871,
+            0.156229578182212
+          ],
+          "medianCeiling": 0.15961405070206208,
+          "maxBracketHalfWidth": 3.178505371681517e-7,
+          "medianOverThmG6": 1.143455277536548,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.125,
+          "mode": "linearised",
+          "ceilings": [
+            0.14756061620101163,
+            0.14131921826271143,
+            0.1329317692946025,
+            0.13570121637024735
+          ],
+          "medianCeiling": 0.1385102173164794,
+          "maxBracketHalfWidth": 3.3806726996987724e-7,
+          "medianOverThmG6": 1.144812884779,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.125,
+          "mode": "network",
+          "ceilings": [
+            0.14756061620101163,
+            0.14131921826271143,
+            0.1329317692946025,
+            0.13570121637024735
+          ],
+          "medianCeiling": 0.1385102173164794,
+          "maxBracketHalfWidth": 3.3806726996987724e-7,
+          "medianOverThmG6": 1.144812884779,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.03125,
+          "mode": "linearised",
+          "ceilings": [
+            0.13468875230807886,
+            0.13244206753229776,
+            0.1352383999596461,
+            0.12872713646726758
+          ],
+          "medianCeiling": 0.1335654099201883,
+          "maxBracketHalfWidth": 3.4352978223184394e-7,
+          "medianOverThmG6": 1.1664576758760752,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.03125,
+          "mode": "network",
+          "ceilings": [
+            0.13468875230807886,
+            0.13244206753229776,
+            0.1352383999596461,
+            0.12872713646726758
+          ],
+          "medianCeiling": 0.1335654099201883,
+          "maxBracketHalfWidth": 3.4352978223184394e-7,
+          "medianOverThmG6": 1.1664576758760752,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.0078125,
+          "mode": "linearised",
+          "ceilings": [
+            0.13439618337787132,
+            0.1329613032629657,
+            0.13313790389249255,
+            0.12946999159876502
+          ],
+          "medianCeiling": 0.13304960357772913,
+          "maxBracketHalfWidth": 3.4492310455047637e-7,
+          "medianOverThmG6": 1.1834981553446904,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.0078125,
+          "mode": "network",
+          "ceilings": [
+            0.13439618337787132,
+            0.1329613032629657,
+            0.13313790389249255,
+            0.12946999159876502
+          ],
+          "medianCeiling": 0.13304960357772913,
+          "maxBracketHalfWidth": 3.4492310455047637e-7,
+          "medianOverThmG6": 1.1834981553446904,
+          "horizonInformative": true
+        }
+      ],
+      "collapseSlopes": [
+        {
+          "beta": 0,
+          "slope": -0.001819521517942065
+        },
+        {
+          "beta": 0.9,
+          "slope": 0.013252859494244734
+        }
+      ],
+      "interiorMaxima": [
+        {
+          "beta": 0,
+          "tetherGrid": []
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": [
+            8
+          ]
+        }
+      ]
+    },
+    {
+      "networkId": "X1_P3610",
+      "numParams": 3610,
+      "numSamples": 64,
+      "hessianSource": "exact per-sample Pearlmutter products",
+      "lambda1": 98.67701845430254,
+      "lambda2": 66.19049703571315,
+      "lambdaMin": -0.08333001843178042,
+      "negativeEigenvalues": 1528,
+      "lambdaSecond": -0.07498385337392427,
+      "eigenvaluesBelowTwiceAbsMin": 3435,
+      "traceH": 601.7390949925793,
+      "nuB11Sq": 511.2370809878354,
+      "eigendecompositionSeconds": 118.738,
+      "thresholds": [
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 128,
+          "mu": 128.08333001843178,
+          "lambdaMinTethered": 128,
+          "lambda1Tethered": 226.76034847273434,
+          "etaDeterministic": 0.016757779856988144,
+          "etaOneDim": 0.014095146800785753,
+          "etaThmG6": 0.013993390015703636,
+          "lanczosIterations": 55,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.795959656987962e-8,
+          "oneDimOverThmG6": 1.0072717751000955,
+          "fractionOfDeterministic": 0.8350384200725889,
+          "lambdaSecondTethered": 128.00834616505784,
+          "criticalMode": {
+            "shareTop": 0.6795073912276095,
+            "shareRigid": 0.30970359490115945,
+            "sharePositiveFlat": 0.010255552269552624,
+            "shareNegative": 0.0005334616016784417,
+            "lagOneRatio": -0.47278021054927855,
+            "lanczosRelResidual": 8.795959656987962e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 32,
+          "mu": 32.08333001843178,
+          "lambdaMinTethered": 32,
+          "lambda1Tethered": 130.76034847273434,
+          "etaDeterministic": 0.029060797438853276,
+          "etaOneDim": 0.018532505073990815,
+          "etaThmG6": 0.01788063743285411,
+          "lanczosIterations": 73,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.686881016544776e-8,
+          "oneDimOverThmG6": 1.03645662206309,
+          "fractionOfDeterministic": 0.6152837846406899,
+          "lambdaSecondTethered": 32.00834616505786,
+          "criticalMode": {
+            "shareTop": 0.4349421802127712,
+            "shareRigid": 0.5415075680595521,
+            "sharePositiveFlat": 0.022382546982690717,
+            "shareNegative": 0.0011677047449859495,
+            "lagOneRatio": 0.23048156322499533,
+            "lanczosRelResidual": 8.686881016544776e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 8,
+          "mu": 8.08333001843178,
+          "lambdaMinTethered": 8,
+          "lambda1Tethered": 106.76034847273432,
+          "etaDeterministic": 0.03559373919588214,
+          "etaOneDim": 0.019216712136554223,
+          "etaThmG6": 0.017637854617943295,
+          "lanczosIterations": 86,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.43641908726519e-8,
+          "oneDimOverThmG6": 1.0895152813542712,
+          "fractionOfDeterministic": 0.4955325014008033,
+          "lambdaSecondTethered": 8.008346165057857,
+          "criticalMode": {
+            "shareTop": 0.2265888709517898,
+            "shareRigid": 0.7270661278179469,
+            "sharePositiveFlat": 0.04398321954033693,
+            "shareNegative": 0.002361781689926388,
+            "lagOneRatio": 0.6592309921231588,
+            "lanczosRelResidual": 8.43641908726519e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 2,
+          "mu": 2.0833300184317802,
+          "lambdaMinTethered": 1.9999999999999998,
+          "lambda1Tethered": 100.76034847273432,
+          "etaDeterministic": 0.03771324789560724,
+          "etaOneDim": 0.019273451506758688,
+          "etaThmG6": 0.016781921797360745,
+          "lanczosIterations": 104,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 8.94448718791355e-8,
+          "oneDimOverThmG6": 1.1484651006888722,
+          "fractionOfDeterministic": 0.444987444301117,
+          "lambdaSecondTethered": 2.008346165057856,
+          "criticalMode": {
+            "shareTop": 0.11144413319367548,
+            "shareRigid": 0.8014499909371793,
+            "sharePositiveFlat": 0.08226687198898402,
+            "shareNegative": 0.004839003880161433,
+            "lagOneRatio": 0.8450884270813676,
+            "lanczosRelResidual": 8.94448718791355e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.5,
+          "mu": 0.5833300184317805,
+          "lambdaMinTethered": 0.5,
+          "lambda1Tethered": 99.26034847273432,
+          "etaDeterministic": 0.0382831619923621,
+          "etaOneDim": 0.01927767481719657,
+          "etaThmG6": 0.016155850388474807,
+          "lanczosIterations": 90,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.981206550151136e-8,
+          "oneDimOverThmG6": 1.1932318233739523,
+          "fractionOfDeterministic": 0.42200929985088675,
+          "lambdaSecondTethered": 0.5083461650578562,
+          "criticalMode": {
+            "shareTop": 0.06054660675007186,
+            "shareRigid": 0.7817205910602137,
+            "sharePositiveFlat": 0.14698888120472411,
+            "shareNegative": 0.010743920984990513,
+            "lagOneRatio": 0.9189412838374496,
+            "lanczosRelResidual": 9.981206550151136e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.125,
+          "mu": 0.20833001843178042,
+          "lambdaMinTethered": 0.125,
+          "lambda1Tethered": 98.88534847273432,
+          "etaDeterministic": 0.03842834210214443,
+          "etaOneDim": 0.01927805552142616,
+          "etaThmG6": 0.015823463536130462,
+          "lanczosIterations": 78,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.240567701039681e-8,
+          "oneDimOverThmG6": 1.218320848492346,
+          "fractionOfDeterministic": 0.41176544889891203,
+          "lambdaSecondTethered": 0.13334616505785615,
+          "criticalMode": {
+            "shareTop": 0.04000551047190714,
+            "shareRigid": 0.7107084060911968,
+            "sharePositiveFlat": 0.22380590187884483,
+            "shareNegative": 0.025480181558050704,
+            "lagOneRatio": 0.9474138280743576,
+            "lanczosRelResidual": 9.240567701039681e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.03125,
+          "mu": 0.11458001843178042,
+          "lambdaMinTethered": 0.03125,
+          "lambda1Tethered": 98.79159847273432,
+          "etaDeterministic": 0.038464809343567496,
+          "etaOneDim": 0.01927810764648565,
+          "etaThmG6": 0.01568940938027409,
+          "lanczosIterations": 72,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.295605434946773e-8,
+          "oneDimOverThmG6": 1.2287338024797505,
+          "fractionOfDeterministic": 0.4078899557290499,
+          "lambdaSecondTethered": 0.03959616505785615,
+          "criticalMode": {
+            "shareTop": 0.03198830838738997,
+            "shareRigid": 0.6413001137979867,
+            "sharePositiveFlat": 0.2673511304509322,
+            "shareNegative": 0.059360447363691324,
+            "lagOneRatio": 0.9582661724776116,
+            "lanczosRelResidual": 9.295605434946773e-8
+          },
+          "resumedFromLog": true
+        },
+        {
+          "beta": 0.9,
+          "batchB": 16,
+          "tetherGrid": 0.0078125,
+          "mu": 0.09114251843178042,
+          "lambdaMinTethered": 0.0078125,
+          "lambda1Tethered": 98.76816097273432,
+          "etaDeterministic": 0.038473936970933556,
+          "etaOneDim": 0.019278117973553985,
+          "etaThmG6": 0.015640812463521104,
+          "lanczosIterations": 86,
+          "lanczosConverged": true,
+          "lanczosRelResidual": 9.897336996379922e-8,
+          "oneDimOverThmG6": 1.2325522103481599,
+          "fractionOfDeterministic": 0.4065300745108952,
+          "lambdaSecondTethered": 0.016158665057856153,
+          "criticalMode": {
+            "shareTop": 0.02748735117206889,
+            "shareRigid": 0.5710527329793217,
+            "sharePositiveFlat": 0.2636320231317176,
+            "shareNegative": 0.1378278927168923,
+            "lagOneRatio": 0.9642346928041449,
+            "lanczosRelResidual": 9.897336996379922e-8
+          },
+          "resumedFromLog": true
+        }
+      ],
+      "operatorChecks": [
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "etaThmG6": 0.016781921797360745,
+          "relOffset": 0.001,
+          "radiusBelow": 0.9998242732193813,
+          "radiusAbove": 1.000176000813953,
+          "iterationsBelow": 439,
+          "iterationsAbove": 237,
+          "convergedBelow": true,
+          "convergedAbove": true,
+          "crossesAtThmG6": true,
+          "certificateBelow": {
+            "iteratePositiveDefinite": false,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": false,
+            "lowerBound": null,
+            "upperBound": null
+          },
+          "certificateAbove": {
+            "iteratePositiveDefinite": false,
+            "certifiedBelowOne": false,
+            "certifiedAboveOne": false,
+            "lowerBound": null,
+            "upperBound": null
+          },
+          "fallback": {
+            "relOffset": 0.01,
+            "radiusBelow": 0.9982549527918646,
+            "radiusAbove": 1.0017724544233564,
+            "certificateBelow": {
+              "iteratePositiveDefinite": false,
+              "certifiedBelowOne": false,
+              "certifiedAboveOne": false,
+              "lowerBound": null,
+              "upperBound": null
+            },
+            "certificateAbove": {
+              "iteratePositiveDefinite": false,
+              "certifiedBelowOne": false,
+              "certifiedAboveOne": false,
+              "lowerBound": null,
+              "upperBound": null
+            }
+          },
+          "horizon": []
+        }
+      ],
+      "trajectories": [
+        {
+          "beta": 0.9,
+          "tetherGrid": 128,
+          "mode": "linearised",
+          "ceilings": [
+            0.015155320833900431,
+            0.015141749374459673,
+            0.015098907863245772,
+            0.015106361618171783
+          ],
+          "medianCeiling": 0.015124055496315729,
+          "maxBracketHalfWidth": 8.789805337576506e-9,
+          "medianOverThmG6": 1.0807999690813477,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 128,
+          "mode": "network",
+          "ceilings": [
+            0.015155320833900431,
+            0.015141749374459673,
+            0.015098907863245772,
+            0.015106361618171783
+          ],
+          "medianCeiling": 0.015124055496315729,
+          "maxBracketHalfWidth": 8.789805337576506e-9,
+          "medianOverThmG6": 1.0807999690813477,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 32,
+          "mode": "linearised",
+          "ceilings": [
+            0.021388924676030763,
+            0.021267498978876864,
+            0.022229179525379443,
+            0.021375724242471222
+          ],
+          "medianCeiling": 0.021382324459250993,
+          "maxBracketHalfWidth": 1.5242994873265747e-8,
+          "medianOverThmG6": 1.195836811721423,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 32,
+          "mode": "network",
+          "ceilings": [
+            0.021388924676030763,
+            0.021267498978876864,
+            0.022229179525379443,
+            0.02160266195013219
+          ],
+          "medianCeiling": 0.021495793313081477,
+          "maxBracketHalfWidth": 1.5242994873265747e-8,
+          "medianOverThmG6": 1.2021827182505715,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 8,
+          "mode": "linearised",
+          "ceilings": [
+            0.02201225630500367,
+            0.02211098146281513,
+            0.022740559710114266,
+            0.021359266305076778
+          ],
+          "medianCeiling": 0.0220616188839094,
+          "maxBracketHalfWidth": 1.8669659193615296e-8,
+          "medianOverThmG6": 1.250810790869414,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 8,
+          "mode": "network",
+          "ceilings": [
+            0.02201225630500367,
+            0.02211098146281513,
+            0.022740559710114266,
+            0.021359266305076778
+          ],
+          "medianCeiling": 0.0220616188839094,
+          "maxBracketHalfWidth": 1.8669659193615296e-8,
+          "medianOverThmG6": 1.250810790869414,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "mode": "linearised",
+          "ceilings": [
+            0.021237157269853372,
+            0.022038738583152726,
+            0.020967141354386803,
+            0.020532109119006527
+          ],
+          "medianCeiling": 0.021102149312120087,
+          "maxBracketHalfWidth": 1.9781385749914615e-8,
+          "medianOverThmG6": 1.2574334195407093,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 2,
+          "mode": "network",
+          "ceilings": [
+            0.021237157269853372,
+            0.022038738583152726,
+            0.020967141354386803,
+            0.020532109119006527
+          ],
+          "medianCeiling": 0.021102149312120087,
+          "maxBracketHalfWidth": 1.9781385749914615e-8,
+          "medianOverThmG6": 1.2574334195407093,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.5,
+          "mode": "linearised",
+          "ceilings": [
+            0.01949419319852054,
+            0.02013624127309891,
+            0.019753470259224734,
+            0.02039776732937302
+          ],
+          "medianCeiling": 0.019944855766161822,
+          "maxBracketHalfWidth": 2.0080317589266095e-8,
+          "medianOverThmG6": 1.2345283774347156,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.5,
+          "mode": "network",
+          "ceilings": [
+            0.01949419319852054,
+            0.02013624127309891,
+            0.019753470259224734,
+            0.02039776732937302
+          ],
+          "medianCeiling": 0.019944855766161822,
+          "maxBracketHalfWidth": 2.0080317589266095e-8,
+          "medianOverThmG6": 1.2345283774347156,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.125,
+          "mode": "linearised",
+          "ceilings": [
+            0.01936151666153705,
+            0.018803182509385778,
+            0.019241384114720386,
+            0.018758677028954375
+          ],
+          "medianCeiling": 0.019022283312053082,
+          "maxBracketHalfWidth": 2.0156467587031934e-8,
+          "medianOverThmG6": 1.2021567382272915,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.125,
+          "mode": "network",
+          "ceilings": [
+            0.01936151666153705,
+            0.018803182509385778,
+            0.019241384114720386,
+            0.018758677028954375
+          ],
+          "medianCeiling": 0.019022283312053082,
+          "maxBracketHalfWidth": 2.0156467587031934e-8,
+          "medianOverThmG6": 1.2021567382272915,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.03125,
+          "mode": "linearised",
+          "ceilings": [
+            0.019178537666167984,
+            0.019843767398225416,
+            0.01917442184470311,
+            0.018775025757847327
+          ],
+          "medianCeiling": 0.019176479755435547,
+          "maxBracketHalfWidth": 2.0175595416560554e-8,
+          "medianOverThmG6": 1.2222563189373887,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.03125,
+          "mode": "network",
+          "ceilings": [
+            0.019178537666167984,
+            0.019843767398225416,
+            0.01917442184470311,
+            0.018775025757847327
+          ],
+          "medianCeiling": 0.019176479755435547,
+          "maxBracketHalfWidth": 2.0175595416560554e-8,
+          "medianOverThmG6": 1.2222563189373887,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.0078125,
+          "mode": "linearised",
+          "ceilings": [
+            0.01801924564621794,
+            0.01897757167635942,
+            0.01887150358306377,
+            0.018779158150240165
+          ],
+          "medianCeiling": 0.018825330866651967,
+          "maxBracketHalfWidth": 2.018038304865688e-8,
+          "medianOverThmG6": 1.2036031319062281,
+          "horizonInformative": true
+        },
+        {
+          "beta": 0.9,
+          "tetherGrid": 0.0078125,
+          "mode": "network",
+          "ceilings": [
+            0.01801924564621794,
+            0.01897757167635942,
+            0.01887150358306377,
+            0.018779158150240165
+          ],
+          "medianCeiling": 0.018825330866651967,
+          "maxBracketHalfWidth": 2.018038304865688e-8,
+          "medianOverThmG6": 1.2036031319062281,
+          "horizonInformative": true
+        }
+      ],
+      "collapseSlopes": [
+        {
+          "beta": 0.9,
+          "slope": 0.002237794145845624
+        }
+      ],
+      "interiorMaxima": [
+        {
+          "beta": 0.9,
+          "tetherGrid": [
+            32
+          ]
+        }
+      ]
+    }
+  ],
+  "provenance": {
+    "gitCommit": "8682b16d2b751522d6212a41c79adb86533aa2ff",
+    "gitDirtyAtStart": false,
+    "gitCommitAtEnd": "8682b16d2b751522d6212a41c79adb86533aa2ff",
+    "resumeFile": "evidence/l67-southwell-eos/phase13-resume-x1-p3610.json"
+  }
+}

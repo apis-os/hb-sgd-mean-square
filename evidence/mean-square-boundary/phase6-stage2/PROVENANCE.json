@@ -1,0 +1,13 @@
+{
+  "labId": "l67-southwell-eos-phase16-stage2",
+  "status": "exploratory, not registered",
+  "bracketCommit": "fb56d61d",
+  "platform": "Modal workspace ninacanilornamental (profile nova), function single (1 CPU, 3 GB), Node v26.5.0 (checksum-verified)",
+  "modalApp": "ap-7lpJ2nasOtet9h8BVDCYHh",
+  "firstRecordDate": "2026-10-30T09:47:51.906Z", "lastRecordDate": "2026-10-30T10:35:43.998Z",
+  "jobs": 330,
+  "allExitZero": true,
+  "jobsSha256": "c8797f1c5c61b505e0050594d88609411ce4e0473a2d79de88025b50812ac419",
+  "packageManifestSha256": "73a1e1522175962ba2c1a80ffaaa094d6d7fb51173b03cb51de04c4116ab2ef1",
+  "files": "one <run>-step<k>.json record and its .log per checkpoint"
+}

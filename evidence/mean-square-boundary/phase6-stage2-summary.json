@@ -1,0 +1,662 @@
+{
+ "labId": "l67-southwell-eos-phase16-stage2-summary",
+ "date": "2026-11-01T04:00:47.921Z",
+ "runs": 30,
+ "expectedRuns": 30,
+ "checkpoints": 330,
+ "matchesList": true,
+ "regenerationMismatches": 0,
+ "divergences": 0,
+ "rank": {
+  "min": 640,
+  "max": 640,
+  "compressed": 0
+ },
+ "invalidAgainstReference": 0,
+ "missingReference": 0,
+ "undefinedLow": 0,
+ "fractionLowOverUpAtLeast098": 1,
+ "lowOverUp": {
+  "n": 330,
+  "min": 0.982202226091319,
+  "p10": 0.9912003031235814,
+  "median": 0.9993973808506207,
+  "p90": 0.9999914546377568,
+  "max": 0.9999997014908696
+ },
+ "relativeWidth": {
+  "n": 330,
+  "min": 2.9850913041271745e-7,
+  "p10": 0.000008545362243155677,
+  "median": 0.0006093916339383359,
+  "p90": 0.008799696876418534,
+  "max": 0.017797773908680998
+ },
+ "upperBoundsRelativeDisagreement": {
+  "n": 330,
+  "min": 1.3322676295501878e-15,
+  "p10": 2.9398705692074145e-13,
+  "median": 1.2294376627863812e-9,
+  "p90": 2.460702683837468e-7,
+  "max": 0.00000698096625728617
+ },
+ "upOverTop64": {
+  "n": 330,
+  "min": 0.9186846627776794,
+  "p10": 0.9505503556243107,
+  "median": 0.9726450561231502,
+  "p90": 0.9799736898873375,
+  "max": 0.9829968824589669
+ },
+ "maxMeanResidualFrobeniusOverMinCurvature": 8.939120440772421e-10,
+ "maxDualResidualOverTop": 1.3910515561320363e-14,
+ "bracketSeconds": {
+  "n": 330,
+  "min": 202.056,
+  "p10": 235.626,
+  "median": 363.52,
+  "p90": 547.753,
+  "max": 800.541
+ },
+ "readingAll": {
+  "inside": 161,
+  "below": 14,
+  "above": 155,
+  "undecided": 0
+ },
+ "readingEtaAtLeast001": {
+  "inside": 161,
+  "below": 14,
+  "above": 23,
+  "undecided": 0
+ },
+ "runsAtSurrogateEdge": 13,
+ "decision": {
+  "validity": "no violation",
+  "adoption": "adopted"
+ },
+ "expectations": {
+  "e16_2": {
+   "fractionUpOverTop64AtLeast095": 0.906060606060606,
+   "holds": true
+  },
+  "e16_3": {
+   "holds": false
+  },
+  "e16_4": {
+   "holds": true
+  }
+ },
+ "perRun": [
+  {
+   "run": "p12826-leakyRelu01-eta0.001-mu0.001-seed0",
+   "network": 12826,
+   "activation": "leakyRelu01",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 3.655103554095843,
+   "medianUpOverEta": 3.6645314398544926,
+   "minLowOverEta": 3.598644692031014,
+   "maxUpOverEta": 3.813033734576944
+  },
+  {
+   "run": "p12826-leakyRelu01-eta0.003-mu0.001-seed0",
+   "network": 12826,
+   "activation": "leakyRelu01",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 1.6705074865068306,
+   "medianUpOverEta": 1.6709831522458551,
+   "minLowOverEta": 1.5988723093234047,
+   "maxUpOverEta": 1.737454143277403
+  },
+  {
+   "run": "p12826-softsign-eta0.001-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 8.976647206491473,
+   "medianUpOverEta": 9.014707980176972,
+   "minLowOverEta": 8.584395402469282,
+   "maxUpOverEta": 9.467021729683287
+  },
+  {
+   "run": "p12826-softsign-eta0.003-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 2.171125085117745,
+   "medianUpOverEta": 2.1727081417617873,
+   "minLowOverEta": 2.1221834810372497,
+   "maxUpOverEta": 2.2256593032611365
+  },
+  {
+   "run": "p12826-softsign-eta0.01-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.01,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.8727193158881446,
+   "medianUpOverEta": 0.8727195764029064,
+   "minLowOverEta": 0.8264252487883105,
+   "maxUpOverEta": 0.9331933890558988
+  },
+  {
+   "run": "p12826-softsign-eta0.02-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.02,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 7,
+    "below": 4,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.6363636363636364,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 0.8090645275753453,
+   "medianUpOverEta": 0.8092091206865398,
+   "minLowOverEta": 0.7380706524980801,
+   "maxUpOverEta": 1.0241908232925083
+  },
+  {
+   "run": "p12826-softsign-eta0.03-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.03,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9218114957735399,
+   "medianUpOverEta": 0.9219949620836814,
+   "minLowOverEta": 0.8405776363884314,
+   "maxUpOverEta": 1.1057986861540772
+  },
+  {
+   "run": "p12826-softsign-eta0.05-mu0.001-seed0",
+   "network": 12826,
+   "activation": "softsign",
+   "eta": 0.05,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 9,
+    "below": 2,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.8181818181818182,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.8445784356764955,
+   "medianUpOverEta": 0.8449319676123919,
+   "minLowOverEta": 0.464245386994908,
+   "maxUpOverEta": 1.0574274977786164
+  },
+  {
+   "run": "p12826-tanh-eta0.001-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 8.937795279924048,
+   "medianUpOverEta": 9.096561980410394,
+   "minLowOverEta": 8.913183586053513,
+   "maxUpOverEta": 9.13108000583035
+  },
+  {
+   "run": "p12826-tanh-eta0.003-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 2.1592661675226643,
+   "medianUpOverEta": 2.163806912306181,
+   "minLowOverEta": 2.107623347602128,
+   "maxUpOverEta": 2.2439571168359937
+  },
+  {
+   "run": "p12826-tanh-eta0.01-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.01,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 8,
+    "below": 3,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.7272727272727273,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 0.8494517316946643,
+   "medianUpOverEta": 0.849459190963828,
+   "minLowOverEta": 0.7419643485871731,
+   "maxUpOverEta": 0.9810730719145802
+  },
+  {
+   "run": "p12826-tanh-eta0.02-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.02,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 10,
+    "below": 1,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.9090909090909091,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.8966984560795116,
+   "medianUpOverEta": 0.896924218375624,
+   "minLowOverEta": 0.7686490407723096,
+   "maxUpOverEta": 1.0486009516922143
+  },
+  {
+   "run": "p12826-tanh-eta0.03-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.03,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9194518169118239,
+   "medianUpOverEta": 0.9222590749529146,
+   "minLowOverEta": 0.8203470048838445,
+   "maxUpOverEta": 0.9570187404981877
+  },
+  {
+   "run": "p12826-tanh-eta0.05-mu0.001-seed0",
+   "network": 12826,
+   "activation": "tanh",
+   "eta": 0.05,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9183882860011241,
+   "medianUpOverEta": 0.9188151144881048,
+   "minLowOverEta": 0.8258513162342581,
+   "maxUpOverEta": 1.0894742716024342
+  },
+  {
+   "run": "p3610-leakyRelu01-eta0.001-mu0.001-seed0",
+   "network": 3610,
+   "activation": "leakyRelu01",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 5.7108028857279765,
+   "medianUpOverEta": 5.710817183920835,
+   "minLowOverEta": 5.542826892036859,
+   "maxUpOverEta": 5.777702984257049
+  },
+  {
+   "run": "p3610-leakyRelu01-eta0.003-mu0.001-seed0",
+   "network": 3610,
+   "activation": "leakyRelu01",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 2.100291450181233,
+   "medianUpOverEta": 2.1002981218636703,
+   "minLowOverEta": 2.0464503691783396,
+   "maxUpOverEta": 2.1529495667640624
+  },
+  {
+   "run": "p3610-leakyRelu01-eta0.01-mu0.001-seed0",
+   "network": 3610,
+   "activation": "leakyRelu01",
+   "eta": 0.01,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9807513913976568,
+   "medianUpOverEta": 0.9831965012417768,
+   "minLowOverEta": 0.8496907587202304,
+   "maxUpOverEta": 1.0773022401731083
+  },
+  {
+   "run": "p3610-softsign-eta0.001-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 23.76733350699297,
+   "medianUpOverEta": 23.775640697220467,
+   "minLowOverEta": 21.484377711840583,
+   "maxUpOverEta": 26.683603361586208
+  },
+  {
+   "run": "p3610-softsign-eta0.003-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 5.8323830376552825,
+   "medianUpOverEta": 5.832827298363852,
+   "minLowOverEta": 5.626013253887778,
+   "maxUpOverEta": 5.959105812974871
+  },
+  {
+   "run": "p3610-softsign-eta0.01-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.01,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 1.7979950973096739,
+   "medianUpOverEta": 1.8066500164027661,
+   "minLowOverEta": 1.7408286112739435,
+   "maxUpOverEta": 1.9540237371933693
+  },
+  {
+   "run": "p3610-softsign-eta0.02-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.02,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 1.096198218461093,
+   "medianUpOverEta": 1.0998478739934785,
+   "minLowOverEta": 1.035267665951173,
+   "maxUpOverEta": 1.165540621520553
+  },
+  {
+   "run": "p3610-softsign-eta0.03-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.03,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 10,
+    "below": 0,
+    "above": 1,
+    "undecided": 0
+   },
+   "insideShare": 0.9090909090909091,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 1.0109048038502197,
+   "medianUpOverEta": 1.0109452991901877,
+   "minLowOverEta": 0.9192086717772759,
+   "maxUpOverEta": 1.264311498181917
+  },
+  {
+   "run": "p3610-softsign-eta0.05-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.05,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9572922714190196,
+   "medianUpOverEta": 0.9578612062098043,
+   "minLowOverEta": 0.8456080897890518,
+   "maxUpOverEta": 1.136347253819065
+  },
+  {
+   "run": "p3610-softsign-eta0.1-mu0.001-seed0",
+   "network": 3610,
+   "activation": "softsign",
+   "eta": 0.1,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 8,
+    "below": 3,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.7272727272727273,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 0.8957054040268556,
+   "medianUpOverEta": 0.895715388888065,
+   "minLowOverEta": 0.7698170951140579,
+   "maxUpOverEta": 0.9683001587123413
+  },
+  {
+   "run": "p3610-tanh-eta0.001-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.001,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 17.764269610979426,
+   "medianUpOverEta": 17.780319734976,
+   "minLowOverEta": 17.297401176651753,
+   "maxUpOverEta": 18.34097057474966
+  },
+  {
+   "run": "p3610-tanh-eta0.003-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.003,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 5.401614822777572,
+   "medianUpOverEta": 5.410557860972962,
+   "minLowOverEta": 5.149970561633675,
+   "maxUpOverEta": 5.736983633207773
+  },
+  {
+   "run": "p3610-tanh-eta0.01-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.01,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 0,
+    "below": 0,
+    "above": 11,
+    "undecided": 0
+   },
+   "insideShare": 0,
+   "atSurrogateEdge": false,
+   "medianLowOverEta": 1.4443809823138924,
+   "medianUpOverEta": 1.4610748175225923,
+   "minLowOverEta": 1.3695520461299315,
+   "maxUpOverEta": 1.5527456763493206
+  },
+  {
+   "run": "p3610-tanh-eta0.02-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.02,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 1.0620142927159089,
+   "medianUpOverEta": 1.062120938960635,
+   "minLowOverEta": 0.9670517334406532,
+   "maxUpOverEta": 1.1688081607152523
+  },
+  {
+   "run": "p3610-tanh-eta0.03-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.03,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 11,
+    "below": 0,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 1,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.9565919637090636,
+   "medianUpOverEta": 0.9735362043472855,
+   "minLowOverEta": 0.9036924101313074,
+   "maxUpOverEta": 1.1499874461234358
+  },
+  {
+   "run": "p3610-tanh-eta0.05-mu0.001-seed0",
+   "network": 3610,
+   "activation": "tanh",
+   "eta": 0.05,
+   "checkpoints": 11,
+   "reading": {
+    "inside": 10,
+    "below": 1,
+    "above": 0,
+    "undecided": 0
+   },
+   "insideShare": 0.9090909090909091,
+   "atSurrogateEdge": true,
+   "medianLowOverEta": 0.92296427521389,
+   "medianUpOverEta": 0.923184739393806,
+   "minLowOverEta": 0.7792909897596859,
+   "maxUpOverEta": 1.0706553886661885
+  }
+ ]
+}

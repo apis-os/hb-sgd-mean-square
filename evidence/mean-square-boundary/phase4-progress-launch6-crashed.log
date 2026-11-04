@@ -1,0 +1,170 @@
+2026-10-27T21:13:16.072Z N33_mlp: eigendecomposition 0.0 s, lambda_1 5.762792099753815, lambda_min -0.008014736055870856, 2 negative
+2026-10-27T21:13:16.189Z N33_mlp: beta 0 g 128: eta* 0.014948331128564684 (16 Lanczos steps, converged true), 1D 0.014948351787888763, critical mode {"shareTop":0.991200664304809,"shareRigid":0.008758384200681257,"sharePositiveFlat":0.00003515776474151921,"shareNegative":0.0000057937297682730916,"lagOneRatio":-0.9991503236298429,"lanczosRelResidual":1.897754560649287e-11}
+2026-10-27T21:13:20.553Z N33_mlp: operator beta 0 g 128: rho 0.9960047042048651 / 1.00400329439636 (264, 117 steps), certified below true [0.9960045595951721, 0.9960047928182919], above true [1.0040031966184941, 1.0040034014544081], horizon 1: 0.9999999999990539 1.1: 1.4399225112713525 1.5: 3.9994723607539386
+2026-10-27T21:13:20.640Z N33_mlp: beta 0 g 32: eta* 0.052832709919563035 (17 Lanczos steps, converged true), 1D 0.0528359691440594, critical mode {"shareTop":0.9673501149501933,"shareRigid":0.03249001246968523,"sharePositiveFlat":0.00013715825749444023,"shareNegative":0.000022714322627106535,"lagOneRatio":-0.9889218020710775,"lanczosRelResidual":2.9180759919176876e-11}
+2026-10-27T21:13:23.130Z N33_mlp: operator beta 0 g 32: rho 0.9960131722179149 / 1.003994809925871 (124, 85 steps), certified below true [0.9960131720819211, 0.996013172290925], above true [1.0039948098488327, 1.0039948100610305], horizon 1: 0.999999999999976 1.1: 1.4389923901698694 1.5: 3.9931613872384615
+2026-10-27T21:13:23.222Z N33_mlp: beta 0 g 8: eta* 0.14270912843297254 (17 Lanczos steps, converged true), 1D 0.14289541044845122, critical mode {"shareTop":0.8968616065572823,"shareRigid":0.10254269780574307,"sharePositiveFlat":0.0005101689906717175,"shareNegative":0.00008552664630299472,"lagOneRatio":-0.9072541491694724,"lanczosRelResidual":3.4737706837616305e-11}
+2026-10-27T21:13:24.635Z N33_mlp: operator beta 0 g 8: rho 0.9960790855238979 / 1.0039287767181362 (62, 50 steps), certified below true [0.9960790855219941, 0.9960790855250489], above true [1.003928776716493, 1.0039287767202967], horizon 1: 1.0000000000000009 1.1: 1.4317898168584293 1.5: 3.944769340593001
+2026-10-27T21:13:24.716Z N33_mlp: beta 0 g 2: eta* 0.24286101314736386 (17 Lanczos steps, converged true), 1D 0.2447884330541145, critical mode {"shareTop":0.7594013679669391,"shareRigid":0.23853204585032706,"sharePositiveFlat":0.001764969037562061,"shareNegative":0.0003016171451717111,"lagOneRatio":-0.6426657670527021,"lanczosRelResidual":1.721747140892979e-11}
+2026-10-27T21:13:25.709Z N33_mlp: operator beta 0 g 2: rho 0.9962720453257038 / 1.0037355634088079 (45, 39 steps), certified below true [0.9962720453250595, 0.9962720453262374], above true [1.0037355634077598, 1.003735563409791], horizon 1: 0.9999999999999991 1.1: 1.411109482674297 1.5: 3.80994489026539
+2026-10-27T21:13:25.788Z N33_mlp: beta 0 g 0.5: eta* 0.2905507283405032 (17 Lanczos steps, converged true), 1D 0.2956006112785833, critical mode {"shareTop":0.5968669022597466,"shareRigid":0.3964176615734225,"sharePositiveFlat":0.005707647580579016,"shareNegative":0.001007788586251948,"lagOneRatio":-0.29180637770032447,"lanczosRelResidual":1.1548024541571177e-11}
+2026-10-27T21:13:27.160Z N33_mlp: operator beta 0 g 0.5: rho 0.9965029445830921 / 1.0035051113382514 (83, 54 steps), certified below true [0.9965029302817467, 0.9965029445831608], above true [1.003505110359167, 1.0035051113387992], horizon 1: 1.0000000000000009 1.1: 1.3887893228005577 1.5: 3.6790819625372952
+2026-10-27T21:13:27.241Z N33_mlp: beta 0 g 0.125: eta* 0.3042998385524457 (17 Lanczos steps, converged true), 1D 0.31141127014777226, critical mode {"shareTop":0.4696791789345352,"shareRigid":0.5096535174160892,"sharePositiveFlat":0.017330971970301007,"shareNegative":0.0033363316790744695,"lagOneRatio":-0.017368168247573573,"lanczosRelResidual":1.2105530485762626e-11}
+2026-10-27T21:13:30.630Z N33_mlp: operator beta 0 g 0.125: rho 0.9967123003814772 / 1.0032990287659773 (265, 172 steps), certified below true [0.9967121518982295, 0.9967123003838746], above true [1.0032990064263843, 1.0032990287678634], horizon 1: 1.0000000000002183 1.1: 1.374140124790497 1.5: 3.6098984392715456
+2026-10-27T21:13:30.714Z N33_mlp: beta 0 g 0.03125: eta* 0.30763346283334536 (17 Lanczos steps, converged true), 1D 0.3156001070697481, critical mode {"shareTop":0.38955029970929717,"shareRigid":0.5537482275491129,"sharePositiveFlat":0.04544822029919466,"shareNegative":0.011253252442395088,"lagOneRatio":0.15535863076600548,"lanczosRelResidual":1.222847805542028e-11}
+2026-10-27T21:13:41.099Z N33_mlp: operator beta 0 g 0.03125: rho 0.9968824152844655 / 1.0031393510029816 (986, 554 steps), certified below true [0.9968822794180229, 0.996882415331769], above true [1.0031392227536133, 1.003139351028493], horizon 1: 1.0000000000031266 1.1: 1.3670978747491547 1.5: 3.582589518825939
+2026-10-27T21:13:41.183Z N33_mlp: beta 0 g 0.0078125: eta* 0.3084104146249254 (17 Lanczos steps, converged true), 1D 0.31666282064969664, critical mode {"shareTop":0.33778142754968987,"shareRigid":0.5401046126488093,"sharePositiveFlat":0.08440778020132282,"shareNegative":0.0377061796001781,"lagOneRatio":0.26723332403711464,"lanczosRelResidual":1.2622548718362308e-11}
+2026-10-27T21:14:29.519Z N33_mlp: operator beta 0 g 0.0078125: rho 0.9970692702835215 / 1.0030174109225507 (6532, 1751 steps), certified below true [0.9970692575892559, 0.9970692710339653], above true [1.0030173410367922, 1.0030174110469454], horizon 1: 1.0000000000185334 1.1: 1.3644475121159392 1.5: 3.573498057212949
+2026-10-27T21:14:29.631Z N33_mlp: beta 0.9 g 128: eta* 0.028307599793205705 (26 Lanczos steps, converged true), 1D 0.02831346570986243, critical mode {"shareTop":0.8617240078812576,"shareRigid":0.13760554814959317,"sharePositiveFlat":0.0005750039404657384,"shareNegative":0.00009544002868355165,"lagOneRatio":-0.9851322530291462,"lanczosRelResidual":1.8324464209559083e-11}
+2026-10-27T21:14:35.028Z N33_mlp: operator beta 0.9 g 128: rho 0.9814577790055223 / 1.0239395833418794 (315, 203 steps), certified below true [0.9814577558812732, 0.9814577961217079], above true [1.0239395833313354, 1.023939583374646], horizon 1: 0.9999999999999336 1.1: 3.0741390174607446 1.5: 12.430476884485984
+2026-10-27T21:14:35.223Z N33_mlp: beta 0.9 g 32: eta* 0.09601489914180136 (42 Lanczos steps, converged true), 1D 0.09661221997615439, critical mode {"shareTop":0.6454941579486992,"shareRigid":0.35260079252235166,"sharePositiveFlat":0.001632675942298039,"shareNegative":0.000272373586651026,"lagOneRatio":-0.8389606112898429,"lanczosRelResidual":5.998896343821424e-11}
+2026-10-27T21:14:39.945Z N33_mlp: operator beta 0.9 g 32: rho 0.997939618377849 / 1.0021458264809335 (311, 247 steps), certified below true [0.9979396182577943, 0.9979396184597209], above true [1.0021458264669105, 1.0021458264823748], horizon 1: 0.9999999999997131 1.1: 2.2956040975014456 1.5: 10.73312256732443
+2026-10-27T21:14:40.262Z N33_mlp: beta 0.9 g 8: eta* 0.1940678242484763 (59 Lanczos steps, converged true), 1D 0.21047685335114, critical mode {"shareTop":0.38505407825518306,"shareRigid":0.6110343408858269,"sharePositiveFlat":0.0033520237758969712,"shareNegative":0.0005595570830931823,"lagOneRatio":-0.15448124066088795,"lanczosRelResidual":9.069216533603941e-11}
+2026-10-27T21:14:46.805Z N33_mlp: operator beta 0.9 g 8: rho 0.9996836804732807 / 1.0003177831034484 (383, 286 steps), certified below true [0.999683680452626, 0.9996836804789903], above true [1.0003177830827463, 1.0003177831091374], horizon 1: 0.9999999999994298 1.1: 1.0413797271443654 1.5: 2.9251910501740848
+2026-10-27T21:14:47.186Z N33_mlp: beta 0.9 g 2: eta* 0.18081066083757374 (70 Lanczos steps, converged true), 1D 0.24737054672834663, critical mode {"shareTop":0.19047513644833886,"shareRigid":0.802503202441556,"sharePositiveFlat":0.006014287026491122,"shareNegative":0.0010073740836139505,"lagOneRatio":0.5857652138333611,"lanczosRelResidual":3.8907457371118224e-11}
+2026-10-27T21:14:55.051Z N33_mlp: operator beta 0.9 g 2: rho 0.9998504066881201 / 1.0001497432068813 (419, 302 steps), certified below true [0.9998504066821777, 0.9998504066923499], above true [1.0001497432025086, 1.0001497432130364], horizon 1: 1.0000000000007372 1.1: 1.0157592763930716 1.5: 1.1008827038543745
+2026-10-27T21:14:55.461Z N33_mlp: beta 0.9 g 0.5: eta* 0.13958923784578042 (74 Lanczos steps, converged true), 1D 0.24238854444673677, critical mode {"shareTop":0.09949154660900508,"shareRigid":0.8860547575824728,"sharePositiveFlat":0.012297256302967246,"shareNegative":0.002156439505554964,"lagOneRatio":0.839394705392598,"lanczosRelResidual":5.4697751812453156e-11}
+2026-10-27T21:15:02.732Z N33_mlp: operator beta 0.9 g 0.5: rho 0.9998741873891281 / 1.0001258757826168 (433, 275 steps), certified below true [0.9998741873796378, 0.9998741873928577], above true [1.000125875773242, 1.0001258757863], horizon 1: 0.9999999999992908 1.1: 1.012907512329267 1.5: 1.0718239771562963
+2026-10-27T21:15:03.114Z N33_mlp: beta 0.9 g 0.125: eta* 0.12098939412550205 (73 Lanczos steps, converged true), 1D 0.23898462276880583, critical mode {"shareTop":0.06347565560129785,"shareRigid":0.901253507090536,"sharePositiveFlat":0.02945305573137812,"shareNegative":0.005817781576788099,"lagOneRatio":0.9119980214953757,"lanczosRelResidual":9.76467314869489e-11}
+2026-10-27T21:15:10.006Z N33_mlp: operator beta 0.9 g 0.125: rho 0.9998804772070163 / 1.00011956951267 (408, 253 steps), certified below true [0.9998804771651777, 0.9998804772220202], above true [1.0001195694683873, 1.0001195695285374], horizon 1: 0.9999999999993283 1.1: 1.0121919230597998 1.5: 1.0661113877133164
+2026-10-27T21:15:10.384Z N33_mlp: beta 0.9 g 0.03125: eta* 0.1145051489501093 (73 Lanczos steps, converged true), 1D 0.23796830993998197, critical mode {"shareTop":0.04732282177873961,"shareRigid":0.8662477785917602,"sharePositiveFlat":0.06847601190567401,"shareNegative":0.017953387723826285,"lagOneRatio":0.9382193824828794,"lanczosRelResidual":8.787707869922323e-11}
+2026-10-27T21:15:17.474Z N33_mlp: operator beta 0.9 g 0.03125: rho 0.9998832572960834 / 1.000116784534742 (432, 275 steps), certified below true [0.9998832572659727, 0.9998832573034527], above true [1.0001167845051466, 1.0001167845418664], horizon 1: 1.000000000000684 1.1: 1.0118881717953994 1.5: 1.0639795558751615
+2026-10-27T21:15:17.837Z N33_mlp: beta 0.9 g 0.0078125: eta* 0.11242062607100459 (73 Lanczos steps, converged true), 1D 0.23770339371467328, critical mode {"shareTop":0.038368123392935466,"shareRigid":0.785800924330379,"sharePositiveFlat":0.11799808265155694,"shareNegative":0.057832869625128396,"lagOneRatio":0.9509605953645078,"lanczosRelResidual":8.723557399928191e-11}
+2026-10-27T21:15:35.170Z N33_mlp: operator beta 0.9 g 0.0078125: rho 0.9998851534198048 / 1.0001148925213734 (1203, 782 steps), certified below true [0.9998851532323197, 0.9998851534255385], above true [1.0001148923369678, 1.0001148925253995], horizon 1: 1.0000000000036255 1.1: 1.011709701138307 1.5: 1.0630137843171177
+2026-10-27T21:17:11.466Z N33_mlp: 128 trajectory jobs done
+2026-10-27T21:19:28.912Z X1_P3610: eigendecomposition 135.0 s, lambda_1 98.67701845430254, lambda_min -0.08333001843178042, 1528 negative
+2026-10-27T21:22:05.400Z X1_P3610: beta 0.9 g 2: Lanczos step 5, rel residual 7.91e-1, 156 s
+2026-10-27T21:24:41.153Z X1_P3610: beta 0.9 g 2: Lanczos step 10, rel residual 6.99e-1, 312 s
+2026-10-27T21:27:17.172Z X1_P3610: beta 0.9 g 2: Lanczos step 15, rel residual 2.60e-1, 468 s
+2026-10-27T21:29:48.619Z X1_P3610: beta 0.9 g 2: Lanczos step 20, rel residual 2.02e-1, 619 s
+2026-10-27T21:32:11.615Z X1_P3610: beta 0.9 g 2: Lanczos step 25, rel residual 1.46e-1, 762 s
+2026-10-27T21:34:54.674Z X1_P3610: beta 0.9 g 2: Lanczos step 30, rel residual 6.22e-2, 926 s
+2026-10-27T21:37:29.374Z X1_P3610: beta 0.9 g 2: Lanczos step 35, rel residual 3.22e-2, 1080 s
+2026-10-27T21:39:59.284Z X1_P3610: beta 0.9 g 2: Lanczos step 40, rel residual 1.58e-2, 1230 s
+2026-10-27T21:42:33.315Z X1_P3610: beta 0.9 g 2: Lanczos step 45, rel residual 5.56e-3, 1384 s
+2026-10-27T21:44:58.893Z X1_P3610: beta 0.9 g 2: Lanczos step 50, rel residual 2.22e-3, 1530 s
+2026-10-27T21:47:23.293Z X1_P3610: beta 0.9 g 2: Lanczos step 55, rel residual 1.20e-3, 1674 s
+2026-10-27T21:49:48.288Z X1_P3610: beta 0.9 g 2: Lanczos step 60, rel residual 4.44e-4, 1819 s
+2026-10-27T21:52:12.091Z X1_P3610: beta 0.9 g 2: Lanczos step 65, rel residual 1.49e-4, 1963 s
+2026-10-27T21:54:36.679Z X1_P3610: beta 0.9 g 2: Lanczos step 70, rel residual 6.45e-5, 2108 s
+2026-10-27T21:56:52.806Z X1_P3610: beta 0.9 g 2: Lanczos step 75, rel residual 2.68e-5, 2244 s
+2026-10-27T21:59:03.860Z X1_P3610: beta 0.9 g 2: Lanczos step 80, rel residual 1.13e-5, 2375 s
+2026-10-27T22:01:00.226Z X1_P3610: beta 0.9 g 2: Lanczos step 85, rel residual 3.46e-6, 2491 s
+2026-10-27T22:02:52.391Z X1_P3610: beta 0.9 g 2: Lanczos step 90, rel residual 1.43e-6, 2603 s
+2026-10-27T22:04:46.155Z X1_P3610: beta 0.9 g 2: Lanczos step 95, rel residual 6.54e-7, 2717 s
+2026-10-27T22:06:51.041Z X1_P3610: beta 0.9 g 2: Lanczos step 100, rel residual 2.02e-7, 2842 s
+2026-10-27T22:08:50.872Z X1_P3610: beta 0.9 g 2: eta* 0.016781921797360745 (104 Lanczos steps, converged true), 1D 0.019273451506758688, critical mode {"shareTop":0.11144413319367548,"shareRigid":0.8014499909371793,"sharePositiveFlat":0.08226687198898402,"shareNegative":0.004839003880161433,"lagOneRatio":0.8450884270813676,"lanczosRelResidual":8.94448718791355e-8}
+2026-10-28T01:52:34.638Z X1_P3610: operator beta 0.9 g 2: rho 0.9998242732193813 / 1.000176000813953 (439, 237 steps), certified below false [null, null], above false [null, null], horizon 
+2026-10-28T01:54:27.904Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 5, rel residual 3.79e-2, 113 s
+2026-10-28T01:56:17.222Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 10, rel residual 1.97e-2, 223 s
+2026-10-28T01:58:08.097Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 15, rel residual 7.21e-3, 333 s
+2026-10-28T01:59:57.463Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 20, rel residual 4.50e-3, 443 s
+2026-10-28T02:01:47.766Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 25, rel residual 2.72e-3, 553 s
+2026-10-28T02:03:38.646Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 30, rel residual 2.23e-3, 664 s
+2026-10-28T02:05:29.155Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 35, rel residual 9.74e-4, 774 s
+2026-10-28T02:07:20.467Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 40, rel residual 3.83e-4, 886 s
+2026-10-28T02:09:09.981Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 45, rel residual 1.65e-4, 995 s
+2026-10-28T02:11:00.729Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 50, rel residual 7.33e-5, 1106 s
+2026-10-28T02:12:50.471Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 55, rel residual 3.29e-5, 1216 s
+2026-10-28T02:14:40.954Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 60, rel residual 1.36e-5, 1326 s
+2026-10-28T02:16:31.656Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 65, rel residual 5.28e-6, 1437 s
+2026-10-28T02:18:21.000Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 70, rel residual 2.02e-6, 1546 s
+2026-10-28T02:20:12.645Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 75, rel residual 6.95e-7, 1658 s
+2026-10-28T02:22:02.654Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 80, rel residual 2.86e-7, 1768 s
+2026-10-28T02:23:52.989Z X1_P3610: beta 0.9 g 0.0078125: Lanczos step 85, rel residual 1.07e-7, 1878 s
+2026-10-28T02:24:16.364Z X1_P3610: beta 0.9 g 0.0078125: eta* 0.015640812463521104 (86 Lanczos steps, converged true), 1D 0.019278117973553985, critical mode {"shareTop":0.02748735117206889,"shareRigid":0.5710527329793217,"sharePositiveFlat":0.2636320231317176,"shareNegative":0.1378278927168923,"lagOneRatio":0.9642346928041449,"lanczosRelResidual":9.897336996379922e-8}
+2026-10-28T02:26:09.191Z X1_P3610: beta 0.9 g 128: Lanczos step 5, rel residual 2.55e-2, 113 s
+2026-10-28T02:27:59.794Z X1_P3610: beta 0.9 g 128: Lanczos step 10, rel residual 1.19e-2, 223 s
+2026-10-28T02:29:49.206Z X1_P3610: beta 0.9 g 128: Lanczos step 15, rel residual 5.68e-3, 333 s
+2026-10-28T02:31:39.020Z X1_P3610: beta 0.9 g 128: Lanczos step 20, rel residual 1.75e-3, 443 s
+2026-10-28T02:33:29.160Z X1_P3610: beta 0.9 g 128: Lanczos step 25, rel residual 4.50e-4, 553 s
+2026-10-28T02:35:19.720Z X1_P3610: beta 0.9 g 128: Lanczos step 30, rel residual 1.13e-4, 663 s
+2026-10-28T02:37:08.587Z X1_P3610: beta 0.9 g 128: Lanczos step 35, rel residual 3.04e-5, 772 s
+2026-10-28T02:38:57.995Z X1_P3610: beta 0.9 g 128: Lanczos step 40, rel residual 6.12e-6, 882 s
+2026-10-28T02:40:49.056Z X1_P3610: beta 0.9 g 128: Lanczos step 45, rel residual 1.38e-6, 993 s
+2026-10-28T02:42:38.513Z X1_P3610: beta 0.9 g 128: Lanczos step 50, rel residual 3.63e-7, 1102 s
+2026-10-28T02:44:27.811Z X1_P3610: beta 0.9 g 128: Lanczos step 55, rel residual 8.80e-8, 1211 s
+2026-10-28T02:44:31.021Z X1_P3610: beta 0.9 g 128: eta* 0.013993390015703636 (55 Lanczos steps, converged true), 1D 0.014095146800785753, critical mode {"shareTop":0.6795073912276095,"shareRigid":0.30970359490115945,"sharePositiveFlat":0.010255552269552624,"shareNegative":0.0005334616016784417,"lagOneRatio":-0.47278021054927855,"lanczosRelResidual":8.795959656987962e-8}
+2026-10-28T02:46:22.564Z X1_P3610: beta 0.9 g 32: Lanczos step 5, rel residual 3.71e-2, 112 s
+2026-10-28T02:48:12.705Z X1_P3610: beta 0.9 g 32: Lanczos step 10, rel residual 1.67e-2, 222 s
+2026-10-28T02:50:02.477Z X1_P3610: beta 0.9 g 32: Lanczos step 15, rel residual 7.24e-3, 331 s
+2026-10-28T02:51:53.398Z X1_P3610: beta 0.9 g 32: Lanczos step 20, rel residual 4.78e-3, 442 s
+2026-10-28T02:53:42.798Z X1_P3610: beta 0.9 g 32: Lanczos step 25, rel residual 2.21e-3, 552 s
+2026-10-28T02:55:32.543Z X1_P3610: beta 0.9 g 32: Lanczos step 30, rel residual 8.30e-4, 662 s
+2026-10-28T02:57:21.915Z X1_P3610: beta 0.9 g 32: Lanczos step 35, rel residual 3.09e-4, 771 s
+2026-10-28T02:59:13.050Z X1_P3610: beta 0.9 g 32: Lanczos step 40, rel residual 1.12e-4, 882 s
+2026-10-28T03:01:03.044Z X1_P3610: beta 0.9 g 32: Lanczos step 45, rel residual 3.97e-5, 992 s
+2026-10-28T03:02:54.399Z X1_P3610: beta 0.9 g 32: Lanczos step 50, rel residual 1.29e-5, 1103 s
+2026-10-28T03:04:46.091Z X1_P3610: beta 0.9 g 32: Lanczos step 55, rel residual 4.56e-6, 1215 s
+2026-10-28T03:06:35.893Z X1_P3610: beta 0.9 g 32: Lanczos step 60, rel residual 1.90e-6, 1325 s
+2026-10-28T03:08:26.419Z X1_P3610: beta 0.9 g 32: Lanczos step 65, rel residual 6.04e-7, 1435 s
+2026-10-28T03:10:16.857Z X1_P3610: beta 0.9 g 32: Lanczos step 70, rel residual 2.16e-7, 1546 s
+2026-10-28T03:11:27.078Z X1_P3610: beta 0.9 g 32: eta* 0.01788063743285411 (73 Lanczos steps, converged true), 1D 0.018532505073990815, critical mode {"shareTop":0.4349421802127712,"shareRigid":0.5415075680595521,"sharePositiveFlat":0.022382546982690717,"shareNegative":0.0011677047449859495,"lagOneRatio":0.23048156322499533,"lanczosRelResidual":8.686881016544776e-8}
+2026-10-28T03:13:17.572Z X1_P3610: beta 0.9 g 8: Lanczos step 5, rel residual 8.94e-2, 110 s
+2026-10-28T03:15:07.158Z X1_P3610: beta 0.9 g 8: Lanczos step 10, rel residual 1.97e-2, 220 s
+2026-10-28T03:16:56.163Z X1_P3610: beta 0.9 g 8: Lanczos step 15, rel residual 9.83e-3, 329 s
+2026-10-28T03:18:45.579Z X1_P3610: beta 0.9 g 8: Lanczos step 20, rel residual 5.44e-3, 438 s
+2026-10-28T03:20:35.382Z X1_P3610: beta 0.9 g 8: Lanczos step 25, rel residual 3.40e-3, 548 s
+2026-10-28T03:22:25.291Z X1_P3610: beta 0.9 g 8: Lanczos step 30, rel residual 2.67e-3, 658 s
+2026-10-28T03:24:15.529Z X1_P3610: beta 0.9 g 8: Lanczos step 35, rel residual 1.06e-3, 768 s
+2026-10-28T03:26:05.398Z X1_P3610: beta 0.9 g 8: Lanczos step 40, rel residual 4.35e-4, 878 s
+2026-10-28T03:27:54.732Z X1_P3610: beta 0.9 g 8: Lanczos step 45, rel residual 1.76e-4, 988 s
+2026-10-28T03:29:45.575Z X1_P3610: beta 0.9 g 8: Lanczos step 50, rel residual 7.49e-5, 1098 s
+2026-10-28T03:31:35.624Z X1_P3610: beta 0.9 g 8: Lanczos step 55, rel residual 3.44e-5, 1209 s
+2026-10-28T03:33:26.545Z X1_P3610: beta 0.9 g 8: Lanczos step 60, rel residual 1.33e-5, 1319 s
+2026-10-28T03:35:17.211Z X1_P3610: beta 0.9 g 8: Lanczos step 65, rel residual 4.16e-6, 1430 s
+2026-10-28T03:37:06.803Z X1_P3610: beta 0.9 g 8: Lanczos step 70, rel residual 1.90e-6, 1540 s
+2026-10-28T03:38:57.058Z X1_P3610: beta 0.9 g 8: Lanczos step 75, rel residual 8.64e-7, 1650 s
+2026-10-28T03:40:48.063Z X1_P3610: beta 0.9 g 8: Lanczos step 80, rel residual 2.76e-7, 1761 s
+2026-10-28T03:42:37.223Z X1_P3610: beta 0.9 g 8: Lanczos step 85, rel residual 1.12e-7, 1870 s
+2026-10-28T03:43:04.080Z X1_P3610: beta 0.9 g 8: eta* 0.017637854617943295 (86 Lanczos steps, converged true), 1D 0.019216712136554223, critical mode {"shareTop":0.2265888709517898,"shareRigid":0.7270661278179469,"sharePositiveFlat":0.04398321954033693,"shareNegative":0.002361781689926388,"lagOneRatio":0.6592309921231588,"lanczosRelResidual":8.43641908726519e-8}
+2026-10-28T03:44:55.092Z X1_P3610: beta 0.9 g 0.5: Lanczos step 5, rel residual 6.83e-2, 111 s
+2026-10-28T03:46:46.061Z X1_P3610: beta 0.9 g 0.5: Lanczos step 10, rel residual 3.23e-2, 222 s
+2026-10-28T03:48:35.754Z X1_P3610: beta 0.9 g 0.5: Lanczos step 15, rel residual 1.32e-2, 332 s
+2026-10-28T03:50:25.890Z X1_P3610: beta 0.9 g 0.5: Lanczos step 20, rel residual 8.19e-3, 442 s
+2026-10-28T03:52:15.580Z X1_P3610: beta 0.9 g 0.5: Lanczos step 25, rel residual 4.64e-3, 551 s
+2026-10-28T03:54:05.283Z X1_P3610: beta 0.9 g 0.5: Lanczos step 30, rel residual 3.57e-3, 661 s
+2026-10-28T03:55:55.262Z X1_P3610: beta 0.9 g 0.5: Lanczos step 35, rel residual 1.64e-3, 771 s
+2026-10-28T03:57:45.247Z X1_P3610: beta 0.9 g 0.5: Lanczos step 40, rel residual 6.66e-4, 881 s
+2026-10-28T03:59:36.324Z X1_P3610: beta 0.9 g 0.5: Lanczos step 45, rel residual 2.99e-4, 992 s
+2026-10-28T04:01:25.552Z X1_P3610: beta 0.9 g 0.5: Lanczos step 50, rel residual 1.40e-4, 1101 s
+2026-10-28T04:03:16.653Z X1_P3610: beta 0.9 g 0.5: Lanczos step 55, rel residual 6.41e-5, 1213 s
+2026-10-28T04:05:08.354Z X1_P3610: beta 0.9 g 0.5: Lanczos step 60, rel residual 2.45e-5, 1324 s
+2026-10-28T04:06:57.511Z X1_P3610: beta 0.9 g 0.5: Lanczos step 65, rel residual 1.01e-5, 1433 s
+2026-10-28T04:08:46.948Z X1_P3610: beta 0.9 g 0.5: Lanczos step 70, rel residual 3.45e-6, 1543 s
+2026-10-28T04:10:38.382Z X1_P3610: beta 0.9 g 0.5: Lanczos step 75, rel residual 1.25e-6, 1654 s
+2026-10-28T04:12:28.537Z X1_P3610: beta 0.9 g 0.5: Lanczos step 80, rel residual 5.40e-7, 1764 s
+2026-10-28T04:14:17.869Z X1_P3610: beta 0.9 g 0.5: Lanczos step 85, rel residual 2.03e-7, 1874 s
+2026-10-28T04:16:07.135Z X1_P3610: beta 0.9 g 0.5: Lanczos step 90, rel residual 9.98e-8, 1983 s
+2026-10-28T04:16:12.368Z X1_P3610: beta 0.9 g 0.5: eta* 0.016155850388474807 (90 Lanczos steps, converged true), 1D 0.01927767481719657, critical mode {"shareTop":0.06054660675007186,"shareRigid":0.7817205910602137,"sharePositiveFlat":0.14698888120472411,"shareNegative":0.010743920984990513,"lagOneRatio":0.9189412838374496,"lanczosRelResidual":9.981206550151136e-8}
+2026-10-28T04:18:03.029Z X1_P3610: beta 0.9 g 0.125: Lanczos step 5, rel residual 8.03e-3, 111 s
+2026-10-28T04:19:52.956Z X1_P3610: beta 0.9 g 0.125: Lanczos step 10, rel residual 4.97e-3, 221 s
+2026-10-28T04:21:41.871Z X1_P3610: beta 0.9 g 0.125: Lanczos step 15, rel residual 1.78e-3, 329 s
+2026-10-28T04:23:30.962Z X1_P3610: beta 0.9 g 0.125: Lanczos step 20, rel residual 1.26e-3, 439 s
+2026-10-28T04:25:21.485Z X1_P3610: beta 0.9 g 0.125: Lanczos step 25, rel residual 7.11e-4, 549 s
+2026-10-28T04:27:11.121Z X1_P3610: beta 0.9 g 0.125: Lanczos step 30, rel residual 5.51e-4, 659 s
+2026-10-28T04:29:03.540Z X1_P3610: beta 0.9 g 0.125: Lanczos step 35, rel residual 2.21e-4, 771 s
+2026-10-28T04:30:53.794Z X1_P3610: beta 0.9 g 0.125: Lanczos step 40, rel residual 1.00e-4, 881 s
+2026-10-28T04:32:44.903Z X1_P3610: beta 0.9 g 0.125: Lanczos step 45, rel residual 3.72e-5, 993 s
+2026-10-28T04:34:36.206Z X1_P3610: beta 0.9 g 0.125: Lanczos step 50, rel residual 1.80e-5, 1104 s
+2026-10-28T04:36:26.994Z X1_P3610: beta 0.9 g 0.125: Lanczos step 55, rel residual 8.20e-6, 1215 s
+2026-10-28T04:38:16.470Z X1_P3610: beta 0.9 g 0.125: Lanczos step 60, rel residual 3.56e-6, 1324 s
+2026-10-28T04:40:06.150Z X1_P3610: beta 0.9 g 0.125: Lanczos step 65, rel residual 1.17e-6, 1434 s
+2026-10-28T04:41:55.566Z X1_P3610: beta 0.9 g 0.125: Lanczos step 70, rel residual 4.65e-7, 1543 s
+2026-10-28T04:43:45.328Z X1_P3610: beta 0.9 g 0.125: Lanczos step 75, rel residual 1.59e-7, 1653 s
+2026-10-28T04:44:55.846Z X1_P3610: beta 0.9 g 0.125: eta* 0.015823463536130462 (78 Lanczos steps, converged true), 1D 0.01927805552142616, critical mode {"shareTop":0.04000551047190714,"shareRigid":0.7107084060911968,"sharePositiveFlat":0.22380590187884483,"shareNegative":0.025480181558050704,"lagOneRatio":0.9474138280743576,"lanczosRelResidual":9.240567701039681e-8}
+2026-10-28T04:46:45.918Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 5, rel residual 2.56e-3, 110 s
+2026-10-28T04:48:35.727Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 10, rel residual 1.73e-3, 220 s
+2026-10-28T04:50:25.770Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 15, rel residual 5.34e-4, 330 s
+2026-10-28T04:52:15.073Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 20, rel residual 3.98e-4, 439 s
+2026-10-28T04:54:03.651Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 25, rel residual 2.19e-4, 548 s
+2026-10-28T04:55:53.171Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 30, rel residual 1.67e-4, 657 s
+2026-10-28T04:57:42.875Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 35, rel residual 7.18e-5, 767 s
+2026-10-28T04:59:33.089Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 40, rel residual 3.37e-5, 877 s
+2026-10-28T05:01:22.117Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 45, rel residual 1.27e-5, 986 s
+2026-10-28T05:03:13.207Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 50, rel residual 5.69e-6, 1097 s
+2026-10-28T05:05:04.125Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 55, rel residual 2.68e-6, 1208 s
+2026-10-28T05:06:54.151Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 60, rel residual 1.20e-6, 1318 s
+2026-10-28T05:08:43.978Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 65, rel residual 4.36e-7, 1428 s
+2026-10-28T05:10:34.203Z X1_P3610: beta 0.9 g 0.03125: Lanczos step 70, rel residual 1.53e-7, 1538 s
+2026-10-28T05:11:22.512Z X1_P3610: beta 0.9 g 0.03125: eta* 0.01568940938027409 (72 Lanczos steps, converged true), 1D 0.01927810764648565, critical mode {"shareTop":0.03198830838738997,"shareRigid":0.6413001137979867,"sharePositiveFlat":0.2673511304509322,"shareNegative":0.059360447363691324,"lagOneRatio":0.9582661724776116,"lanczosRelResidual":9.295605434946773e-8}

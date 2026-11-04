@@ -1,0 +1,4322 @@
+[
+ {
+  "name": "p12826-tanh-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-tanh-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "tanh",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-tanh-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-tanh-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-leakyRelu01-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "leakyRelu01",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-leakyRelu01-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p12826-softsign-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "12826",
+   "softsign",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p12826-softsign-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p12826-softsign-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-tanh-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "tanh",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-tanh-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-tanh-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-leakyRelu01-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "leakyRelu01",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-leakyRelu01-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.001-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.001",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.001-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.001-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.001-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.001",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.001-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.001-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.003-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.003",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.003-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.003-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.003-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.003",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.003-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.003-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.01-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.01",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.01-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.01-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.01-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.01",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.01-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.01-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.02-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.02",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.02-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.02-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.02-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.02",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.02-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.02-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.03-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.03",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.03-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.03-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.03-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.03",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.03-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.03-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.05-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.05",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.05-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.05-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.05-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.05",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.05-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.05-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.1-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.1",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.1-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.1-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.1-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.1",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.1-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.1-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.15-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.15",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.15-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.15-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.15-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.15",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.15-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.15-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.2-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.2",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.2-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.2-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.2-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.2",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.2-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.2-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.3-mu0-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.3",
+   "0",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.3-mu0-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.3-mu0-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.3-mu0-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.3",
+   "0",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.3-mu0-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.3-mu0-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.001-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.001",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.001-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.001-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.001-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.001",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.001-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.001-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.003-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.003",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.003-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.003-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.003-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.003",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.003-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.003-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.01-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.01",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.01-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.01-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.01-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.01",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.01-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.01-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.02-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.02",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.02-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.02-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.02-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.02",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.02-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.02-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.03-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.03",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.03-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.03-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.03-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.03",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.03-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.03-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.05-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.05",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.05-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.05-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.05-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.05",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.05-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.05-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.1-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.1",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.1-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.1-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.1-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.1",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.1-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.1-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.15-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.15",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.15-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.15-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.15-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.15",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.15-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.15-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.2-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.2",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.2-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.2-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.2-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.2",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.2-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.2-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.3-mu0.001-seed0",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.3",
+   "0.001",
+   "0",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.3-mu0.001-seed0.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.3-mu0.001-seed0.json"
+  ],
+  "heap": 2600
+ },
+ {
+  "name": "p3610-softsign-eta0.3-mu0.001-seed1500",
+  "fn": "single",
+  "args": [
+   "labs/l67-southwell-eos/run-phase15-pilot.ts",
+   "3610",
+   "softsign",
+   "0.3",
+   "0.001",
+   "1500",
+   "20000",
+   "phase15-pilot/p3610-softsign-eta0.3-mu0.001-seed1500.json"
+  ],
+  "outputs": [
+   "phase15-pilot/p3610-softsign-eta0.3-mu0.001-seed1500.json"
+  ],
+  "heap": 2600
+ }
+]

@@ -1,0 +1,13 @@
+The files in src/math/ are TypeScript ports of FDLIBM 5.3 (Freely Distributable LIBM): exp, expm1, log, sin, cos, tan, sinh,
+cosh and tanh (with the FreeBSD msun revision of tanh, which keeps the same notice), the argument reduction modulo pi/2 and
+their bit-level helpers (word access, scalbn, abs, sign, min, max), which come from the same earlier port. The FDLIBM sources
+carry this notice:
+
+  Copyright (C) 1993 by Sun Microsystems, Inc. All rights reserved.
+
+  Developed at SunSoft, a Sun Microsystems, Inc. business.
+  Permission to use, copy, modify, and distribute this
+  software is freely granted, provided that this notice
+  is preserved.
+
+The notice is preserved here for those files; the rest of the code is under the MIT License in LICENSE.

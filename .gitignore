@@ -1,0 +1,8 @@
+node_modules
+*.aux
+*.log
+*.out
+*.blg
+*.bbl
+review/
+.last-prompt.md

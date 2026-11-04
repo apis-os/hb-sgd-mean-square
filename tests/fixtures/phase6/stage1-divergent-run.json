@@ -1,0 +1,1 @@
+{"note":"Synthetic stored record for the runner-wiring test of Phase 16 stage 1: training at eta = 1e8 diverges at once, the record says it did not.","eta":100000000,"muTrain":0,"seed":1401,"beta":0.9,"batchB":16,"steps":2,"divergedAt":null,"checkpoints":[]}

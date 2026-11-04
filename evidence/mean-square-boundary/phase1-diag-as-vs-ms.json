@@ -1,0 +1,40 @@
+{
+  "labId": "mean-square-boundary-phase1-diag-as-vs-ms",
+  "date": "2026-10-27T16:36:31.333Z",
+  "cell": "P64_beta0_B64",
+  "note": "post-hoc diagnostic, not a pre-registered prediction: bisection cap raised to 1.15 x deterministic ceiling; same streams/steps/threshold as Phase 1",
+  "streams": 8,
+  "steps": 1000,
+  "iterations": 12,
+  "cap": 2.3,
+  "results": [
+    {
+      "family": "gaussian-iid",
+      "ceilings": [
+        1.96280517578125,
+        1.9650512695312496,
+        1.9762817382812496,
+        1.9964965820312495,
+        2.00997314453125,
+        2.02569580078125,
+        2.0391723632812497,
+        2.0666870117187495
+      ],
+      "median": 2.00323486328125
+    },
+    {
+      "family": "rademacher-iid",
+      "ceilings": [
+        1.9762817382812496,
+        1.9875122070312496,
+        1.9891967773437496,
+        1.9920043945312496,
+        2.00772705078125,
+        2.00772705078125,
+        2.0127807617187496,
+        2.0127807617187496
+      ],
+      "median": 1.9998657226562497
+    }
+  ]
+}

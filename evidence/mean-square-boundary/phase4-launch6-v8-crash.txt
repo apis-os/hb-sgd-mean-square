@@ -1,0 +1,37 @@
+# Fatal error in , line 0
+# Check failed: function_feedback != feedback.feedback_for_function.end().
+#
+#
+#
+#FailureMessage Object: 0x7f70da3f81b0
+----- Native stack trace -----
+
+ 1: 0xa55b01  [node]
+ 2: 0x27c9cf1 V8_Fatal(char const*, ...) [node]
+ 3: 0x2e7e47e  [node]
+ 4: 0x2e7d7a6  [node]
+ 5: 0x2e6f015  [node]
+ 6: 0x2e6d308  [node]
+ 7: 0x2e5406d  [node]
+ 8: 0x2e4af2e  [node]
+ 9: 0x2e496c6  [node]
+10: 0x2e6f232  [node]
+11: 0x2e6d308  [node]
+12: 0x2e5406d  [node]
+13: 0x2e4af2e  [node]
+14: 0x2e496c6  [node]
+15: 0x2e6f232  [node]
+16: 0x2e6d308  [node]
+17: 0x2e5406d  [node]
+18: 0x2e4af2e  [node]
+19: 0x2e496c6  [node]
+20: 0x2e490e9  [node]
+21: 0x28f24e0  [node]
+22: 0x28ca7b2  [node]
+23: 0x186a118  [node]
+24: 0x18788df  [node]
+25: 0x1877f5b  [node]
+26: 0x1ef693f  [node]
+27: 0xa532be  [node]
+28: 0x7f70dc49cb84  [/lib/x86_64-linux-gnu/libc.so.6]
+29: 0x7f70dc529ecc  [/lib/x86_64-linux-gnu/libc.so.6]
