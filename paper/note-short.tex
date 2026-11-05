@@ -1,0 +1,243 @@
+\documentclass[11pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath,amssymb,amsthm,mathtools}
+\usepackage{booktabs}
+\usepackage[hmargin=0.9in,vmargin=0.85in]{geometry}
+\emergencystretch=1em
+\usepackage{natbib}
+\usepackage{xcolor}
+\usepackage[colorlinks=true,linkcolor=blue!60!black,citecolor=blue!60!black,urlcolor=blue!60!black]{hyperref}
+\hypersetup{pdftitle={Minibatch Heavy-Ball SGD at Finite Dimension: Exact Threshold, Rate and Critical Slowing Down},pdfauthor={Gabriel Paiva}}
+\usepackage[expansion=false]{microtype}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}[theorem]{Corollary}
+\newtheorem{lemma}[theorem]{Lemma}
+
+\newcommand{\E}{\mathbb{E}}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\tr}{\operatorname{tr}}
+\newcommand{\T}{\mathcal T}
+\newcommand{\V}{\mathcal V}
+
+\title{Minibatch Heavy-Ball SGD at Finite Dimension:\\ Exact Threshold, Rate and Critical Slowing Down}
+\author{Gabriel Paiva\\ \texttt{gabriel@echdesign.co.uk}}
+\date{November 2026}
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+For heavy-ball SGD on a quadratic in $\R^P$ with minibatches of $B$ random features having independent coordinates in the Hessian eigenbasis, coordinate-dependent fourth moments and a common random scale, we give at finite $P$ and $B$ the mean-square threshold via a rank-one secular equation and the exact convergence rate $\rho=1/z_\star$, where $z_\star$ is the smallest positive root of $z\widehat K(z)=1$ for the kernel $\widehat K$ of an exact convolution equation for the loss, together with the prefactor of the approach to the noise floor and the slope of $1-\rho$ at the threshold. Applied to the vocabulary model of \citet{everett2026sparse}, where token rows are gated features sharing $(\eta,\beta,B)$, this settles at every finite batch the three vocabulary statements that their Appendix~A.4 lists as not proved, and the numerical observations of their Remark~H.17: when the two extreme-frequency rows are stable, the slowest row is one of them; no $(\eta,\beta)$ makes a gated feature decay faster per step than the best SGD step (proved at leading order there), so the fewest samples per decay time with momentum equal those of SGD; at fixed $\beta$ the sample cost increases strictly with $B$, giving $E_\beta$ in closed form; the tuned $\beta$ is zero with $S_{\mathrm{mom}}(B)=S_{\mathrm{SGD}}(B)$ for $B-1\le B_\times$ (their batch size $B_\times$), and positive for $B-1>B_\times$; and the fewest steps approach their large-batch limit as $C_{\mathrm{mom}}B^{-1/2}$ with explicit $C_{\mathrm{mom}}$. At high effective rank $r_{\mathrm{eff}}=\tr H/\lambda_1$ the threshold of the EMA step $\eta/(1-\beta)$ is $2B/(\gamma\tr H)$, independent of $\beta$ and of the coordinate fourth moments, up to an explicit relative error that is $O(1/r_{\mathrm{eff}})$ when the coordinate kurtoses and $B(1-\beta)/(1+\beta)$ stay bounded.
+\end{abstract}
+
+\section{Setting and result}
+
+Heavy-ball SGD on a quadratic with mean Hessian $H=\sum_{k=1}^P\lambda_ku_ku_k^\top$, $\lambda_1\ge\dots\ge\lambda_P>0$, reads
+\begin{equation}\label{eq:hb}
+w_{t+1}=\big((1+\beta)I-\eta H_{B_t}\big)w_t-\beta w_{t-1}-\eta\xi_t,\qquad \beta\in[0,1),\ \eta>0,
+\end{equation}
+with $(H_{B_t},\xi_t)$ i.i.d.\ across steps (arbitrarily coupled within a step) and independent of $(w_0,w_{-1})$, $\E H_{B_t}=H$, $\E\xi_t=0$, $\Sigma_\xi=\E\xi_t\xi_t^\top\succ0$. With $F_t=\begin{psmallmatrix}(1+\beta)I-\eta H_{B_t}&-\beta I\\ I&0\end{psmallmatrix}$, the second moment of $s_t=(w_t,w_{t-1})$ evolves through $Q\mapsto\T(Q)+\operatorname{blkdiag}(\eta^2\Sigma_\xi,0)$, up to a term vanishing with $\E s_t$, where $\T(Q)=\E[F_tQF_t^\top]$; for $\Sigma_\xi\succ0$ the second moments from $w_0=w_{-1}=0$ stay bounded if and only if $\rho(\T)<1$, and for $\rho(\T)<1$ they stay bounded from every initial condition, forcing correlated with $H_{B_t}$ included (Appendix~\ref{app:proofs}; cf.\ \citealp[Ch.~3]{costa2005mjls} and \citealp[Proposition~C.3]{cai2026llm}). In EMA form $m_{t+1}=\beta m_t+(1-\beta)(H_{B_t}w_t+\xi_t)$, $w_{t+1}=w_t-\eta_{\mathrm{EMA}}m_{t+1}$ reproduces \eqref{eq:hb} with $\eta_{\mathrm{EMA}}=\eta/(1-\beta)$.
+
+\paragraph{Features.} $H_{B_t}=\frac1B\sum_{b=1}^Bx_{t,b}x_{t,b}^\top$ with i.i.d.\ $x=\zeta H^{1/2}\omega$, where the scalar $\zeta$ is independent of $\omega$, $\E\zeta^2=1$, $\gamma=\E\zeta^4$, and the coordinates $\omega_k=u_k^\top\omega$ are independent with mean $0$, variance $1$ and $\E\omega_k^4=3+\kappa_k$. This covers Gaussian ($\kappa_k=0$) and Rademacher ($\kappa_k=-2$) features, per-coordinate Bernoulli gates (large $\kappa_k$ on rare coordinates), the per-sample gate of \citet{everett2026sparse} on an arbitrary $H$ ($\gamma=1/q$), and Student-$t$ features. Put $p=1/B$, $\kappa_\beta=\frac{1+\beta}{1-\beta}$, and
+\[
+c_k=p\big(\gamma(2+\kappa_k)-1\big)\lambda_k^2,\quad \alpha_k=1+\kappa_\beta\frac{c_k}{\lambda_k^2},\quad a_k=1+\beta-\eta\lambda_k,\quad S(\eta)=\frac{\eta p\gamma}{2(1-\beta)}\sum_{k=1}^P\frac{\lambda_k}{1-\frac{\eta\alpha_k\lambda_k}{2(1+\beta)}} .
+\]
+Let $\chi_k$ be the mode-$k$ impulse response of deterministic heavy ball ($\chi_k(0)=1$, $\chi_k(1)=a_k$, $\chi_k(\tau+1)=a_k\chi_k(\tau)-\beta\chi_k(\tau-1)$), $\psi_k=\eta^2\chi_k^2$, $h_k(\tau)=\psi_k(\tau)+c_k\sum_{s<\tau}\psi_k(\tau-1-s)h_k(s)$ and $K_\tau=p\gamma\sum_k\lambda_k^2h_k(\tau)$. Their generating functions are rational:
+\[
+\widehat\psi_k(z)=\frac{\eta^2(1+\beta z)}{(1-\beta z)\big(1-(a_k^2-2\beta)z+\beta^2z^2\big)},\qquad \widehat K(z)=p\gamma\sum_k\frac{\lambda_k^2\,\widehat\psi_k(z)}{1-c_kz\widehat\psi_k(z)} .
+\]
+
+\begin{theorem}\label{thm:main}
+Let $\sigma_k^2=u_k^\top\Sigma_\xi u_k$, $\ell_t=\tr(H\E w_tw_t^\top)$ (twice the expected excess loss), and $\widetilde{\mathcal M}=\operatorname{diag}(\alpha_k\lambda_k)+p\kappa_\beta\gamma\sqrt\lambda\sqrt\lambda^\top$ with $(\sqrt\lambda)_k=\sqrt{\lambda_k}$.
+\begin{enumerate}
+\item[(a)] \emph{Threshold.} $\rho(\T)<1$ if and only if $\eta<\eta^\star=2(1+\beta)/\lambda_{\max}(\widetilde{\mathcal M})$, the unique root of $S(\eta)=1$ in $\{\eta>0:\eta\,\max_k(\alpha_k\lambda_k)<2(1+\beta)\}$. For $\eta<\eta^\star$,
+\[
+\ell_t\to\ell_\infty=\frac{f_\infty}{1-S(\eta)},\qquad f_\infty=\frac{\eta}{2(1-\beta)}\sum_k\frac{\sigma_k^2}{1-\frac{\eta\alpha_k\lambda_k}{2(1+\beta)}} .
+\]
+\item[(b)] \emph{Convolution equation.} From $w_0=w_{-1}=0$, the loss satisfies $\ell_t=f_t+\sum_{s<t}K_{t-1-s}\ell_s$ with $f_t=\sum_{\tau<t}\sum_k\lambda_k\sigma_k^2h_k(\tau)$; if every $c_k\ge0$, then $K_\tau\ge0$ and this is a renewal equation.
+\item[(c)] \emph{Rate.} If $\rho(\T)>0$ (automatic unless $P=1$, $\beta=0$, $\gamma(3+\kappa_1)=1$ and $\eta=1/\lambda_1$), then $\rho(\T)=1/z_\star$, with $z_\star$ the smallest positive root of $z\widehat K(z)=1$.
+\item[(d)] \emph{Prefactor.} If $c_k\ge0$ for all $k$ ($\kappa_k\ge1/\gamma-2$, e.g.\ $\kappa_k\ge-1$) and $\eta<\eta^\star$, then $z_\star>1$ is a simple root and the only one in $|z|\le z_\star$, and from $w_0=w_{-1}=0$, with $\widehat\phi(z)=\sum_k\lambda_k\sigma_k^2\widehat h_k(z)$, $\widehat h_k=\widehat\psi_k/(1-c_kz\widehat\psi_k)$,
+\[
+\ell_\infty-\ell_t=C\rho(\T)^t+O(R^{-t}),\quad R>z_\star,\qquad C=\frac{\widehat\phi(z_\star)}{(z_\star-1)\,\frac{d}{dz}\big(z\widehat K(z)\big)\big|_{z_\star}}>0 .
+\]
+\item[(e)] \emph{Critical slowing down.} Under the condition of (d), as $\eta\uparrow\eta^\star$ (with $K_\tau$ at $\eta^\star$, where $\sum_\tau K_\tau=1$ and the denominator is the mean renewal time),
+\[
+1-\rho(\T)=\frac{S'(\eta^\star)}{\sum_{\tau\ge0}(\tau+1)K_\tau}\,(\eta^\star-\eta)+O\big((\eta^\star-\eta)^2\big).
+\]
+\end{enumerate}
+\end{theorem}
+
+The key step is that $\T$ preserves the matrices with $H$-diagonal $P\times P$ blocks and has the same spectral radius there at every $\eta$; on that subspace it is block diagonal plus rank one (Lemma~\ref{lem:V}). Without the rank-one coupling each mode would be an independent scalar chain, as in the decoupled vocabulary of \citet[Lemma~H.12]{everett2026sparse}; with it, (c) follows from the convolution equation and (d)--(e) from its renewal form. For Rademacher modes ($c_k<0$) $K_\tau$ can be negative (at $P=B=1$, $\lambda_1=1$, $\gamma=1$, $\kappa_1=-2$, $\beta=0$, $\eta=0.8$: $\rho(\T)=0.04$ and $K_1=-0.384$), (a)--(c) still hold, and the approach to the floor need not be a single exponential: for $P=1$ the iteration is deterministic and all restricted eigenvalues have modulus $\beta$ in the underdamped regime.
+
+\section{A vocabulary: the slowest row is an extreme row}
+
+In the vocabulary model of \citet[Section~H.3]{everett2026sparse} a sample draws a token $i$ with $\Pr(i=j)=q_j$ (their $p_j$), a Gaussian input $\tilde x\in\R^d$ and label noise, and only row $i$ of the parameter matrix receives a gradient, with $(\eta,\beta)$ shared across rows. The rows are coupled, but by their Lemma~H.12 row $j$ has the marginal law of the gated feature above with $H=q_jI_d$, $\gamma=1/q_j$ and $\kappa_k=0$ ($c_k=(2q_j-q_j^2)/B\ge0$), and the loss decays at rate $\Lambda_{\min}=\min_j\Lambda_j$, where $\Lambda_j=-\ln\rho(T_j)$ for the linear part $T_j$ of the row-$j$ second-moment recursion. On the traced moments $\T$ restricts to
+\[
+M(q)=\begin{pmatrix}a^2+\eta^2q(d+2-q)/B&-2a\beta&\beta^2\\ a&-\beta&0\\ 1&0&0\end{pmatrix},\qquad a=1+\beta-\eta q ,
+\]
+with $\eta=(1-\beta)\eta_{\mathrm{EMA}}$; $T_j$ is similar to $M(q_j)$, so $\Lambda_j=-\ln\rho(q_j)$ with $\rho(q)=\rho(M(q))$. \citet[Appendix~A.4]{everett2026sparse} write: ``With momentum at a finite batch, that the slowest row is one of the two extremes, and how close $S_{\mathrm{mom}}(B)$ comes to its large-batch limit, are observed numerically.'' The results below concern the exact second-moment decay rate of this least-squares vocabulary model; they do not address the logistic-regression model of \citet{everett2026sparse} or the samples needed to reach a prescribed loss with label noise.
+\begin{center}\small
+\begin{tabular}{@{}l@{\quad}l@{}}
+\citet{everett2026sparse} & This note\\\hline
+A.4: slowest row with momentum at a finite batch (observed numerically) & Theorem~\ref{thm:vocab}\\
+A.4: critical batch size at fixed $\beta$ (open, $E_\beta$ not determined) & Corollary~\ref{cor:emom}\\
+A.4: curve of steps against batch size for momentum (not described) & Theorem~\ref{thm:curve}(a)\\
+A.4: how close $S_{\mathrm{mom}}(B)$ comes to $S_{\mathrm{mom}}$ (observed numerically) & Theorem~\ref{thm:curve}(c)\\
+H.17: $E_{\mathrm{mom}}=E_{\mathrm{SGD}}$; tuned $\beta$ zero below and positive above $B-1=B_\times$ & Corollaries~\ref{cor:emom}, \ref{cor:belowbx}, Theorem~\ref{thm:curve}(b)
+\end{tabular}
+\end{center}
+
+\begin{theorem}\label{thm:vocab}
+Let $d\ge1$, $B\ge1$, $\eta>0$ and $\beta\in[0,1)$. For every $s<1$ the set $\{q\in(0,1]:\rho(q)\le s\}$ is an interval. Consequently, if $q_{\min}\le q_j\le q_{\max}$ for every $j$ and the rows of frequency $q_{\min}$ and $q_{\max}$ are mean-square stable, then every row is stable and $\max_j\rho(q_j)=\max\big(\rho(q_{\min}),\rho(q_{\max})\big)$: the slowest row is the most or the least frequent one.
+\end{theorem}
+
+The theorem holds for every $d$, $B$, $\eta$ and $\beta$, finite-batch gradient noise included; label noise does not enter $T_j$. Stability of the two extreme rows cannot be dropped: for $d=B=1$, $\eta=0.36878$, $\beta=0.51037$, $\rho=1.000195$, $1.016659$, $0.932660$ at $q=0.001$, $0.2124$, $1$. That the stable frequencies form an interval is in \citet[Lemma~H.13(i)]{everett2026sparse}, for SGD the theorem follows from their Lemma~H.13(v), and without gradient noise the deterministic factor $\rho(\bar F)$ decreases in curvature up to $1+\beta$ and increases after it \citep[proof of Proposition~H.15]{everett2026sparse}. In the proof (Lemma~\ref{lem:gq}), $\rho(q)\le1/z$ reduces on $(1,1/\beta)$ to $g_q(1/\eta,z)\ge0$ for a quadratic in $q$ negative at $0$. Over $2163$ random stable settings ($d\le200$, $B\le256$, $10^{-3}\le\eta\le10$, $q\in[10^{-4},1]$) $\rho(q)$ had no interior maximum, and $M(q)$ agreed with $\T$ from exact enumeration to $2\times10^{-14}$.
+
+\begin{theorem}\label{thm:speed}
+Let $q\in(0,1]$, $d\ge1$, $B\ge1$ and $D=d+2-q$. For $\beta\in[0,1)$, the unique root in $(1,1/\beta)$ ($1/\beta=+\infty$ at $\beta=0$) and smallest root in $(1,\infty)$ of $D(z-1)(1-\beta^2z)=Bq(1-\beta^2z^2)$ is
+\[
+z_\beta(q,B)=\frac{2(D+Bq)}{D(1+\beta^2)+\sqrt{D^2(1-\beta^2)^2+4\beta^2B^2q^2}} .
+\]
+It decreases strictly in $\beta$ from $z_0(q,B)=1+Bq/D$ to $1$, and $\rho(M(q))\ge1/z_\beta(q,B)$ for every $\eta>0$, with equality if and only if $\eta=\eta_\beta(q,B)\triangleq\frac{B(1-\beta^2z_\beta^2)}{z_\beta(1+\beta)D}$ ($z_\beta=z_\beta(q,B)$; $\eta_0=\frac{B}{Bq+D}$). Hence $\rho(M(q))\ge D/(D+Bq)$ for every $(\eta,\beta)$, strictly if $\beta>0$: momentum does not make a gated feature decay faster per step than the best SGD step, at any batch size.
+\end{theorem}
+
+At leading order this is known: \citet{everett2026sparse} show (Section~5, Corollary~H.7 and Lemma~H.8) that with $\eta$ tuned freely momentum does not train a single feature faster than SGD, nor lower the sample cost to leading order along any co-scaling ray with $\gamma>0$; Lemma~H.8 gives the SGD equality case above, and Lemma~H.3 caps the rate by $-\ln\beta$ and, at small feedback, by about twice the SGD rate. Theorem~\ref{thm:speed} is the exact statement for every $d$, $B$, $\eta$ and $\beta$. For a specific input law, \citet{kidambi2018insufficiency} show that stochastic heavy ball does not beat the SGD rate; for dense Gaussian linear regression, \citet{morwani2026compute} prove finite-dimensional, discrete-time lower bounds showing that heavy ball does not improve the compute-efficiency frontier of SGD for any spectrum. Throughout this section $0<q_{\min}<q_{\max}\le1$, $\kappa_V=q_{\max}/q_{\min}$, $d\ge1$, $B\ge1$ and $B_\times=(d+2)/(q_{\max}-q_{\min})$. With $E_{\mathrm{mom}}=\inf_B B\,S_{\mathrm{mom}}(B)$, where $S_{\mathrm{mom}}(B)$ (resp.\ $S_\beta(B)$) is the fewest steps per decay time at batch $B$ over stable $(\eta,\beta)$ (resp.\ $\eta$ at fixed $\beta$) \citep[Proposition~H.15]{everett2026sparse}, Theorems~\ref{thm:vocab} and~\ref{thm:speed} give:
+
+\begin{corollary}\label{cor:emom}
+For every fixed $\beta\in[0,1)$, $E_\beta(B)=B\,S_\beta(B)$ increases strictly in $B\ge1$, so the fewest samples per decay time and critical batch size of the class $\{\beta\}$ are
+\[
+E_\beta=E_\beta(1)=\frac1{\ln z_\beta(q_{\min},1)},\qquad B_\beta=\frac{E_\beta}{S_\beta}=\frac{2\ln(1/\rho_\beta)}{\ln z_\beta(q_{\min},1)},
+\]
+with $S_\beta=1/(2\ln(1/\rho_\beta))$ of \citet[Proposition~H.15(iv)]{everett2026sparse} and $\rho_\beta$ the largest root modulus of $r^2-(1+\beta)\frac{\kappa_V-1}{\kappa_V+1}r+\beta$. Moreover $E_\beta$ increases strictly in $\beta$ from $E_0=E_{\mathrm{SGD}}=1/\ln\frac{d+2}{d+2-q_{\min}}$ to $+\infty$; hence $E_{\mathrm{mom}}=E_{\mathrm{SGD}}$ and $B_{\mathrm{mom}}/B_{\mathrm{SGD}}=S_{\mathrm{SGD}}/S_{\mathrm{mom}}$.
+\end{corollary}
+
+\citet[Proposition~H.15(ii)]{everett2026sparse} prove $E_{\mathrm{mom}}\le E_{\mathrm{SGD}}$ and, for $\kappa_V>16$, $E_{\mathrm{mom}}\ge c_\kappa(d+2-q_{\min})/(8q_{\min})$, where the $8$ comes from Lemma~H.3(ii) and disappears at leading order along a co-scaling ray with $\gamma>0$ (Lemma~H.13(iii)); in Remark~H.17 a two-row search finds no point below $E_{\mathrm{SGD}}$, noting that ``the factor $8$ in Proposition~H.15(ii) is a loss in the proof''. As there, $E_O$ counts samples per decay time of the excess loss and does not involve the label noise; with label noise the loss floors differ \citep[after Proposition~H.15]{everett2026sparse}, so $E_{\mathrm{mom}}=E_{\mathrm{SGD}}$ alone does not compare the samples needed to reach a given loss. \citet[Appendix~A.4]{everett2026sparse} write: ``The critical batch size at a fixed $\beta$ is open, since the fewest samples $E_\beta$ are not determined.'' Corollary~\ref{cor:emom} gives $E_\beta$ for every $\beta$, $\kappa_V>1$, $d$ and frequency profile, and Theorems~\ref{thm:vocab} and~\ref{thm:speed} settle $B-1\le B_\times$:
+
+\begin{corollary}\label{cor:belowbx}
+If $B-1\le B_\times$, then $S_\beta(B)=1/\ln z_\beta(q_{\min},B)$ increases strictly in $\beta\in[0,1)$ from $S_0(B)=S_{\mathrm{SGD}}(B)=1/\ln\big(1+Bq_{\min}/(d+2-q_{\min})\big)$ to $+\infty$; hence $S_{\mathrm{mom}}(B)=S_{\mathrm{SGD}}(B)$, and for $B-1\le B_\times$ the tuned momentum is $\beta=0$.
+\end{corollary}
+
+\citet[Proposition~H.16(i)]{everett2026sparse} prove $S_{\mathrm{SGD}}(B)$ in this range, the bound $S_{\mathrm{mom}}(B)\ge c_\kappa\frac{(\kappa_V-1)(d+2-q_{\min})}{8\kappa_V(d+2)}\,S_{\mathrm{SGD}}(B)$ for $\kappa_V>16$, and $S_\beta(B)\ge S_{\mathrm{SGD}}(B)(1+o(1))$ along a co-scaling ray with $\gamma>0$ for the rarest token; their Remark~H.17 reports numerically that the tuned $\beta$ is zero just below $B-1=B_\times$ and positive just above it.
+
+\begin{theorem}\label{thm:curve}
+Put $\bar q=\frac{q_{\max}+q_{\min}}{2}$, $r_P=\frac{\sqrt{\kappa_V}-1}{\sqrt{\kappa_V}+1}$, $\beta_P=r_P^2$ and $S_{\mathrm{mom}}=\frac1{\ln(1/\beta_P)}$, the large-batch limit of \citet[Proposition~H.15(i)]{everett2026sparse}.
+\begin{enumerate}
+\item[(a)] \emph{Curve at fixed $\beta$.} Fix $\beta\in[0,1)$, write $z_2=z_\beta(q_{\min},B)$, $\tilde B(z)=B\frac{1-\beta z}{1+\beta z}$, and for $z\in(1,1/\beta)$ set $u_{\mathrm{bal}}(z)=\frac1{1+\beta}\big(\bar q+\frac{d+2-2\bar q}{2\tilde B(z)}\big)$. Then $S_\beta(B)=1/\ln z^{\mathrm{voc}}_\beta(B)$, where $z^{\mathrm{voc}}_\beta(B)=z_2$ if $\tilde B(z_2)\le B_\times+1$ (in particular if $B\le\frac{1+\beta}{1-\beta}(B_\times+1)$), attained at $\eta_\beta(q_{\min},B)$; otherwise $z^{\mathrm{voc}}_\beta(B)$ is the unique root in $(1,1/\beta)$ (lying in $(1,z_2)$) of
+\[
+\frac{(z-1)(1-\beta^2z)}{z}\,u_{\mathrm{bal}}(z)^2=q_{\max}q_{\min}\Big(1-\frac1{\tilde B(z)}\Big),
+\]
+attained at $\eta=1/u_{\mathrm{bal}}(z^{\mathrm{voc}}_\beta(B))$, where the two extreme rows have the same rate.
+\item[(b)] \emph{Above $B_\times$.} If $B-1>B_\times$, put $u_0=\bar q+\frac{d+2-2\bar q}{2B}$ and $\zeta_0=z^{\mathrm{voc}}_0(B)=\big(1-\frac{q_{\max}q_{\min}(1-1/B)}{u_0^2}\big)^{-1}$; then
+\[
+\frac{d}{d\beta}\ln z^{\mathrm{voc}}_\beta(B)\Big|_{\beta=0^+}=\frac{\zeta_0^2q_{\max}q_{\min}(q_{\max}-q_{\min})^2\big((B-1)^2-B_\times^2\big)}{2B^2u_0^4}>0,
+\]
+so $S_{\mathrm{mom}}(B)<S_{\mathrm{SGD}}(B)=1/\ln\zeta_0$ and the tuned $\beta$ is positive.
+\item[(c)] \emph{Approach to the large-batch limit.} With $\bar D=2(d+2)-q_{\max}-q_{\min}$, $\nu_P=\frac{q_{\max}-q_{\min}}{2\sqrt{q_{\max}q_{\min}}}$ and $\Delta_B=\frac{q_{\max}+q_{\min}}{2(q_{\max}q_{\min})^{3/4}}\sqrt{\bar D/B}$, every $B\ge1$ satisfies $S_{\mathrm{mom}}(B)>\frac1{2\operatorname{arsinh}((\nu_P+\Delta_B)^{-1})}>S_{\mathrm{mom}}$, and as $B\to\infty$
+\[
+S_{\mathrm{mom}}(B)=S_{\mathrm{mom}}+C_{\mathrm{mom}}B^{-1/2}+O(B^{-1}),\qquad C_{\mathrm{mom}}=S_{\mathrm{mom}}^2\,\frac{4(q_{\max}q_{\min})^{1/4}\sqrt{\bar D}}{q_{\max}-q_{\min}},
+\]
+attained to this order at $\beta=\beta_P+\sigma B^{-1/2}$, $\sigma=\frac{2(\sqrt{q_{\max}}-\sqrt{q_{\min}})(q_{\max}q_{\min})^{1/4}\sqrt{\bar D}}{(\sqrt{q_{\max}}+\sqrt{q_{\min}})^3}$, and $\eta=1/u_{\mathrm{bal}}(z)$ at $z=z^{\mathrm{voc}}_\beta(B)$.
+\end{enumerate}
+\end{theorem}
+
+\citet[after Proposition~H.15]{everett2026sparse} write: ``For momentum the proposition does not describe the curve of steps against batch size between its two asymptotes, the batch size at which the curve bends, or how close $S_{\mathrm{mom}}(B)$ comes to $S_{\mathrm{mom}}$ at a finite batch with gradient noise.'' Theorem~\ref{thm:curve} gives the curve at every fixed $\beta$ (so $S_{\mathrm{mom}}(B)$ is a one-variable minimum over $\beta$), shows that $\beta>0$ starts to pay at $B-1=B_\times$, and gives two-sided asymptotics for $S_{\mathrm{mom}}(B)-S_{\mathrm{mom}}$, though no closed form for a bend point. For a two-row vocabulary with $d=8$, $q_{\max}=10/11$, $q_{\min}=1/11$ ($\kappa_V=10$, $C_{\mathrm{mom}}=6.6601$), the exact $\sqrt B\,(S_{\mathrm{mom}}(B)-S_{\mathrm{mom}})$ is $7.0126$, $6.7686$, $6.6941$, $6.6708$ at $B=10^4,10^5,10^6,10^7$.
+
+\section{High effective rank}
+
+\begin{corollary}\label{cor:hd}
+Let $\mu^\star=2(1+\beta)/\eta^\star=\lambda_{\max}(\widetilde{\mathcal M})$, $1/\eta^\star_{\mathrm{EMA}}=(1-\beta)/\eta^\star$ and $r_{\mathrm{eff}}=\tr H/\lambda_1$. Then
+\[
+\frac{\sum_k\alpha_k\lambda_k^2}{\tr H}\le\mu^\star-p\kappa_\beta\gamma\tr H\le\max_k(\alpha_k\lambda_k),\qquad \frac1{\eta^\star_{\mathrm{EMA}}}=\frac{\gamma\tr H}{2B}\,(1+\varepsilon),\quad |\varepsilon|\le\frac{\max_k|\alpha_k|}{p\kappa_\beta\gamma\,r_{\mathrm{eff}}}.
+\]
+Since $\alpha_k/(p\kappa_\beta)=(p\kappa_\beta)^{-1}+\gamma(2+\kappa_k)-1$, $|\varepsilon|=O(1/r_{\mathrm{eff}})$ for bounded $\kappa_k$ and $(p\kappa_\beta)^{-1}$: at high effective rank the threshold for the EMA step is $2B/(\gamma\tr H)$, independent of $\beta$ and of the coordinate fourth moments.
+\end{corollary}
+
+The limit $2B/(\gamma\tr H)$ is the high-dimensional noise ceiling; for the isotropic gated model ($H=qI_d$, $\gamma=1/q$) the exact threshold is $1/\eta^\star_{\mathrm{EMA}}=\frac{d+2-q}{2B}+\frac q2\frac{1-\beta}{1+\beta}$ \citep[eq.~(6)]{everett2026sparse}, whose leading term $d/(2B)$ is $\gamma\tr H/(2B)$, and Theorem~\ref{thm:main}(a) reduces to it. A test along the top eigenvector alone sees $\mu_{\mathrm{1D}}=\widetilde{\mathcal M}_{11}=\lambda_1\big(1+p\kappa_\beta(\gamma(3+\kappa_1)-1)\big)$, which at $\gamma=1$ is the one-dimensional threshold of \citet[eq.~(10)]{andreyev2026momentum}; it is necessary for every $\beta$ since $\mu^\star\ge\widetilde{\mathcal M}_{11}$ (at $\beta=0$, \citealp[Proposition~9]{mulayoff2024exact}), and misses the trace term that dominates at high effective rank. Table~\ref{tab:1d} shows the gap.
+
+\begin{table}[!ht]
+\centering
+\caption{$P=256$, $\lambda_k=k^{-1/2}$ ($r_{\mathrm{eff}}=30.57$), $\beta=0.9$, $B=4$, $\gamma=1$, $\kappa_k\equiv\kappa$. The high-dimensional value $2(1-\beta)B/\tr H$ is $0.026169$.}
+\label{tab:1d}
+\smallskip
+{\small\begin{tabular}{lrrrrr}
+\toprule
+$\kappa$ & $-2$ (Rademacher) & $-1$ & $0$ (Gaussian) & $2$ & $10$\\
+\midrule
+threshold $\eta^\star$ & 0.026304 & 0.026133 & 0.025961 & 0.025617 & 0.024223\\
+one-direction threshold & 3.8000 & 0.66087 & 0.36190 & 0.19000 & 0.065517\\
+ratio & 144.46 & 25.29 & 13.94 & 7.42 & 2.70\\
+\bottomrule
+\end{tabular}}
+\end{table}
+
+From Gaussian to Rademacher features $\eta^\star$ moves by $1.32\%$ and the one-direction threshold by a factor $10.5$; at $\kappa=-2$ Corollary~\ref{cor:hd} gives a ratio of at least $144.460$ (actual $144.464$). Theorem~\ref{thm:main}(c)--(e) was checked against $\T$ built by exact enumeration of discrete feature laws (e.g.\ predicted prefactor $7.438933$ vs.\ iterated second-moment value $7.438932$). Every number is printed by \texttt{paper/checks/note-v2-checks.py} (parts A, C, D and H--K) in \url{https://github.com/apis-os/hb-sgd-mean-square}.
+
+\section{Relation to prior work}
+
+For LMS with Gaussian inputs ($B=1$, $\beta=0$) the diagonal second moments evolve through a diagonal plus rank-one matrix whose eigenvalues solve a secular equation \citep{feuer1985convergence}; for momentum LMS the characteristic polynomial has a factor of the form $1-z\widehat K(z)$ \citep{roy1990momentum}. For Gaussian features, the stationary equation with momentum is due to \citet{liu2021noise} and its closed form to \citet[Theorem~2]{ziyin2022strength}, whose denominator is $1-S(\eta)$ at $\kappa_k\equiv0$, $\gamma=1$; \citet[Appendix~B]{wang2026momentum} write the loss as a renewal equation with threshold given by its kernel mass; \citet{velikanov2023view} write the loss generating function and, in the divergent regime, the rate from $r\widetilde U(r)=1$ with a prefactor under an exponential ansatz; without momentum the exact loss is in \citet{bordelon2022learning}. For heavy ball with arbitrary non-commuting minibatch Hessians the exact threshold is \citet[Theorem~F.1]{cai2026llm}; Theorem~\ref{thm:main}(a) is its closed form in this model. For isotropic gated features, \citet{everett2026sparse} give the threshold, an exact renewal equation (their Lemma~C.1) and the per-step spectrum (their Lemma~H.4). In high dimension the loss obeys a Volterra equation whose Malthusian root gives the rate, with an explicit prefactor \citep{paquette2021sgd,paquette2021momentum,lee2022minibatch}. What is added here is the class with coordinate-dependent fourth moments, whose curvature noise is not of the spectrally expressible form used in the generating-function analyses; the finite-$P$ identity $\rho(\T)=1/z_\star$ at every $\eta$; the prefactor on the stable side and the slope of critical slowing down, which we did not find in prior work also for Gaussian features; and the explicit finite-$r_{\mathrm{eff}}$ bounds of Corollary~\ref{cor:hd}. A longer note in the same repository treats momentum and batch in EMA form and the rate at a fixed loss floor.
+
+\paragraph{Use of AI.} AI assistants were used for translation, \LaTeX, numerical checks and review of the proofs; the author checked every statement and number.
+
+\appendix
+\section{Proofs}\label{app:proofs}
+\begingroup\small
+
+\paragraph{Bounded second moments.} Write $s_{t+1}=F_ts_t-\eta E\xi_t$ with $E=\begin{psmallmatrix}I\\0\end{psmallmatrix}$, $m_t=\E s_t$, $Q_t=\E s_ts_t^\top$ and $G=\operatorname{blkdiag}(\eta^2\Sigma_\xi,0)$. As $s_t$ is independent of $(F_t,\xi_t)$, $m_{t+1}=\bar Fm_t$ and $Q_{t+1}=\T(Q_t)+G+C_t$ with $C_t=-\eta\big(L(m_t)E^\top+EL(m_t)^\top\big)$, $L(m)=\E[F_tm\xi_t^\top]$ linear in $m$. Since $Q\mapsto\T(Q)-\bar FQ\bar F^\top=\E[(F_t-\bar F)Q(F_t-\bar F)^\top]$ preserves the PSD cone, $\rho(\bar F)^2\le\rho(\T)$; so if $\rho(\T)<1$, $m_t$ and $C_t$ decay geometrically and $Q_t=\T^t(Q_0)+\sum_{s<t}\T^s(G+C_{t-1-s})$ stays bounded. Conversely, from $w_0=w_{-1}=0$, $m_t=0$ and $Q_t=\sum_{s<t}\T^s(G)$. The adjoint $\T^*$ preserves the PSD cone, so it has an eigenvector $Y\succeq0$, $Y\ne0$, with $\T^*(Y)=\rho(\T)Y$, and $\langle Y,Q_t\rangle=\langle Y,G\rangle\sum_{s<t}\rho(\T)^s$. For $(u,v)\ne0$, $(u,v)^\top(G+F_tGF_t^\top)(u,v)=\eta^2\big(u^\top\Sigma_\xi u+(A_t^\top u+v)^\top\Sigma_\xi(A_t^\top u+v)\big)>0$ with $A_t=(1+\beta)I-\eta H_{B_t}$, so $G+\T(G)\succ0$ and $(1+\rho(\T))\langle Y,G\rangle=\langle Y,G+\T(G)\rangle>0$: $Q_t$ is unbounded when $\rho(\T)\ge1$.
+
+\begin{lemma}\label{lem:V}
+Let $\V(X)=\E[(H_{B_t}-H)X(H_{B_t}-H)]$. In the eigenbasis of $H$, for symmetric $X$, $\V(X)_{kk}=p\gamma\lambda_k\tr(HX)+c_kX_{kk}$ and $\V(X)_{jk}=p(2\gamma-1)\lambda_j\lambda_kX_{jk}$ ($j\ne k$). $\T$ preserves both the space $\mathbb S_{\mathrm{diag}}$ of symmetric $2P\times2P$ matrices with diagonal $P\times P$ blocks and its orthogonal complement $\mathbb S_{\mathrm{diag}}^\perp$ (blocks with zero diagonal), and $\rho(\T)=\rho(\T|_{\mathbb S_{\mathrm{diag}}})$ for every $\eta>0$.
+\end{lemma}
+\begin{proof}
+$\V(X)=p(\E[xx^\top Xxx^\top]-HXH)$ and $\E[x_jx_lx_mx_k]=\gamma\sqrt{\lambda_j\lambda_l\lambda_m\lambda_k}\E[\omega_j\omega_l\omega_m\omega_k]$ vanishes unless every index appears an even number of times. For $j=k$, $l=m\ne k$ gives $\gamma\lambda_k\lambda_lX_{ll}$ and $l=m=k$ gives $\gamma(3+\kappa_k)\lambda_k^2X_{kk}$; for $j\ne k$, $(l,m)=(j,k),(k,j)$ give $2\gamma\lambda_j\lambda_kX_{jk}$ for symmetric $X$; subtracting $\lambda_j\lambda_kX_{jk}$ gives the formulas, and since $\E F_t$ has diagonal blocks and $\tr(HX)=0$ when $\operatorname{diag}(X)=0$, $\T$ preserves both $\mathbb S_{\mathrm{diag}}$ and $\mathbb S_{\mathrm{diag}}^\perp$. $\T^\tau$ is a sum of congruences, hence positive, so $\|\T^\tau\|=\|\T^\tau(I)\|$ in the norm induced by the spectral norm (Russo--Dye); as $I\in\mathbb S_{\mathrm{diag}}$, $\|\T^\tau\|=\|(\T|_{\mathbb S_{\mathrm{diag}}})^\tau(I)\|\le\|(\T|_{\mathbb S_{\mathrm{diag}}})^\tau\|\le\|\T^\tau\|$, and Gelfand's formula gives $\rho(\T)=\rho(\T|_{\mathbb S_{\mathrm{diag}}})$.
+\end{proof}
+
+In coordinates $(\E w_k^2,\E w_kw'_k,\E w_k'^2)_k$ ($w'=w_{t-1}$), $\T|_{\mathbb S_{\mathrm{diag}}}=\mathcal A+\eta^2p\gamma\,rr^\top$ with $r=(\lambda_ke_1)_k$, $\mathcal A=\operatorname{blkdiag}(\widetilde B_k)$ and $\widetilde B_k=\begin{psmallmatrix}a_k^2+\eta^2c_k&-2a_k\beta&\beta^2\\ a_k&-\beta&0\\ 1&0&0\end{psmallmatrix}$. The mean recursion of mode $k$ from $(1,0)$ is $\chi_k$, so $e_1^\top(\widetilde B_k-\eta^2c_ke_1e_1^\top)^\tau e_1=\chi_k(\tau)^2$ and, expanding the rank-one perturbation, $e_1^\top\widetilde B_k^\tau e_1=h_k(\tau)/\eta^2$. For $1+\beta z\ne0$, solving rows $3,2,1$ of $(I-z\widetilde B_k)X_k=\nu e_1$ gives $X_{k,3}=zX_{k,1}$, $X_{k,2}=\frac{a_kz}{1+\beta z}X_{k,1}$ and $\frac{d_k(z)}{1+\beta z}X_{k,1}=\nu$, where $d_k(z)=\det(I-z\widetilde B_k)=(1-\beta z)\big((1+\beta z)^2-za_k^2\big)-\eta^2c_kz(1+\beta z)$. Setting $\nu=\eta^2$ gives $\widehat\psi_k$ (at $c_k=0$) and $\widehat h_k=\eta^2(1+\beta z)/d_k=\widehat\psi_k/(1-c_kz\widehat\psi_k)$. With $\delta_k=\frac{\eta\lambda_k}{2(1+\beta)}$, $(1+\beta)^2-a_k^2=2(1+\beta)\eta\lambda_k(1-\delta_k)$ gives $d_k(1)=2(1-\beta^2)\eta\lambda_k(1-\alpha_k\delta_k)$, so $\widehat h_k(1)=\frac{\eta}{2(1-\beta)\lambda_k(1-\alpha_k\delta_k)}$ and $\widehat K(1)=S(\eta)$ when no $\alpha_k\delta_k=1$.
+
+\paragraph{Theorem~\ref{thm:main}(a).} Since $\gamma\ge1$ and $3+\kappa_k\ge1$, $\widetilde{\mathcal M}_{kk}=\lambda_k\big(1+p\kappa_\beta(\gamma(3+\kappa_k)-1)\big)\ge\lambda_k>0$ and $\widetilde{\mathcal M}_{jk}>0$ ($j\ne k$). For the Perron vector $v>0$ of $\widetilde{\mathcal M}$ at $\mu^\star=\lambda_{\max}(\widetilde{\mathcal M})\ge\widetilde{\mathcal M}_{11}\ge\lambda_1>0$, $(\mu^\star-\alpha_k\lambda_k)v_k=p\kappa_\beta\gamma\sqrt{\lambda_k}(\sqrt\lambda^\top v)>0$ gives $\mu^\star>\max(0,\max_k\alpha_k\lambda_k)$ and $S(\eta^\star)=1$ at $\eta^\star=2(1+\beta)/\mu^\star$, the unique root where $\max_k(\alpha_k\delta_k)<1$ since $\frac{\eta\lambda_k}{1-\alpha_k\delta_k}=\frac{\lambda_k}{\eta^{-1}-\alpha_k\lambda_k/(2(1+\beta))}$ gives $S'(\eta)>0$ there. Let $G_{\mathrm{diag}}=\operatorname{blkdiag}(\eta^2\operatorname{diag}(\sigma_k^2),0)$ be the $\mathbb S_{\mathrm{diag}}$-projection of $G=\operatorname{blkdiag}(\eta^2\Sigma_\xi,0)$. By the $z=1$ block formulas, $Q=(X_k)_k\in\mathbb S_{\mathrm{diag}}$ solves $Q=\T(Q)+G_{\mathrm{diag}}$ \citep[cf.][]{liu2021noise} if and only if $X_{k,3}=X_{k,1}$, $X_{k,2}=(1-2\delta_k)X_{k,1}$ and $(I-N)y=b$, where $y_k=\frac{2\lambda_kX_{k,1}}{\eta(1+\beta)}$, $b_k=\frac{\sigma_k^2}{1-\beta^2}>0$ and $N=\frac{\eta}{2(1+\beta)}\big(\operatorname{diag}(\alpha_k\lambda_k)+p\kappa_\beta\gamma\lambda\mathbf 1^\top\big)>0$ (similar to $\frac{\eta}{2(1+\beta)}\widetilde{\mathcal M}$). If $\rho(\T)<1$, $Q=\sum_{\tau\ge0}(\T|_{\mathbb S_{\mathrm{diag}}})^\tau(G_{\mathrm{diag}})\succeq0$ gives $y\ge b>0$, $Ny<y$ and $\rho(N)<1$ (Collatz--Wielandt), i.e.\ $\eta<\eta^\star$. Conversely, for $\eta<\eta^\star$, $\rho(N)<1$, $y=(I-N)^{-1}b>0$ and $|1-2\delta_k|<1$ (as $\mu^\star\ge\lambda_1$), so $Q\succ0$; for small $\varepsilon>0$, $Q_\varepsilon=Q-\varepsilon G_{\mathrm{diag}}\succ0$ satisfies $Q_\varepsilon-\T(Q_\varepsilon)=(1-\varepsilon)G_{\mathrm{diag}}+\varepsilon\T(G_{\mathrm{diag}})\succ0$ (as $\T(G_{\mathrm{diag}})_{k,3}=\eta^2\sigma_k^2>0$), forcing $\rho(\T)<1$, $\E s_t\to0$, and $\ell_t\to\ell_\infty$ via Lemma~\ref{lem:V} and $\lambda_kX_{k,1}=\lambda_k\widehat h_k(1)(\sigma_k^2+p\gamma\lambda_k\ell_\infty)$.
+
+\paragraph{(b).} From $Q_0=0$, with $\T_0(Q)=\bar FQ\bar F^\top$, $\bar F=\E F_t$, $Q_t=\sum_{s<t}\T_0^{t-1-s}(\T(Q_s)-\T_0(Q_s)+G)$ and Lemma~\ref{lem:V} give $\E w_{t,k}^2=\sum_{s<t}\psi_k(t-1-s)(\sigma_k^2+p\gamma\lambda_k\ell_s+c_k\E w_{s,k}^2)$, solved by $\E w_{t,k}^2=\sum_{s<t}h_k(t-1-s)(\sigma_k^2+p\gamma\lambda_k\ell_s)$; multiply by $\lambda_k$ and sum.
+
+\paragraph{(c).} $\det(I-z\T|_{\mathbb S_{\mathrm{diag}}})=\big(\prod_kd_k(z)\big)(1-z\widehat K(z))$ since $\eta^2p\gamma\,r^\top(I-z\mathcal A)^{-1}r=\widehat K(z)$. As $\T|_{\mathbb S_{\mathrm{diag}}}$ preserves the PSD cone $\{X:X_{k,1},X_{k,3}\ge0,\ X_{k,1}X_{k,3}\ge X_{k,2}^2\}$, $\rho=\rho(\T)>0$ has an eigenvector $X\ne0$ in it; with $z=1/\rho>0$, $(I-z\widetilde B_k)X_k=z\eta^2p\gamma(r^\top X)\lambda_ke_1$. By the block formulas above, $r^\top X=\sum_k\lambda_kX_{k,1}=0$ would force every $X_k=0$; thus $r^\top X>0$, $d_k(z)>0$, $X_{k,1}=zp\gamma(r^\top X)\lambda_k\widehat h_k(z)$ and $z\widehat K(z)=1$. Any positive root $z'$ where $\widehat K$ is finite is a zero of the determinant, so $1/z'\le\rho$. Finally, $\rho(\T)\ge\rho(\bar F)^2\ge\beta$, while at $\beta=0$ the closed $(\E w_k^2)_k$ block of $\T|_{\mathbb S_{\mathrm{diag}}}$ is symmetric with $(j,k)$ entry $\eta^2p\gamma\lambda_j\lambda_k>0$ ($j\ne k$) and $(1,1)$ entry $(1-\eta\lambda_1)^2+\eta^2p(\gamma(3+\kappa_1)-1)\lambda_1^2\ge0$.
+
+\paragraph{(d).} With $c_k\ge0$, $h_k\ge0$, $K_\tau\ge0$ and $K_0>0$. By Pringsheim's theorem on the rational $\widehat h_k$, the radius of convergence $R_K$ of $\widehat K$ is either $+\infty$ or a positive pole, so $z\widehat K(z)\ge K_0z$ increases strictly from $0$ to $+\infty$ on $[0,R_K)$, crossing $1$ once at $z_\star=1/\rho>1$. For $|z|\le z_\star$, $z\ne z_\star$, $\operatorname{Re}(z\widehat K(z))=\sum_\tau K_\tau\operatorname{Re}z^{\tau+1}<1$ (strict at $\tau=0$); $\frac{d}{dz}(z\widehat K)(z_\star)=\sum_\tau(\tau+1)K_\tau z_\star^\tau>0$; and $\widehat\phi$ is analytic on $|z|<R_K$. Thus $\widehat\ell=z\widehat\phi/((1-z)(1-z\widehat K))$ has in $|z|\le z_\star$ only simple poles at $1$ and $z_\star$, giving the expansion and $C>0$.
+
+\paragraph{(e).} At $\eta^\star$, $\rho=1$, $z_\star=1$, and $c_k\ge0$ gives $\alpha_k\ge1$, so $\alpha_k\delta_k<1$ forces $\delta_k<1$: the poles of $\widehat\psi_k$ lie outside the unit disk and $1-c_k\widehat\psi_k(1)=\frac{1-\alpha_k\delta_k}{1-\delta_k}>0$, whence $R_K>1$. Thus $\Phi(z,\eta)=z\widehat K(z;\eta)$ is analytic near $(1,\eta^\star)$ with $\partial_z\Phi=\sum_\tau(\tau+1)K_\tau>0$ and $\partial_\eta\Phi=S'(\eta^\star)>0$ by (a); the implicit function theorem gives $\rho'(\eta^\star)=-z_\star'(\eta^\star)=S'/\partial_z\Phi$.
+
+\begin{lemma}\label{lem:gq}
+Let $q\in(0,1]$, $d\ge1$, $B\ge1$, $D_q=d+2-q$, $u=1/\eta>0$ and $\beta\in[0,1)$ ($1/\beta=+\infty$ at $\beta=0$). For $z\in(0,1/\beta)$ set $g_q(u,z)=\Phi_q(u,z)-R_q(z)$, with $\Phi_q(u,z)=(1+\beta z)^2u^2-z\big((1+\beta)u-q\big)^2$ and $R_q(z)=\frac{qD_qz(1+\beta z)}{B(1-\beta z)}$.
+\begin{enumerate}
+\item[(i)] $\rho(M(q))>\beta$, and for $z\in(0,1/\beta)$, $\rho(M(q))\le1/z\iff g_q(u,z)\ge0$ and $\rho(M(q))<1/z\iff g_q(u,z)>0$. Moreover, with $\tilde\eta=\frac{\eta}{1+\beta}$, $\tilde B(z)=B\frac{1-\beta z}{1+\beta z}$, $Z(z)=\frac{z(1+\beta)^2}{(1+\beta z)^2}$ and $\rho_0(q;\tilde\eta,\tilde B)=(1-\tilde\eta q)^2+\tilde\eta^2\frac{qD_q}{\tilde B}$, $g_q(u,z)=z(1+\beta)^2u^2\big(\frac1{Z(z)}-\rho_0(q;\tilde\eta,\tilde B(z))\big)$.
+\item[(ii)] Let $0<q_2<q_1\le1$, $D_i=d+2-q_i$, $B_\times=\frac{d+2}{q_1-q_2}$, $\nu_P=\frac{q_1-q_2}{2\sqrt{q_1q_2}}$ and $A=\frac{(q_1+q_2)(D_1+D_2)}{4q_1q_2}$. For $\tilde B>0$, $\min_{\tilde\eta>0}\max_{i=1,2}\rho_0(q_i;\tilde\eta,\tilde B)=\frac{W(\tilde B)}{W(\tilde B)+\tilde B}$, where $W(\tilde B)=\frac{D_2}{q_2}$ on $(0,B_\times+1]$ (uniquely at $\tilde\eta=\frac{\tilde B}{\tilde Bq_2+D_2}$) and $W(\tilde B)=\frac{D_2}{q_2}+\nu_P^2\frac{(\tilde B-1-B_\times)^2}{\tilde B-1}=\tilde B\big(\nu_P^2+\frac A{\tilde B}+\frac{\nu_P^2B_\times^2}{\tilde B(\tilde B-1)}\big)$ on $(B_\times+1,\infty)$ (uniquely at $\tilde\eta=1/v_{\mathrm{bal}}(\tilde B)$, $v_{\mathrm{bal}}(\tilde B)=\frac{q_1+q_2}2+\frac{d+2-q_1-q_2}{2\tilde B}$, where both $\rho_0(q_i)=1-\frac{q_1q_2(1-1/\tilde B)}{v_{\mathrm{bal}}(\tilde B)^2}$); $W(\tilde B)$ is continuous and nondecreasing, while $W(\tilde B)/\tilde B$ decreases strictly on $(0,\infty)$ and exceeds $\nu_P^2+A/\tilde B$.
+\end{enumerate}
+\end{lemma}
+\begin{proof}
+(i) $M(q)$ is $\T|_{\mathbb S_{\mathrm{diag}}}$ at $P=1$, $\lambda_1=q$, $\gamma=D_q/q\ge2$ and $\kappa_1=1/\gamma-2$ ($c_1=0$, $\gamma(3+\kappa_1)=\gamma+1>1$, $\widehat K=\frac{qD_q}B\widehat\psi_q$). By Theorem~\ref{thm:main}(c) and the proof of (d), $\rho(M(q))>0$ and $\frac{qD_q}Bz\widehat\psi_q(z)$ increases strictly from $0$ to $+\infty$ on $[0,\pi_q)$, crossing $1$ at $z_\star(q)=1/\rho(M(q))<\pi_q\le1/\beta$, where $\pi_q$ is the first positive pole of $\widehat\psi_q(z)=\frac{1+\beta z}{(1-\beta z)\Phi_q(u,z)}$ ($+\infty$ if none). On $(0,1/\beta)$, $\Phi_q(u,0)=u^2>0$: at $\beta=0$, $\Phi_q(u,\cdot)$ is affine; at $\beta\in(0,1)$, it is convex with $\Phi_q(u,z)>u^2(1-\beta z)^2>0$ if $a^2<4\beta$ and $\Phi_q(u,1/\beta)=u^2(4-a^2/\beta)\le0$ if $a^2\ge4\beta$, so in all cases $z<\pi_q\iff\Phi_q(u,z)>0$. Thus on $(0,1/\beta)$, $\rho(M(q))\le1/z\iff(z<\pi_q\text{ and }\frac{R_q(z)}{\Phi_q(u,z)}\le1)\iff g_q(u,z)\ge0$ (as $g_q\ge0\implies\Phi_q\ge R_q>0$), and likewise for $<,>$; dividing by $z(1+\beta)^2u^2$ gives the last formula.
+
+(ii) $\rho_0(q_1;\tilde\eta,\tilde B)-\rho_0(q_2;\tilde\eta,\tilde B)=2(q_1-q_2)\tilde\eta\big(\tilde\eta v_{\mathrm{bal}}(\tilde B)-1\big)$. At $\tilde\eta_{\mathrm{bal}}=1/v_{\mathrm{bal}}(\tilde B)$, both $\rho_0(q_i;\tilde\eta_{\mathrm{bal}},\tilde B)$ equal $\rho_{\mathrm{bal}}$, so $\rho_0(q;\tilde\eta_{\mathrm{bal}},\tilde B)-\rho_{\mathrm{bal}}=\tilde\eta_{\mathrm{bal}}^2(1-1/\tilde B)(q-q_1)(q-q_2)$, and $q=0$ gives $\rho_{\mathrm{bal}}=1-\frac{q_1q_2(1-1/\tilde B)}{v_{\mathrm{bal}}(\tilde B)^2}$. The vertex $\tilde\eta_i=(q_i+D_i/\tilde B)^{-1}$ of $\rho_0(q_i;\cdot,\tilde B)$ satisfies $q_1+D_1/\tilde B-v_{\mathrm{bal}}(\tilde B)=\frac{q_1-q_2}2+\frac{d+2-q_1+q_2}{2\tilde B}>0$, so $\max_i\rho_0(q_i)$ equals $\rho_0(q_1)$ and increases strictly on $[\tilde\eta_{\mathrm{bal}},\infty)$, while on $(0,\tilde\eta_{\mathrm{bal}}]$ it equals $\rho_0(q_2)$, minimized uniquely at $\min(\tilde\eta_2,\tilde\eta_{\mathrm{bal}})$. Put $X=q_2\tilde B+D_2$ and $Y=q_1(\tilde B-1)$: $X+Y=2\tilde Bv_{\mathrm{bal}}(\tilde B)$ and $X-Y=(q_1-q_2)(B_\times+1-\tilde B)$, so $\tilde\eta_2\le\tilde\eta_{\mathrm{bal}}\iff X\ge Y\iff\tilde B\le B_\times+1$ (giving $W(\tilde B)=D_2/q_2$) and, for $s=\tilde B-1>B_\times$, $\tilde B^2v_{\mathrm{bal}}(\tilde B)^2-XY=\big(\frac{X-Y}2\big)^2$ divides by $q_1q_2s$ to $W(\tilde B)=\frac{D_2}{q_2}+\nu_P^2\frac{(s-B_\times)^2}s=\frac{D_2}{q_2}+\nu_P^2(\sqrt s-B_\times/\sqrt s)^2$. With $\frac{D_2}{q_2}-\nu_P^2(1+2B_\times)=A>0$, $\frac{W(\tilde B)}{\tilde B}$ equals $\frac{A+\nu_P^2(1+2B_\times)}{\tilde B}$ on $(0,B_\times+1]$ and $\nu_P^2+\frac A{\tilde B}+\frac{\nu_P^2B_\times^2}{\tilde B(\tilde B-1)}$ on $(B_\times+1,\infty)$, both strictly decreasing and $>\nu_P^2+A/\tilde B$.
+\end{proof}
+
+\paragraph{Theorem~\ref{thm:vocab}.} Let $J_s=\{q\in(0,1]:\rho(q)\le s\}$. By Lemma~\ref{lem:gq}(i), $J_s=\emptyset$ for $s\le\beta$, while for $s\in(\beta,1)$ and $z=1/s\in(1,1/\beta)$, $J_s=\{q\in(0,1]:g_q(1/\eta,z)\ge0\}$. In $q$, $g_q(u,z)$ has degree $\le2$ and $g_0(u,z)=-(z-1)(1-\beta^2z)u^2<0$: if its $q^2$ coefficient is $\le0$, $\{g_\cdot(u,z)\ge0\}$ is convex; if $>0$, $g_\cdot(u,z)$ has roots of opposite signs, so $\{q>0:g_q(u,z)\ge0\}$ is a half-line. Thus $J_s$ is an interval, and $s=\max\big(\rho(q_{\min}),\rho(q_{\max})\big)<1$ gives the second claim.
+
+\paragraph{Theorem~\ref{thm:speed}.} By Lemma~\ref{lem:gq}(i), $\rho(M(q))>\beta$, and on $z\in(1,1/\beta)$ we have $Z(z)-1=\frac{(z-1)(1-\beta^2z)}{(1+\beta z)^2}>0$ and $\min_{\tilde\eta>0}\rho_0(q;\tilde\eta,\tilde B)=\frac{D}{D+\tilde Bq}$ uniquely at $\tilde\eta=\frac{\tilde B}{\tilde Bq+D}$. Thus $\rho(M(q))\le1/z$ holds for some $\eta>0$ if and only if $Z(z)-1\le\frac{\tilde B(z)q}D$, i.e.\ $(z-1)\big(1+\frac{\beta^2z(z-1)}{1-\beta^2z^2}\big)\le\frac{Bq}D$. On $(1,1/\beta)$ this left-hand side increases strictly in $z$ from $0$ to $+\infty$ and (for $\beta>0$) in $\beta$, so its unique root $z_\beta=z_\beta(q,B)\in(1,1/\beta)$ decreases strictly in $\beta\in[0,1)$ from $z_0=1+Bq/D$ to $1$; as $D(z-1)(1-\beta^2z)-Bq(1-\beta^2z^2)$ is $<0$ at $z=1$ and $>0$ at $z=1/\beta$ ($\beta>0$), $z_\beta$ is also its smallest root in $(1,\infty)$, found from $(D+Bq)z^{-2}-D(1+\beta^2)z^{-1}+\beta^2(D-Bq)=0$. Any $\rho(M(q))<1/z_\beta$ would give $z'=1/\rho(M(q))\in(z_\beta,1/\beta)$, a contradiction; at $z_\beta$, $D+\tilde B(z_\beta)q=DZ(z_\beta)$ gives equality if and only if $\eta=(1+\beta)\frac{\tilde B(z_\beta)}{DZ(z_\beta)}=\eta_\beta(q,B)$.
+
+For $q_1=q_{\max}>q_2=q_{\min}>0$ and $D_i=d+2-q_i$, Theorem~\ref{thm:vocab} and Lemma~\ref{lem:gq} show that on $z\in(1,1/\beta)$, $\max_j\rho(q_j)\le1/z$ for some $\eta>0$ if and only if $\frac{W(\tilde B(z))}{\tilde B(z)}\le\frac1{Z(z)-1}$, uniquely at the optimal $\tilde\eta$ of Lemma~\ref{lem:gq}(ii). Here $\frac{W(\tilde B(z))}{\tilde B(z)}$ is continuous and nondecreasing ($=W(B)/B>0$ at $\beta=0$; $\to+\infty$ as $z\uparrow1/\beta$ if $\beta>0$), while $\frac1{Z(z)-1}$ decreases strictly from $+\infty$ to $\frac{4\beta}{(1-\beta)^2}$, giving a unique root $z^{\mathrm{voc}}_\beta(B)\in(1,1/\beta)$, continuous in $\beta\in[0,1)$ with $z^{\mathrm{voc}}_\beta(B)\le z_\beta(q_2,B)\to1$ as $\beta\uparrow1$, $S_\beta(B)=1/\ln z^{\mathrm{voc}}_\beta(B)$, and $W(\tilde B(z))=\frac{B(1-\beta^2z^2)}{(z-1)(1-\beta^2z)}$ at $z=z^{\mathrm{voc}}_\beta(B)$.
+
+\paragraph{Corollary~\ref{cor:emom}.} Put $z_B=z^{\mathrm{voc}}_\beta(B)$, $x_B=\tilde B(z_B)$ and $r(x)=W(x)/x$, strictly decreasing on $(0,\infty)$ by Lemma~\ref{lem:gq}(ii). (1) $z_B$ increases strictly: for $1\le B<B'$, the batch $B'$ gives $\tilde B(z_B)=\frac{B'}Bx_B>x_B$ at $z=z_B$, so there $r(\tilde B(z))<r(x_B)=\frac1{Z(z_B)-1}$; as $z\mapsto r(\tilde B(z))$ is nondecreasing and $z\mapsto\frac1{Z(z)-1}$ decreases strictly, the root $z_{B'}$ lies in $(z_B,1/\beta)$. (2) $x_B$ increases strictly, since $r(x_B)=\frac1{Z(z_B)-1}$ decreases strictly by (1). (3) With $Z(z)-1=\frac{(z-1)(1-\beta^2z)}{(1+\beta z)^2}$ and $x_B=B\frac{1-\beta z_B}{1+\beta z_B}$, the root equation $r(x_B)=\frac1{Z(z_B)-1}$ reads $B=W(x_B)\frac{(z_B-1)(1-\beta^2z_B)}{1-\beta^2z_B^2}$, so $E_\beta(B)=\frac B{\ln z_B}=W(x_B)f(z_B)$ with $f(z)=\frac{z-1}{\ln z}\big(1+\frac{\beta^2z(z-1)}{1-\beta^2z^2}\big)$. (4) $W\ge D_2/q_2>0$ is nondecreasing, so $W(x_B)$ is nondecreasing in $B$ by (2); $f>0$ increases strictly on $(1,1/\beta)$, since $\frac d{dz}\frac{z-1}{\ln z}=\frac{\ln z-1+1/z}{\ln^2z}>0$ and $\frac{z(z-1)}{1-\beta^2z^2}$ increases, so $f(z_B)$ increases strictly by (1). Hence $E_\beta(B)$ increases strictly in $B\ge1$. At $B=1$, $\tilde B(z_1)\le1<B_\times+1$ gives $W(\tilde B(z_1))=D_2/q_2$, $z_1=z_\beta(q_2,1)$ and $E_\beta=E_\beta(1)=1/\ln z_1$. By Theorem~\ref{thm:speed}, $E_\beta$ increases strictly in $\beta\in[0,1)$ from $E_0=E_{\mathrm{SGD}}$ to $+\infty$, giving $E_{\mathrm{mom}}=E_{\mathrm{SGD}}$ and, via $B_O=E_O/S_O$ \citep[Proposition~H.15]{everett2026sparse}, $B_{\mathrm{mom}}/B_{\mathrm{SGD}}=S_{\mathrm{SGD}}/S_{\mathrm{mom}}$.
+
+\paragraph{Corollary~\ref{cor:belowbx}.} If $B-1\le B_\times$, every $\beta\in[0,1)$ and $z\in(1,1/\beta)$ satisfy $\tilde B(z)\le B\le B_\times+1$, so $W(\tilde B(z))=D_2/q_2$ and $z^{\mathrm{voc}}_\beta(B)=z_\beta(q_2,B)$ (cf.\ \citealp[Proposition~H.16(i), Lemma~H.13(v)]{everett2026sparse}); Theorem~\ref{thm:speed} gives strict increase of $S_\beta(B)=1/\ln z_\beta(q_2,B)$ in $\beta$.
+
+\paragraph{Theorem~\ref{thm:curve}.} \emph{(a).} At $z_2$, $\frac{D_2}{\tilde B(z_2)q_2}=\frac1{Z(z_2)-1}$: if $\tilde B(z_2)\le B_\times+1$ (implied by $B\frac{1-\beta}{1+\beta}\le B_\times+1$), $\frac{W(\tilde B(z_2))}{\tilde B(z_2)}=\frac1{Z(z_2)-1}$ gives $z^{\mathrm{voc}}_\beta(B)=z_2$ at $\eta_\beta(q_2,B)$; otherwise $\frac{W(\tilde B(z_2))}{\tilde B(z_2)}>\frac1{Z(z_2)-1}$, so $z^{\mathrm{voc}}_\beta(B)\in(1,z_2)$, where $\tilde B(z)>B_\times+1$ and $\frac{q_1q_2(1-1/\tilde B(z))}{v_{\mathrm{bal}}(\tilde B(z))^2}=1-\frac1{Z(z)}$ at $\eta=1/u_{\mathrm{bal}}(z)$ gives the balanced equation (strictly increasing on the left and nonincreasing on the right on $(1,1/\beta)$).
+
+\emph{(b).} For $B-1>B_\times$ and small $\beta\ge0$, $\tilde B(z^{\mathrm{voc}}_\beta(B))>B_\times+1$. Since $\beta$ enters $\frac{B(1-\beta^2z^2)}{(z-1)(1-\beta^2z)}$ only as $\beta^2$ and $\frac d{d\beta}\tilde B(z)\big|_{0^+}=-2B\zeta_0$, differentiating $W(\tilde B(z))=\frac{B(1-\beta^2z^2)}{(z-1)(1-\beta^2z)}$ at $\beta=0^+$ gives $-2B\zeta_0W'(B)=-\frac{B\zeta_0}{(\zeta_0-1)^2}\frac d{d\beta}\ln z\big|_{0^+}$. With $W'(B)=\nu_P^2\big(1-\frac{B_\times^2}{(B-1)^2}\big)$ and $\frac{\zeta_0-1}{B-1}=\frac{\zeta_0q_1q_2}{Bu_0^2}$, $\frac d{d\beta}\ln z\big|_{0^+}=2(\zeta_0-1)^2W'(B)$ equals the stated positive slope, so $\beta\mapsto z^{\mathrm{voc}}_\beta(B)$ attains its maximum on $[0,1)$ at some $\beta>0$.
+
+\emph{(c).} Let $(\eta,\beta)$ be stable with $\max_j\rho(q_j)=1/z$, $z=e^\Lambda$ ($<1/\beta$), and $\theta=\frac{1+\beta z}{1-\beta z}\ge1$. Lemma~\ref{lem:gq} gives $\nu_P^2+\frac AB\theta<\frac{W(B/\theta)}{B/\theta}\le\frac1{Z(z)-1}$, while $\sqrt{Z(z)}=\frac{e^{\Lambda/2}(1+\beta)}{1+\beta z}=\cosh\frac\Lambda2+\theta^{-1}\sinh\frac\Lambda2$ gives $Z(z)-1>\sinh^2\frac\Lambda2\big(1+\frac{2\coth(\Lambda/2)}\theta\big)$. By Cauchy--Schwarz, $\big(\nu_P+\sqrt{2\coth(\Lambda/2)A/B}\big)^2\le(\nu_P^2+\frac AB\theta)\big(1+\frac{2\coth(\Lambda/2)}\theta\big)<\sinh^{-2}(\Lambda/2)$, so $\sinh(\Lambda/2)<\nu_P^{-1}=\sinh(\frac12\ln\beta_P^{-1})$ \citep[cf.\ Lemma~H.14]{everett2026sparse}, $2\coth(\Lambda/2)>2\sqrt{1+\nu_P^2}=\frac{q_1+q_2}{\sqrt{q_1q_2}}$, and $\sinh(\Lambda/2)^{-1}>\nu_P+\Delta_B$ at the attained maximum of $\beta\mapsto z^{\mathrm{voc}}_\beta(B)$, yielding the lower bound and its $B\to\infty$ expansion. Conversely, put $\theta_0=\frac{q_1-q_2}{(q_1q_2)^{1/4}\sqrt{\bar D}}$, $\beta=\beta_P+\sigma B^{-1/2}$ ($\sigma=\frac{2\beta_P}{\theta_0}$), $\phi(\beta)=\frac{4\beta}{(1-\beta)^2}$ and fix $m>0$. For large $B$, $\theta=\theta_0\sqrt B-m>\frac{1+\beta}{1-\beta}$ defines $z=\frac{\theta-1}{\beta(\theta+1)}=\beta_P^{-1}(1-\frac4{\theta_0}B^{-1/2}+O(B^{-1}))\in(1,1/\beta)$ with $\tilde B(z)=B/\theta>B_\times+1$ and $Z(z)-1=\phi(\beta)^{-1}-\frac{(1+\beta)^2}{4\beta}\theta^{-2}$. Since $\phi(\beta_P)=\nu_P^2$, $\phi'(\beta_P)\sigma=2\sqrt{1+\nu_P^2}\frac{\nu_P^2}{\theta_0}=A\theta_0$ and $\theta^{-2}=\theta_0^{-2}B^{-1}+O(B^{-3/2})$, Lemma~\ref{lem:gq}(ii) gives $\frac1{Z(z)-1}-\frac{W(B/\theta)}{B/\theta}=(Am+c_0)B^{-1}+O(B^{-3/2})$ ($c_0$ independent of $m$), which is $>0$ for large $m$ and $B$. Thus $z_2\ge z^{\mathrm{voc}}_\beta(B)>z$, $S_{\mathrm{mom}}(B)\le S_\beta(B)<1/\ln z=S_{\mathrm{mom}}+C_{\mathrm{mom}}B^{-1/2}+O(B^{-1})$ ($C_{\mathrm{mom}}=\frac{4S_{\mathrm{mom}}^2}{\theta_0}$), and $\tilde B(z_2)=\frac{D_2}{q_2}(Z(z_2)-1)\to\frac{D_2}{q_2}\nu_P^{-2}>1+2B_\times>B_\times+1$ puts $S_\beta(B)$ at $\eta=1/u_{\mathrm{bal}}(z^{\mathrm{voc}}_\beta(B))$.
+
+\paragraph{Corollary~\ref{cor:hd}.} The Rayleigh quotient of $\widetilde{\mathcal M}$ at $\sqrt\lambda/\sqrt{\tr H}$ gives the lower bound, and Weyl's inequality $\lambda_{\max}(\widetilde{\mathcal M})\le\max_k(\alpha_k\lambda_k)+p\kappa_\beta\gamma\tr H$ the upper one. Since $\sum_k\lambda_k^2\le\lambda_1\tr H$, both bounds have modulus at most $\max_k|\alpha_k|\lambda_1$, giving $|\varepsilon|\le\max_k|\alpha_k|/(p\kappa_\beta\gamma\,r_{\mathrm{eff}})$ via $1/\eta^\star_{\mathrm{EMA}}=\mu^\star/(2\kappa_\beta)$.
+
+\endgroup
+\renewcommand{\bibfont}{\footnotesize}\setlength{\bibsep}{0pt}
+\bibliographystyle{plainnat}
+\bibliography{refs-v2}
+
+\end{document}

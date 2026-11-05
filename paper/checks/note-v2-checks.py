@@ -253,9 +253,126 @@ for b in (0.999, 0.9999):
     print(f"   beta={b}: (1-rho)/(1-beta) = {r / (1 - b):.5f}, 1 - eta_EMA(beta;S)/eta*_EMA(beta) = {1 - ema_root(s, lam, b, p, gam, kaps) / ema_root(1.0, lam, b, p, gam, kaps):.5f}")
 
 # ---------------------------------------------------------------- H. Proposition 7, weighted lower bound
-print("H. Proposition 7: weighted lower bound on mu*")
+print("H. Proposition 7 (note-v2) / Corollary 7 (note-short): weighted lower bound on mu*")
 P = 256; lam = np.arange(1, P + 1) ** -0.5; beta = 0.9; B = 4; p = 1 / B; kb = (1 + beta) / (1 - beta)
 for kap in (-2.0, -1.0, 0.0, 2.0, 10.0):
     al = 1 + p * kb * (1 + kap); mu = np.linalg.eigvalsh(np.diag(al * lam) + p * kb * np.outer(np.sqrt(lam), np.sqrt(lam))).max()
     lo = al * np.sum(lam**2) / lam.sum() + p * kb * lam.sum(); hi = max(al, 0) * lam[0] + p * kb * lam.sum()
     print(f"   kappa={kap:5.1f}: {lo:.3f} <= mu* = {mu:.3f} <= {hi:.3f};  ratio bound {lo / (lam[0] * (1 + p * kb * (2 + kap))):.2f}")
+print(f"   high-dimensional value 2(1-beta)B/trH = {2 * (1 - beta) * B / lam.sum():.6f}")
+
+# ---------------------------------------------------------------- I. note-short Theorem 2: slowest row of a vocabulary
+print("I. note-short Theorem 2: the slowest row of the Everett-Paquette vocabulary is an extreme row")
+def M3(p, eta, beta, B, d):
+    a = 1 + beta - eta * p
+    return np.array([[a * a + eta**2 * (d + 2 - p) * p / B, -2 * a * beta, beta**2], [a, -beta, 0], [1, 0, 0]])
+rng = np.random.default_rng(5); err = 0
+for _ in range(12):
+    d = 2; B = int(rng.integers(1, 3)); p = rng.uniform(0.1, 1); beta = rng.uniform(0, .95); eta = rng.uniform(0.05, 1.5)
+    T = kron_T_exact(np.full(d, p), eta, beta, B, law_independent(np.full(d, p), [3.0] * d, gate_q=p))
+    err = max(err, abs(rad(T) - rad(M3(p, eta, beta, B, d))) / rad(T))
+print(f"   M(p) against exact enumeration of T (d=2, B<=2): max rel error {err:.1e}")
+rng = np.random.default_rng(5); bad = 0; n = 0; ps = np.logspace(-4, 0, 300)
+for _ in range(3000):
+    d = int(rng.integers(1, 200)); B = int(rng.integers(1, 256)); beta = rng.choice([0, rng.uniform(0, .999)]); eta = 10**rng.uniform(-3, 1)
+    r = np.array([rad(M3(p, eta, beta, B, d)) for p in ps])
+    if r.max() >= 1: continue
+    n += 1
+    for _ in range(5):
+        lo, hi = sorted(rng.integers(0, 300, 2))
+        if hi - lo < 3: continue
+        seg = r[lo:hi + 1]
+        if seg.max() > max(seg[0], seg[-1]) * (1 + 1e-12): bad += 1; break
+print(f"   {n} random stable settings: {bad} with a row slower than both extremes of a frequency interval")
+
+# ---------------------------------------------------------------- J. note-short Theorem 3: single-row speed limit, E_mom = E_SGD
+print("J. note-short Theorem 3: rho(M(q)) >= (d+2-q)/(d+2-q+Bq) for every (eta, beta); equality at the best SGD step")
+rng = np.random.default_rng(8); worst = np.inf; n = 0
+for _ in range(200000):
+    d = int(rng.integers(1, 300)); q = 10**rng.uniform(-4, 0); B = int(10**rng.uniform(0, 3.5))
+    beta = rng.choice([0.0, rng.uniform(0, 1), 1 - 10**rng.uniform(-6, -1)]); eta = 10**rng.uniform(-6, 1) / q
+    bound = (d + 2 - q) / (d + 2 - q + B * q); n += 1
+    worst = min(worst, rad(M3(q, eta, beta, B, d)) / bound)
+print(f"   {n} random (d, q, B, eta, beta): min rho/bound = {worst:.12f} (>= 1 up to rounding)")
+d, q, B = 50, 0.01, 64; eta = B / (B * q + d + 2 - q)
+print(f"   equality at beta=0, eta=B/(Bq+d+2-q): rho = {rad(M3(q, eta, 0.0, B, d)):.12f}, bound = {(d + 2 - q) / (d + 2 - q + B * q):.12f}")
+
+# ---------------------------------------------------------------- K. note-short Corollary 4 (E_beta) and Theorem 6 (curve, approach to the limit)
+print("K. note-short Corollary 4 and Theorem 6: E_beta, the curve S_beta(B), and S_mom(B) - S_mom")
+import math
+def ok(q,eta,beta,B,d,z):
+    # rho(M(q)) <= 1/z  <=>  z<1/beta, z < first pole of psi_hat, f(q)<=0   (proof of Theorem 3)
+    if beta>0 and z>=1/beta: return False
+    a=1+beta-eta*q; disc=a*a-4*beta
+    r2=((abs(a)+math.sqrt(disc))/2)**2 if disc>=0 else beta
+    if r2*z>=1: return False
+    Q=(1+beta*z)**2-z*a*a
+    C=B*(1-beta*z)/(z*eta*eta*(1+beta*z))
+    return q*(d+2-q)-C*Q<=0
+def zrow(q,eta,beta,B,d):
+    lo,hi=1.0,(1/beta if beta>0 else 1e6)
+    if not ok(q,eta,beta,B,d,1.0+1e-15): return 1.0
+    for _ in range(200):
+        m=(lo+hi)/2
+        if ok(q,eta,beta,B,d,m): lo=m
+        else: hi=m
+    return lo
+def zvoc(qs,eta,beta,B,d): return min(zrow(q,eta,beta,B,d) for q in qs)
+def golden_max(f,a,b,it=120):
+    g=(math.sqrt(5)-1)/2
+    for _ in range(it):
+        c=b-g*(b-a); e=a+g*(b-a)
+        if f(c)>=f(e): b=e
+        else: a=c
+    return (a+b)/2, f((a+b)/2)
+def zbeta(qs,beta,B,d):
+    qmax=max(qs); grid=np.exp(np.linspace(math.log(1e-4),math.log(2*(1+beta)/qmax*1.5),300))
+    vals=[zvoc(qs,e,beta,B,d) for e in grid]; i=int(np.argmax(vals))
+    lo,hi=grid[max(i-1,0)],grid[min(i+1,len(grid)-1)]
+    return golden_max(lambda e: zvoc(qs,e,beta,B,d),lo,hi)[1]
+def zst(q,B,beta,d):
+    D=d+2-q; return 2*(D+B*q)/(D*(1+beta**2)+math.sqrt(D*D*(1-beta**2)**2+4*beta**2*B*B*q*q))
+def ubal(z,q1,q2,d,B,beta): return (q1+q2)/(2*(1+beta))+(1+beta*z)*(d+2-q1-q2)/(2*(1+beta)*B*(1-beta*z))
+def gq(u,z,q,d,B,beta): return (1+beta*z)**2*u*u-z*((1+beta)*u-q)**2-q*(d+2-q)*z*(1+beta*z)/(B*(1-beta*z))
+def zbeta_formula(q1,q2,d,B,beta):
+    Bx=(d+2)/(q1-q2); z2=zst(q2,B,beta,d)
+    if B*(1-beta*z2)/(1+beta*z2)<=Bx+1: return z2
+    F=lambda z: gq(ubal(z,q1,q2,d,B,beta),z,q2,d,B,beta)
+    zs=np.linspace(1+1e-12,z2*(1-1e-12),20000); v=[F(z) for z in zs]
+    roots=[]
+    for i in range(len(zs)-1):
+        if v[i]==0 or v[i]*v[i+1]<0:
+            lo,hi=zs[i],zs[i+1]
+            for _ in range(200):
+                m=(lo+hi)/2
+                if F(lo)*F(m)<=0: hi=m
+                else: lo=m
+            roots.append((lo+hi)/2)
+    return max(roots) if roots else float('nan')
+def zmom(q1,q2,d,B):
+    # max over beta of z_beta(B) via the verified formula; scan + golden on logit(beta)
+    bs=1-np.logspace(0,-7,300)*0.999999; bs=np.concatenate([[0.0],np.sort(bs)])
+    vals=[zbeta_formula(q1,q2,d,B,b) for b in bs]; i=int(np.nanargmax(vals))
+    lo,hi=bs[max(i-1,0)],bs[min(i+1,len(bs)-1)]
+    b,v=golden_max(lambda b: zbeta_formula(q1,q2,d,B,b),lo,hi,90)
+    return max(v,vals[i]), (b if v>=vals[i] else bs[i])
+def zrow_grid_best(q1, q2, B, beta, d):
+    return zbeta([q1, q2], beta, B, d)
+rng = np.random.default_rng(31); mx = 0
+for _ in range(12):
+    d = int(rng.integers(1, 30)); q1 = rng.uniform(0.2, 1); q2 = q1 / 10**rng.uniform(0.3, 2); beta = rng.uniform(0, 0.95)
+    Bx = (d + 2) / (q1 - q2); B = int(max(1, 10**rng.uniform(0, math.log10(Bx * 30 + 2))))
+    mx = max(mx, abs(math.log(zbeta([q1, q2], beta, B, d)) - math.log(zbeta_formula(q1, q2, d, B, beta))) / math.log(zbeta_formula(q1, q2, d, B, beta)))
+print(f"   Theorem 6(a): 12 random vocabularies, max rel error of ln z (direct search vs formula) = {mx:.1e}")
+mx = 0
+for _ in range(8):
+    d = int(rng.integers(1, 30)); q1 = rng.uniform(0.2, 1); q2 = q1 / 10**rng.uniform(0.3, 2); beta = rng.choice([0.0, rng.uniform(0, 0.9)])
+    pred = 1 / math.log(zst(q2, 1, beta, d)); best = math.inf
+    for B in range(1, 31): best = min(best, B / math.log(zbeta([q1, q2], beta, B, d)))
+    mx = max(mx, abs(best - pred) / pred)
+print(f"   Corollary 4: 8 vocabularies, B <= 30: max rel |min_B B S_beta(B) - 1/ln z_beta(q_min,1)| = {mx:.1e}")
+d, q1, q2 = 8, 10 / 11, 1 / 11; k = q1 / q2; rP = (math.sqrt(k) - 1) / (math.sqrt(k) + 1); Smom = 1 / math.log(1 / rP**2)
+Cm = Smom**2 * 4 * (q1 * q2)**0.25 * math.sqrt(2 * (d + 2) - q1 - q2) / (q1 - q2)
+for B in (10**4, 10**5, 10**6, 10**7):
+    zm, _ = zmom(q1, q2, d, B)
+    print(f"   Theorem 6(c), d=8, q=(10/11, 1/11): B={B:>8}  sqrt(B)(S_mom(B)-S_mom) = {math.sqrt(B) * (1 / math.log(zm) - Smom):.4f}  (C_mom = {Cm:.4f})")
