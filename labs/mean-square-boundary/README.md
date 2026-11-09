@@ -1,10 +1,10 @@
 # Phases 1–6: the mean-square stability boundary of heavy-ball SGD
 
-The six phases that the draft in `paper/excerpt-second-moment.tex` reports (Phase 5b is the replication of Phase 5); the note
-`paper/note-secular-heavy-ball.tex` reports Phases 1 and 3. Code comments and prediction texts use the theorem letters of a longer
-manuscript in preparation; the two drafts number them as follows.
+The six phases that the extended version `paper/excerpt-second-moment.tex` reports (Phase 5b is the replication of Phase 5); the shorter
+note `paper/note-secular-heavy-ball.tex` reports Phases 1 and 3. Code comments and prediction texts use the theorem letters of a
+companion manuscript; the two papers number them as follows.
 
-| Code and raw files | Draft (`excerpt-second-moment`) | Note (`note-secular-heavy-ball`) |
+| Code and raw files | Extended version (`excerpt-second-moment`) | Shorter note (`note-secular-heavy-ball`) |
 |---|---|---|
 | Theorem E(3) (one-dimensional ceiling) | Proposition 1 | equation (11) |
 | Theorem F | Theorem 2 | Theorem 1 |
@@ -20,13 +20,13 @@ manuscript in preparation; the two drafts number them as follows.
 | Theorem splitting (Krein–Rutman witness) | Theorem 24 | not in the note |
 
 Phases 4, 5, 5b and 6 were run in the companion lab as its Phases 13, 14, 14b and 16; their code and raw files were ported here
-on 2026-11-01 (see *Provenance of Phases 4–6* at the end). "lab Phase N" in a comment refers to a phase of that lab that is not
-part of this draft. Proposition E13 is a statement of the longer manuscript; the increment-stream block `e13` that tests it is
+(see *Provenance of Phases 4–6* at the end). "lab Phase N" in a comment refers to a phase of that lab that is not
+part of the extended version. Proposition E13 is a statement of the companion manuscript; the increment-stream block `e13` that tests it is
 not computed in this repository.
 
 ## Phase 1 — the stochastic ceiling in $\mathbb{R}^P$: Gaussian against Rademacher features (Theorem G; predictions written before the run)
 
-Raw: `evidence/mean-square-boundary/raw-phase1.json`, `phase1-summary.md` (written by `run-phase1.ts`). Theorem G gives the exact mean-square ceiling of heavy-ball SGD on a quadratic with random-feature minibatches $H_B = \frac{1}{B}\sum z z^\top$, $z = H^{1/2}\omega$, as the root of a rank-one secular equation, with sandwich bounds, and says that for Rademacher features ($\omega \in \{\pm 1\}$, $\nu_{11}^2 = 0$) the one-dimensional ceiling of Theorem E(3) along $u_1$ is $2(1+\beta)/\lambda_1$ for every $B$ while the true ceiling is bounded by the sandwich: at most $2(1+\beta)/(\lambda_1+\kappa_\beta\operatorname{tr}(H_\perp)/B)$ for $B \le \kappa_\beta$ and $2(1+\beta)/\max(\lambda_1, \kappa_\beta\operatorname{tr}(H)/B)$ for $B > \kappa_\beta$, with $\kappa_\beta = (1+\beta)/(1-\beta)$ and $\operatorname{tr}(H_\perp) = \operatorname{tr}(H) - \lambda_1$ (Corollary 6 of the draft). (The registered text had $2(1-\beta)B/\operatorname{tr}(H)$, which is not an upper bound when $B < \kappa_\beta$: at $P = 64$, $\beta = 0.9$, $B = 4$ the root 0.0558 exceeds it, 0.0548.)
+Raw: `evidence/mean-square-boundary/raw-phase1.json`, `phase1-summary.md` (written by `run-phase1.ts`). Theorem G gives the exact mean-square ceiling of heavy-ball SGD on a quadratic with random-feature minibatches $H_B = \frac{1}{B}\sum z z^\top$, $z = H^{1/2}\omega$, as the root of a rank-one secular equation, with sandwich bounds, and says that for Rademacher features ($\omega \in \{\pm 1\}$, $\nu_{11}^2 = 0$) the one-dimensional ceiling of Theorem E(3) along $u_1$ is $2(1+\beta)/\lambda_1$ for every $B$ while the true ceiling is bounded by the sandwich: at most $2(1+\beta)/(\lambda_1+\kappa_\beta\operatorname{tr}(H_\perp)/B)$ for $B \le \kappa_\beta$ and $2(1+\beta)/\max(\lambda_1, \kappa_\beta\operatorname{tr}(H)/B)$ for $B > \kappa_\beta$, with $\kappa_\beta = (1+\beta)/(1-\beta)$ and $\operatorname{tr}(H_\perp) = \operatorname{tr}(H) - \lambda_1$ (Corollary 6 of the extended version). (The registered text had $2(1-\beta)B/\operatorname{tr}(H)$, which is not an upper bound when $B < \kappa_\beta$: at $P = 64$, $\beta = 0.9$, $B = 4$ the root 0.0558 exceeds it, 0.0548.)
 
 Design. Spectrum $\lambda_k = k^{-1/2}$, $P \in \{64, 256\}$, $\beta \in \{0, 0.9\}$, $B \in \{4, 16, 64\}$ ($B \le 16$ at $P = 256$), additive noise $\sigma_\xi = 0.01$ isotropic. Three families: Gaussian i.i.d. features ($\kappa_{\text{feat}} = 0$), Rademacher i.i.d. features ($\kappa_{\text{feat}} = -2$, $\omega^4 \equiv 1$), and a finite pool of $n$ Gaussian features ($n = 512$ at $P = 64$, $1024$ at $P = 256$) sampled without replacement, the model of Lee, Cheng, Paquette and Paquette (2022), whose kernel-norm root carries the factor $1 - \zeta$, $\zeta = B/n$; in the pool arm the prediction uses the eigenvalues of the pool covariance (cyclic Jacobi). The empirical ceiling is found by bisection on $\eta$ (12 iterations, bracket expanded upward from $4\times$ the predicted root until unstable, capped at $1.02\times$ the deterministic ceiling); a learning rate is unstable when the mean-square energy over 8 streams grows by more than $2.5\times$ between the second and the last quarter of 1000 steps. 8 seeds per cell; the bisection half-width is recorded per cell.
 
@@ -165,7 +165,7 @@ compared bit for bit before any bracket is computed. The checkpoint lists are in
 Code: copied from the companion lab on 2026-11-01 with the phase numbers and folder names of this repository, with three changes.
 (1) `compile-dense-f64-matmul-kernel.ts` returns the bytes of `dense-f64-matmul.wasm` (SHA-256 `17fd9498…eb934714`), the module the
 lab's code generator emits; the generator is not part of this repository. (2) The increment-stream block `e13` of the Phase 5
-checkpoint records (an estimator of the longer manuscript) is not computed: `evaluate-phase5-checkpoint.ts` writes `e13: null`, and
+checkpoint records (an estimator of the companion manuscript) is not computed: `evaluate-phase5-checkpoint.ts` writes `e13: null`, and
 the amendment-3 diagnostics omit its summaries. (3) Comments name auditors generically.
 
 Raw files: copied byte for byte (`evidence/mean-square-boundary/PORTED-FROM-LAB.txt` lists them), except that the `e13` blocks of the
@@ -177,6 +177,6 @@ summaries regenerate from the raw records (also a test).
 
 Pre-commitments: the pre-commitments and package manifests of Phases 5 and 5b, and the package manifest of the Phase 6 pilots, list
 files of the companion lab that are not part of this repository; they are kept there and are not copied here. The job lists are copied
-unchanged (they name the lab's paths), with the OpenTimestamps receipts made at the time as `*.ots` files; no statement of the draft
+unchanged (they name the lab's paths), with the OpenTimestamps receipts made at the time as `*.ots` files; no statement of the papers
 rests on them.
 
