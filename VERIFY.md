@@ -1,6 +1,6 @@
-# Checking the numbers of the short note
+# Checking the numbers of the focused note
 
-The short note is `paper/note-short.pdf`. Every number it prints comes from two scripts. They need Python 3 and numpy.
+The focused note is `paper/note-short.pdf`. Every number it prints comes from two scripts. They need Python 3 and numpy.
 
 ```
 python3 paper/checks/note-v2-checks.py      # about 4 minutes, all parts
